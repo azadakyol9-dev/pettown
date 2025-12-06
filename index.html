@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PET TOWN VETERİNER KLİNİĞİ</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function App() {
+      return (
+        <div className="p-6 max-w-5xl mx-auto">
+          <h1 className="text-3xl font-bold text-center">PET TOWN VETERİNER KLİNİĞİ</h1>
+          <p className="text-center mt-2 text-gray-700">GAZİMAĞUSA VADİLİ • 0533 840 62 18</p>
+
+          <section className="mt-10">
+            <h2 className="text-xl font-bold">Hizmetler</h2>
+            <div className="mt-4 grid sm:grid-cols-2 gap-4">
+              <div className="p-4 bg-white rounded-xl shadow">Genel Veteriner Hizmetleri</div>
+              <div className="p-4 bg-white rounded-xl shadow">Pet Shop Ürünleri</div>
+            </div>
+          </section>
+
+          <section className="mt-10">
+            <h2 className="text-xl font-bold">Konum</h2>
+            <div className="mt-3 h-64 rounded-xl overflow-hidden">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="100%" style={{border:0}} loading="lazy"></iframe>
+            </div>
+          </section>
+
+          <section className="mt-10">
+            <h2 className="text-xl font-bold">Randevu Formu</h2>
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" className="mt-4 grid gap-4">
+              <input name="isim" placeholder="İsim" className="p-3 border rounded" />
+              <input name="telefon" placeholder="Telefon" className="p-3 border rounded" />
+              <input name="email" placeholder="E-posta" className="p-3 border rounded" />
+              <textarea name="mesaj" placeholder="Mesaj" className="p-3 border rounded"></textarea>
+              <button className="bg-green-600 text-white p-3 rounded">Gönder</button>
+            </form>
+          </section>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
