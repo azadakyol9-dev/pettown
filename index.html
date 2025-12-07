@@ -1,56 +1,40 @@
 <!doctype html>
 <html lang="tr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>PET TOWN Veteriner Kliniği — Gazimağusa Vadili</title>
-<meta name="description" content="PET TOWN Veteriner Kliniği — Gazimağusa Vadili. Profesyonel muayene, acil müdahale, cerrahi ve diş sağlığı. WhatsApp ile hızlı randevu.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PET TOWN Veteriner Kliniği</title>
+<meta name="description" content="PET TOWN Veteriner Kliniği — Gazimağusa Vadili. Veteriner hizmetleri ve acil bakım."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 <style>
-  :root{
-    --primary:#0b6b74;
+  :root {
+    --primary:#1d7ed0;
     --accent:#06b6d4;
-    --muted:#6b7280;
-    --bg:#f6fbfc;
-    --card:#ffffff;
+    --bg:#f9fbfe;
+    --card:#fff;
+    --muted:#666;
     --maxw:1100px;
   }
   *{box-sizing:border-box}
-  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;background:var(--bg);color:#04202a}
-  a{color:inherit}
-  .container{max-width:var(--maxw);margin:0 auto;padding:20px}
-  header{background:linear-gradient(90deg,var(--primary), #0891b2);color:#fff}
-  .top{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;gap:12px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .logo{width:56px;height:56px;border-radius:12px;background:#fff;color:var(--primary);display:grid;place-items:center;font-weight:900;font-size:18px}
-  .nav{display:flex;gap:14px;align-items:center}
-  .nav a{color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600;font-size:15px}
-  .cta{background:#fff;color:var(--primary);padding:8px 12px;border-radius:8px;font-weight:700}
-  .hero{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:center;padding:28px}
-  .hero h1{font-size:30px;margin:0 0 10px 0;color:#fff;line-height:1.05}
-  .hero p{margin:0 0 16px;color:rgba(255,255,255,0.95)}
-  .hero-card{background:var(--card);border-radius:12px;padding:16px;color:#04202a;box-shadow:0 8px 28px rgba(3,10,18,0.12)}
-  .searchbar{display:flex;gap:8px;margin-top:8px}
-  .searchbar input{flex:1;padding:12px;border-radius:10px;border:0;box-shadow:inset 0 0 0 1px rgba(2,6,23,0.06)}
-  .searchbar button{padding:10px 12px;border-radius:10px;border:0;background:var(--primary);color:#fff;font-weight:700}
-  .cats{display:flex;gap:10px;overflow:auto;padding-top:12px}
-  .cat{background:#fff;padding:10px 12px;border-radius:10px;min-width:120px;text-align:center;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
-  main{padding:26px 0}
-  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
-  .service{background:linear-gradient(180deg,#fff,#f7fbfd);padding:16px;border-radius:10px;box-shadow:0 8px 18px rgba(2,6,23,0.04)}
-  .section-card{background:var(--card);padding:26px;border-radius:12px;box-shadow:0 8px 24px rgba(3,10,18,0.06)}
-  h2{color:var(--primary);margin-top:0}
-  .small{font-size:13px;color:var(--muted)}
-  .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
-  footer{background:#04202a;color:#fff;padding:20px;border-radius:10px;margin-top:30px}
-  .sticky{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px;z-index:160}
-  .sticky a{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:12px 14px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:0 10px 30px rgba(3,10,18,0.18)}
-  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  @media (max-width:900px){
-    .hero{grid-template-columns:1fr;padding:18px;gap:14px}
-    .nav{display:none}
-    .top{padding:10px}
-    .grid-2{grid-template-columns:1fr}
+  body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:#04202a;line-height:1.5}
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: var(--maxw); margin: auto; padding: 0 20px; }
+  header { background: var(--primary); color: #fff; padding: 20px 0; }
+  header .top { display:flex; align-items:center; justify-content: space-between; flex-wrap:wrap; }
+  header .brand { font-weight: 700; font-size: 24px; }
+  header .nav { margin-top:10px; }
+  header .nav a { margin: 0 12px; font-weight:500; }
+  .hero { background: url('https://images.unsplash.com/photo-1558944351-c7bf0f0d4e9b?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat; height: 380px; display:flex; align-items:center; justify-content:center; text-align:center; color: white; padding: 0 20px; }
+  .hero h1 { font-size: 36px; margin:0; text-shadow: 0 2px 6px rgba(0,0,0,0.4); }
+  section { padding: 40px 0; }
+  h2 { color: var(--primary); margin-bottom: 20px; }
+  .services { display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap:24px; }
+  .card { background: var(--card); padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  footer { background: var(--primary); color: white; text-align:center; padding:24px 0; }
+  .contact-bar { position: fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:10px; }
+  .contact-bar a { background: var(--accent); color:white; padding:12px 16px; border-radius:10px; font-weight:600; }
+  @media (max-width:768px){
+    .hero h1 { font-size: 28px; }
   }
 </style>
 </head>
@@ -58,132 +42,63 @@
 
 <header>
   <div class="container top">
-    <div class="brand">
-      <div class="logo" aria-hidden="true">PT</div>
-      <div>
-        <div style="font-weight:900">PET TOWN VETERİNER KLİNİĞİ</div>
-        <div class="small">Gazimağusa Vadili • 0533 840 62 18</div>
-      </div>
-    </div>
-
-    <nav class="nav" aria-label="Ana menü">
+    <div class="brand">PET TOWN Veteriner Kliniği</div>
+    <div class="nav">
       <a href="#hizmetler">Hizmetler</a>
-      <a href="#randevu">Randevu</a>
       <a href="#iletisim">İletişim</a>
-      <a class="cta" href="tel:05338406218">Hemen Ara</a>
-    </nav>
-  </div>
-
-  <div class="container hero" role="region" aria-label="Tanıtım">
-    <div>
-      <h1>Evcil dostlarınız için kapsamlı veteriner bakım</h1>
-      <p>Profesyonel muayene, cerrahi, acil müdahale, diş sağlığı ve güvenilir bakım — PET TOWN’da.</p>
-
-      <div class="cats" aria-hidden="true" style="margin-top:8px">
-        <div class="cat">Muayene & Tanı</div>
-        <div class="cat">Aşı & Koruma</div>
-        <div class="cat">Cerrahi</div>
-        <div class="cat">Acil Hizmet</div>
-      </div>
+      <a href="#randevu">Randevu</a>
     </div>
-
-    <aside class="hero-card" aria-labelledby="clinic-info">
-      <div id="clinic-info" style="margin-bottom:10px">
-        <div class="small">Çalışma Saatleri</div>
-        <div style="font-weight:800">Hafta içi 08:00 - 18:30</div>
-        <div class="small">Cumartesi 08:00 - 14:30 · Pazar 09:00 - 12:00</div>
-      </div>
-
-      <div style="margin-top:10px">
-        <div style="font-weight:800;margin-bottom:6px">Hızlı Randevu</div>
-        <a class="btn" href="https://wa.me/905338406218" aria-label="WhatsApp ile randevu">WhatsApp ile Hemen</a>
-        <a class="btn" href="tel:05338406218" style="background:var(--primary);margin-left:8px">Bizi Ara</a>
-      </div>
-
-      <hr style="border:none;border-top:1px solid #eef3f5;margin:12px 0">
-
-      <p class="small" style="margin:0">Adres: Gazimağusa Vadili</p>
-      <p class="small" style="margin:0">E-posta: <span id="clinicEmail">info@pettown.example</span></p>
-    </aside>
   </div>
 </header>
 
-<main class="container" id="main">
-  <section id="hizmetler" class="section-card" aria-labelledby="hizmetler-title">
-    <h2 id="hizmetler-title">Veteriner Hizmetlerimiz</h2>
-    <div class="services" role="list">
-      <div class="service" role="listitem"><h4>Genel Muayene</h4><p class="small">Evcil hayvanınızın genel sağlığı ve rutin kontroller.</p></div>
-      <div class="service" role="listitem"><h4>Aşı Uygulamaları</h4><p class="small">Güncel aşı takibi ve koruyucu hekimlik.</p></div>
-      <div class="service" role="listitem"><h4>Parazit Tedavisi</h4><p class="small">Kene, pire ve bağırsak parazitlerine karşı tedavi.</p></div>
-      <div class="service" role="listitem"><h4>Laboratuvar & Görüntüleme</h4><p class="small">Kan testleri, röntgen ve ultrason hizmetleri.</p></div>
-      <div class="service" role="listitem"><h4>Ameliyat & Cerrahi</h4><p class="small">Steril ortamda güvenli cerrahi müdahaleler.</p></div>
-      <div class="service" role="listitem"><h4>Acil Müdahale</h4><p class="small">Acil vakalarda hızlı değerlendirme ve stabilizasyon.</p></div>
+<div class="hero">
+  <h1>Sağlıklı Dostlar, Güvenli Eller</h1>
+</div>
+
+<main class="container">
+  <section id="hizmetler">
+    <h2>Hizmetlerimiz</h2>
+    <div class="services">
+      <div class="card"><h3>Genel Muayene & Tanı</h3><p>Evcil hayvanınızın rutin kontrol ve sağlık taramaları.</p></div>
+      <div class="card"><h3>Aşı & Koruyucu Hekimlik</h3><p>Koruyucu aşı programları, parazit kontrolü ve danışmanlık.</p></div>
+      <div class="card"><h3>Cerrahi & Ameliyat</h3><p>Steril ameliyathane, güvenli cerrahi müdahaleler.</p></div>
+      <div class="card"><h3>Acil Müdahale</h3><p>Hızlı ve güvenilir acil bakım hizmetleri.</p></div>
+      <div class="card"><h3>Diş ve Ağız Sağlığı</h3><p>Temizlik, kontrol ve diş sağlığı işlemleri.</p></div>
+      <div class="card"><h3>Laboratuvar & Tetkik</h3><p>Kan tahlili, ultrason, röntgen gibi tetkikler.</p></div>
     </div>
   </section>
 
-  <section id="randevu" class="section-card" style="margin-top:22px">
-    <h2>Randevu & Hızlı İletişim</h2>
-    <p class="small">Form kaldırıldı. Randevu almak için aşağıdaki yöntemlerden birini kullanabilirsiniz:</p>
-
-    <div class="grid-2" style="margin-top:14px">
-      <div>
-        <h3 style="margin-top:0">Telefon</h3>
-        <p class="small">Bizi arayın: <a href="tel:05338406218">0533 840 62 18</a></p>
-        <p class="small">Çalışma saatleri içinde doğrudan konuşup randevu alabilirsiniz.</p>
-        <a class="btn" href="tel:05338406218" aria-label="Telefon ile arama">Hemen Ara</a>
-      </div>
-
-      <div>
-        <h3 style="margin-top:0">WhatsApp</h3>
-        <p class="small">Hızlı rezervasyon, fotoğraf gönderme ve anlık cevap için:</p>
-        <a class="btn" href="https://wa.me/905338406218" aria-label="WhatsApp sohbet">WhatsApp ile Mesaj Gönder</a>
-        <p class="small" style="margin-top:8px">WhatsApp üzerinden telefon numarası, evcil hayvan bilgisi ve tercih ettiğiniz tarih/saat gönderin — size cevap verelim.</p>
-      </div>
-    </div>
+  <section id="randevu">
+    <h2>Randevu & Bilgi</h2>
+    <p>Randevu almak için telefon veya WhatsApp üzerinden bize ulaşabilirsiniz.</p>
+    <p><strong>📞 Telefon:</strong> <a href="tel:05338406218">0533 840 62 18</a></p>
+    <p><strong>💬 WhatsApp:</strong> <a href="https://wa.me/905338406218">WhatsApp ile Mesaj Gönder</a></p>
   </section>
 
-  <section id="iletisim" class="section-card" style="margin-top:22px">
+  <section id="iletisim">
     <h2>İletişim & Konum</h2>
     <p><strong>Adres:</strong> Gazimağusa Vadili</p>
-    <p><strong>Telefon:</strong> <a href="tel:05338406218">0533 840 62 18</a></p>
+    <p><strong>Telefon:</strong> 0533 840 62 18</p>
     <p><strong>Çalışma Saatleri:</strong><br>
-      Hafta içi: 08:00 - 18:30<br>
-      Cumartesi: 08:00 - 14:30<br>
-      Pazar: 09:00 - 12:00
+       Hafta içi: 08:00 - 18:30<br>
+       Cumartesi: 08:00 - 14:30<br>
+       Pazar: 09:00 - 12:00
     </p>
-
-    <div style="margin-top:12px;max-width:900px">
-      <!-- Eğer özel embed kodun varsa buraya yapıştır; yoksa genel Vadili haritası gösterir -->
-      <iframe src="https://www.google.com/maps?q=Vadili,+Gazimağusa&output=embed" style="width:100%;height:340px;border:0;border-radius:10px" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div style="margin-top:20px">
+      <iframe src="https://www.google.com/maps?q=Vadili,+Gazimağusa&output=embed"
+        width="100%" height="320" style="border:0;border-radius:12px" loading="lazy"></iframe>
     </div>
   </section>
 </main>
 
-<footer class="container" role="contentinfo">
-  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-    <div>© <span id="year"></span> PET TOWN Veteriner Kliniği</div>
-    <div class="small">Gazimağusa Vadili • <a href="tel:05338406218">0533 840 62 18</a></div>
-  </div>
+<footer>
+  &copy; 2025 PET TOWN Veteriner Kliniği — Tüm Hakları Saklıdır
 </footer>
 
-<!-- Sticky contact buttons -->
-<div class="sticky" aria-hidden="false">
-  <a href="tel:05338406218" title="Ara">📞 Ara</a>
-  <a href="https://wa.me/905338406218" title="WhatsApp">💬 WhatsApp</a>
+<div class="contact-bar">
+  <a href="tel:05338406218">📞 Ara</a>
+  <a href="https://wa.me/905338406218">💬 WhatsApp</a>
 </div>
 
-<script>
-  // Dynamic year
-  document.getElementById('year').innerText = new Date().getFullYear();
-
-  // If you want to change clinic email shown on page via JS:
-  // document.getElementById('clinicEmail').innerText = 'seninmail@domain.com';
-
-  // Small accessibility: focus outline for keyboard users when clicking hero buttons
-  document.querySelectorAll('.btn, .cta').forEach(b=>{
-    b.addEventListener('focus', ()=>b.style.boxShadow='0 0 0 4px rgba(3,198,206,0.15)');
-    b.addEventListener('blur', ()=>b.style.boxShadow='none');
-  });
-</script>
 </body>
 </html>
