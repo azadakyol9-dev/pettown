@@ -7,46 +7,62 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet">
 <style>
-body {margin:0; font-family:'Roboto', sans-serif; background:#f4f6f9; color:#333;}
-header {background:#fff; padding:20px 40px; box-shadow:0 2px 12px rgba(0,0,0,0.08); display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100;}
-.logo {font-family:'Montserrat', sans-serif; font-size:28px; font-weight:700; color:#1a73e8;}
-nav a {margin-left:25px; text-decoration:none; color:#333; font-weight:500; transition:0.3s;}
-nav a:hover {color:#1a73e8;}
-nav a.btn {background:#1a73e8; color:#fff; padding:10px 22px; border-radius:6px; transition:0.3s;}
-nav a.btn:hover {background:#155ab6;}
-/* Slider */
-.slider {position:relative; height:500px; overflow:hidden;}
-.slide {position:absolute; width:100%; height:100%; display:flex; align-items:center; justify-content:center; text-align:center; background-size:cover; background-position:center; opacity:0; transition:opacity 1s ease-in-out;}
-.slide.active {opacity:1;}
-.slide::before {content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.35);}
-.slide-content {position:relative; color:white; z-index:2;}
-.slide-content h1 {font-family:'Montserrat', sans-serif; font-size:48px; margin-bottom:15px;}
-.slide-content p {font-size:20px; margin-bottom:20px;}
-.slide-content a {display:inline-block; padding:12px 26px; background:#fff; color:#1a73e8; border-radius:6px; text-decoration:none; font-weight:600; transition:0.3s;}
-.slide-content a:hover {background:#e6e6e6; transform:translateY(-3px);}
+/* Reset & Body */
+* {box-sizing:border-box; margin:0; padding:0;}
+body {font-family:'Roboto', sans-serif; background:#fdfdfd; color:#333;}
+a {text-decoration:none;}
+h1,h2,h3,h4,h5,h6 {font-family:'Montserrat', sans-serif;}
+
+/* Header */
+header {background:#fff; padding:20px 50px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 4px 20px rgba(0,0,0,0.1); position:sticky; top:0; z-index:100;}
+header .logo {font-size:28px; font-weight:700; color:#1a73e8;}
+header nav a {margin-left:25px; font-weight:500; color:#333; transition:0.3s;}
+header nav a:hover {color:#34a853;}
+header nav a.btn {background:#1a73e8; color:#fff; padding:10px 22px; border-radius:8px;}
+header nav a.btn:hover {background:#155ab6;}
+
+/* Hero */
+.hero {position:relative; height:600px; display:flex; justify-content:center; align-items:center; text-align:center; background: linear-gradient(135deg, #1a73e8, #34a853); overflow:hidden;}
+.hero::before {content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:url('https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg') center/cover no-repeat; opacity:0.15;}
+.hero-content {position:relative; color:white; z-index:2; max-width:700px; animation:fadeIn 2s ease-in-out;}
+.hero-content h1 {font-size:52px; margin-bottom:20px;}
+.hero-content p {font-size:22px; margin-bottom:25px;}
+.hero-content a {background:#fff; color:#1a73e8; padding:14px 30px; border-radius:8px; font-weight:600; transition:0.3s;}
+.hero-content a:hover {background:#e6e6e6; transform:translateY(-3px);}
+@keyframes fadeIn {0%{opacity:0; transform:translateY(20px);}100%{opacity:1; transform:translateY(0);}}
+
 /* Hizmetler */
-section {padding:60px 20px;}
-.features {display:flex; flex-wrap:wrap; gap:20px; justify-content:center;}
-.features .box {background:#fff; width:280px; padding:30px 20px; text-align:center; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:0.4s;}
-.features .box:hover {transform:translateY(-10px); box-shadow:0 12px 30px rgba(0,0,0,0.15);}
-.features i {font-size:50px; color:#1a73e8; margin-bottom:15px;}
+section {padding:80px 20px;}
+section h2 {text-align:center; font-size:36px; margin-bottom:50px;}
+.features {display:flex; flex-wrap:wrap; justify-content:center; gap:30px;}
+.features .box {background:#fff; width:260px; padding:30px 20px; text-align:center; border-radius:16px; box-shadow:0 8px 25px rgba(0,0,0,0.08); transition:0.4s;}
+.features .box:hover {transform:translateY(-10px); box-shadow:0 15px 35px rgba(0,0,0,0.15);}
+.features i {font-size:50px; margin-bottom:15px; color:#1a73e8;}
+.features h3 {font-size:20px; margin-top:10px; color:#333;}
+
 /* Randevu Form */
-form {max-width:450px; margin:0 auto;}
-form input, form select, form textarea {width:100%; padding:12px; margin:10px 0; border-radius:6px; border:1px solid #ccc; transition:0.3s;}
+#randevu {background:#f4f6f9; text-align:center;}
+form {max-width:500px; margin:0 auto;}
+form input, form select, form textarea {width:100%; padding:14px; margin:10px 0; border-radius:8px; border:1px solid #ccc; transition:0.3s;}
 form input:focus, form select:focus, form textarea:focus {border-color:#1a73e8; box-shadow:0 0 6px rgba(26,115,232,0.3); outline:none;}
-form button {width:100%; padding:12px; margin-top:12px; border:none; border-radius:6px; background:#1a73e8; color:#fff; font-weight:600; cursor:pointer; transition:0.3s;}
+form button {width:100%; padding:14px; margin-top:12px; border:none; border-radius:8px; background:#1a73e8; color:#fff; font-weight:600; cursor:pointer; transition:0.3s;}
 form button:hover {background:#155ab6; transform:translateY(-2px);}
+
 /* İletişim */
-.contact-container {display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-top:30px;}
-.contact-box {background:#fff; width:260px; padding:25px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08); text-align:left; transition:0.3s;}
-.contact-box:hover {transform:translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.12);}
-iframe {width:90%; height:320px; border:0; border-radius:10px; margin-top:20px;}
+#iletisim h2 {margin-bottom:50px;}
+.contact-container {display:flex; flex-wrap:wrap; justify-content:center; gap:25px;}
+.contact-box {background:#fff; width:260px; padding:25px; border-radius:16px; box-shadow:0 8px 25px rgba(0,0,0,0.08); transition:0.3s;}
+.contact-box:hover {transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,0.15);}
+.contact-box h3 {margin-bottom:12px; color:#1a73e8;}
+iframe {width:90%; height:320px; border:0; border-radius:12px; margin-top:20px;}
+
 /* Footer */
 footer {background:#222; color:#fff; text-align:center; padding:25px; font-size:14px;}
-footer a {color:#1a73e8; text-decoration:none;}
+footer a {color:#1a73e8; margin:0 5px;}
 footer a:hover {text-decoration:underline;}
+
 /* Responsive */
-@media(max-width:768px){.features .box{width:90%;} header{flex-direction:column; gap:15px;} nav a{margin-left:0;}}
+@media(max-width:768px){.features .box{width:90%;} header{flex-direction:column; gap:15px;} header nav a{margin-left:0; display:inline-block; margin:8px;}}
 </style>
 </head>
 <body>
@@ -61,33 +77,16 @@ footer a:hover {text-decoration:underline;}
 </nav>
 </header>
 
-<!-- Slider -->
-<div class="slider">
-<div class="slide active" style="background-image:url('https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg');">
-<div class="slide-content">
+<section class="hero">
+<div class="hero-content">
 <h1>PET TOWN VETERİNER KLİNİĞİ</h1>
-<p>Dostlarınız için güvenilir veteriner hizmetleri</p>
+<p>Dostlarınız için güvenilir veteriner hizmetleri, sevgi dolu bir ortamda</p>
 <a href="#randevu">Hemen Randevu Al</a>
 </div>
-</div>
-<div class="slide" style="background-image:url('https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg');">
-<div class="slide-content">
-<h1>Sağlık ve Mutluluk</h1>
-<p>Kediniz ve köpeğiniz için profesyonel bakım</p>
-<a href="#hizmetler">Hizmetlerimiz</a>
-</div>
-</div>
-<div class="slide" style="background-image:url('https://images.pexels.com/photos/4587995/pexels-photo-4587995.jpeg');">
-<div class="slide-content">
-<h1>Mutlu Dostlar</h1>
-<p>Sevgi dolu bir ortamda veteriner hizmeti</p>
-<a href="#iletisim">Bize Ulaşın</a>
-</div>
-</div>
-</div>
+</section>
 
 <section id="hizmetler">
-<h2 style="text-align:center;margin-bottom:40px;">Hizmetlerimiz</h2>
+<h2>Hizmetlerimiz</h2>
 <div class="features">
 <div class="box"><i class="fas fa-stethoscope"></i><h3>Genel Muayene</h3></div>
 <div class="box"><i class="fas fa-syringe"></i><h3>Aşı Hizmetleri</h3></div>
@@ -99,7 +98,7 @@ footer a:hover {text-decoration:underline;}
 </section>
 
 <section id="randevu">
-<h2 style="text-align:center;">Randevu Oluştur</h2>
+<h2>Randevu Oluştur</h2>
 <form action="https://formspree.io/f/maylnzjp" method="POST">
 <input type="text" name="name" placeholder="İsminiz" required>
 <input type="text" name="phone" placeholder="Telefon Numaranız" required>
@@ -114,7 +113,7 @@ footer a:hover {text-decoration:underline;}
 </section>
 
 <section id="iletisim">
-<h2 style="text-align:center;">İletişim</h2>
+<h2>İletişim</h2>
 <div class="contact-container">
 <div class="contact-box"><h3>📍 Adres</h3><p>Gazimağusa Vadili</p></div>
 <div class="contact-box"><h3>📞 Telefon</h3><p><a href="tel:05338406218">0533 840 6218</a></p></div>
@@ -128,18 +127,6 @@ footer a:hover {text-decoration:underline;}
 © 2025 PET TOWN VETERİNER KLİNİĞİ — Tüm Hakları Saklıdır. <br>
 <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
 </footer>
-
-<script>
-// Slider JS
-let slides = document.querySelectorAll('.slide');
-let current = 0;
-function nextSlide() {
-slides[current].classList.remove('active');
-current = (current+1) % slides.length;
-slides[current].classList.add('active');
-}
-setInterval(nextSlide, 5000);
-</script>
 
 </body>
 </html>
