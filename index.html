@@ -122,7 +122,7 @@ nav{display:flex;justify-content:space-between;align-items:center;position:relat
 .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gradient-accent));color:#0f172a;background-size:200% 200%;animation:gradientBtn 3s ease infinite;}
 .btn-gold:hover{transform:translateY(-14px) scale(1.1);filter:brightness(1.1);}
 
-/* Cards Gradient Hover */
+/* Cards Gradient Hover & Animation */
 .card{background:rgba(255,255,255,0.18);backdrop-filter:blur(25px);border:1px solid rgba(255,255,255,0.3);padding:4.5rem 3rem;border-radius:40px;text-align:center;transition:.7s;box-shadow:0 30px 80px rgba(0,0,0,0.4);}
 .card:hover{transform:translateY(-35px) scale(1.07);background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end,rgba(255,255,255,0.3)));box-shadow:0 40px 90px rgba(0,0,0,0.5);}
 .card i{font-size:5.5rem;margin-bottom:2.2rem;color:var(--gold);}
@@ -249,9 +249,9 @@ footer{background:rgba(0,0,0,0.95);padding:6rem 0;text-align:center;font-size:1.
             <div class="card" style="grid-column:1/-1;max-width:1000px;margin:auto;">
                 <p style="font-size:1.4rem;line-height:2;">Pet Town Veteriner Kliniği olarak 10 yılı aşkın tecrübemizle Vadili ve çevresinde en güvenilir sağlık hizmeti sunmaktayız. Modern cihazlarımız, uzman kadromuz ve hayvanlara duyduğumuz sevgiyle dostlarınızın her zaman yanındayız.</p>
             </div>
-            <div class="card"><i class="fas fa-heart" style="color:#fca5a5;"></i><h3>Sevgi</h3><p>Her canlının hak ettiği şefkat</p></div>
-            <div class="card"><i class="fas fa-user-md"></i><h3>Uzmanlık</h3><p>Deneyimli veteriner hekim kadrosu</p></div>
-            <div class="card"><i class="fas fa-medkit"></i><h3>Güven</h3><p>Modern teknoloji ve hijyen</p></div>
+            <div class="card" data-aos="zoom-in"><i class="fas fa-heart" style="color:#fca5a5;"></i><h3>Sevgi</h3><p>Her canlının hak ettiği şefkat</p></div>
+            <div class="card" data-aos="zoom-in"><i class="fas fa-user-md"></i><h3>Uzmanlık</h3><p>Deneyimli veteriner hekim kadrosu</p></div>
+            <div class="card" data-aos="zoom-in"><i class="fas fa-medkit"></i><h3>Güven</h3><p>Modern teknoloji ve hijyen</p></div>
         </div>
     </div>
 </section>
@@ -261,12 +261,12 @@ footer{background:rgba(0,0,0,0.95);padding:6rem 0;text-align:center;font-size:1.
     <div class="container">
         <h2>Hizmetlerimiz</h2>
         <div class="grid">
-            <div class="card"><i class="fas fa-stethoscope"></i><h3>Genel Muayene</h3><p>Rutin kontroller ve erken teşhis</p></div>
-            <div class="card"><i class="fas fa-syringe"></i><h3>Aşı & Koruma</h3><p>Tüm aşılar ve parazit uygulamaları</p></div>
-            <div class="card"><i class="fas fa-cut"></i><h3>Cerrahi İşlemler</h3><p>Kısırlaştırma ve ortopedi</p></div>
-            <div class="card"><i class="fas fa-x-ray"></i><h3>Röntgen & Ultrason</h3><p>Yüksek çözünürlüklü görüntüleme</p></div>
-            <div class="card"><i class="fas fa-tooth"></i><h3>Diş Sağlığı</h3><p>Diş taşı temizliği</p></div>
-            <div class="card"><i class="fas fa-ambulance"></i><h3>7/24 Acil Servis</h3><p>Gece gündüz yanınızdayız</p></div>
+            <div class="card" data-aos="flip-left"><i class="fas fa-stethoscope"></i><h3>Genel Muayene</h3><p>Rutin kontroller ve erken teşhis</p></div>
+            <div class="card" data-aos="flip-left"><i class="fas fa-syringe"></i><h3>Aşı & Koruma</h3><p>Tüm aşılar ve parazit uygulamaları</p></div>
+            <div class="card" data-aos="flip-left"><i class="fas fa-cut"></i><h3>Cerrahi İşlemler</h3><p>Kısırlaştırma ve ortopedi</p></div>
+            <div class="card" data-aos="flip-left"><i class="fas fa-x-ray"></i><h3>Röntgen & Ultrason</h3><p>Yüksek çözünürlüklü görüntüleme</p></div>
+            <div class="card" data-aos="flip-left"><i class="fas fa-tooth"></i><h3>Diş Sağlığı</h3><p>Diş taşı temizliği</p></div>
+            <div class="card" data-aos="flip-left"><i class="fas fa-ambulance"></i><h3>7/24 Acil Servis</h3><p>Gece gündüz yanınızdayız</p></div>
         </div>
     </div>
 </section>
@@ -296,30 +296,16 @@ footer{background:rgba(0,0,0,0.95);padding:6rem 0;text-align:center;font-size:1.
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
 AOS.init({duration: 1000, once: true});
-
 const header = document.getElementById('header');
 const mobileToggle = document.querySelector('.mobile-toggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const closeMenu = document.getElementById('closeMenu');
-
 window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); });
-
 mobileToggle.addEventListener('click', () => mobileMenu.classList.add('active'));
 closeMenu.addEventListener('click', () => mobileMenu.classList.remove('active'));
-document.querySelectorAll('.mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => mobileMenu.classList.remove('active'));
-});
-
-// Hero Animation
-window.addEventListener('load', () => {
-    document.querySelector('.hero').classList.add('show');
-});
-
-// Parallax Hero
-window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    hero.style.backgroundPositionY = window.pageYOffset * 0.5 + "px";
-});
+document.querySelectorAll('.mobile-menu a').forEach(link => { link.addEventListener('click', () => mobileMenu.classList.remove('active')); });
+window.addEventListener('load', () => { document.querySelector('.hero').classList.add('show'); });
+window.addEventListener('scroll', () => { document.querySelector('.hero').style.backgroundPositionY = window.pageYOffset*0.5+"px"; });
 </script>
 </body>
 </html>
