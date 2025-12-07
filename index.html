@@ -1,55 +1,142 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PET TOWN VETERİNER KLİNİĞİ</title>
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PET TOWN VETERİNER KLİNİĞİ</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+    body {margin:0; font-family: 'Roboto', sans-serif; background:#f9f9f9;}
+    header {display:flex; justify-content:space-between; align-items:center; padding:20px; background:white; box-shadow:0 2px 10px rgba(0,0,0,0.1); position:sticky; top:0; z-index:10;}
+    .logo {font-size:24px; font-weight:bold; color:#1a73e8;}
+    nav a {margin-left:20px; text-decoration:none; color:#333; font-weight:500;}
+    nav a.btn {background:#1a73e8; color:white !important; padding:10px 20px; border-radius:6px;}
+    nav a:hover {color:#1a73e8;}
+    .hero {position:relative; height:450px; overflow:hidden;}
+    .slider img {width:100%; height:450px; object-fit:cover; display:none;}
+    .slider img.active {display:block;}
+    .hero-text {position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:white; text-align:center;}
+    .hero-text h1 {font-size:40px; margin-bottom:10px; text-shadow:1px 1px 6px rgba(0,0,0,0.7);}
+    .hero-text p {font-size:20px; text-shadow:1px 1px 6px rgba(0,0,0,0.7);}
+    .hero-text a {display:inline-block; margin-top:15px; text-decoration:none; background:#1a73e8; color:white; padding:10px 20px; border-radius:6px;}
+
+    .features {display:flex; justify-content:space-around; padding:40px; flex-wrap:wrap;}
+    .features .box {background:white; padding:20px; width:28%; text-align:center; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); margin-bottom:20px;}
+    .features .box img {width:60px; height:60px; margin-bottom:10px;}
+    @media(max-width:768px){.features .box{width:90%;}}
+
+    .about {text-align:center; padding:50px;}
+
+    /* Randevu Form */
+    form {max-width:400px; margin:0 auto; text-align:left;}
+    form input, form select, form textarea {width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #ccc;}
+    form button {width:100%; padding:10px; margin-top:10px; border:none; border-radius:6px; background:#1a73e8; color:white; font-weight:bold; cursor:pointer;}
+    form button:hover {background:#155ab6;}
+
+    /* İletişim */
+    .contact-container {display:flex; justify-content:center; flex-wrap:wrap; gap:20px; margin-top:30px;}
+    .contact-box {background:white; width:280px; padding:20px; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.1); text-align:left;}
+    .contact-box h3 {margin-top:0; color:#1a73e8;}
+    .contact-box a {text-decoration:none; color:#333; font-weight:bold;}
+    .contact-box a:hover {color:#1a73e8;}
+    iframe {width:90%; height:300px; border:0; border-radius:10px; margin-top:20px;}
+    footer {background:#222; color:white; text-align:center; padding:20px; margin-top:40px;}
+
+</style>
 </head>
-<body class="bg-gray-50">
-  <div id="root"></div>
+<body>
 
-  <script type="text/babel">
-    function App() {
-      return (
-        <div className="p-6 max-w-5xl mx-auto">
-          <h1 className="text-3xl font-bold text-center">PET TOWN VETERİNER KLİNİĞİ</h1>
-          <p className="text-center mt-2 text-gray-700">GAZİMAĞUSA VADİLİ • 0533 840 62 18</p>
+<header>
+    <div class="logo">PET TOWN</div>
+    <nav>
+        <a href="#">Ana Sayfa</a>
+        <a href="#hizmetler">Hizmetler</a>
+        <a href="#iletisim">İletişim</a>
+        <a href="#randevu" class="btn">Randevu Al</a>
+    </nav>
+</header>
 
-          <section className="mt-10">
-            <h2 className="text-xl font-bold">Hizmetler</h2>
-            <div className="mt-4 grid sm:grid-cols-2 gap-4">
-              <div className="p-4 bg-white rounded-xl shadow">Genel Veteriner Hizmetleri</div>
-              <div className="p-4 bg-white rounded-xl shadow">Pet Shop Ürünleri</div>
-            </div>
-          </section>
+<!-- Hero Slider -->
+<section class="hero">
+    <div class="slider">
+        <img src="https://png.pngtree.com/png-clipart/20240914/original/pngtree-veterinarian-and-doctor-with-dog-and-cat-on-counter-in-vet-png-image_16006959.png" class="active" alt="Veteriner ve hayvanlar">
+        <img src="https://d2ki7eiqd260sq.cloudfront.net/7a9d0a4c5-fd40-47f5-b84e-312546183cd1.jpg" alt="Mutlu köpek ve veteriner">
+        <img src="https://st.depositphotos.com/1000423/5007/i/450/depositphotos_50071117-stock-photo-cat-at-vet-clinic.jpg" alt="Kedi veteriner klinik">
+    </div>
+    <div class="hero-text">
+        <h1>PET TOWN VETERİNER KLİNİĞİ</h1>
+        <p>Dostlarınız için güvenilir veteriner hizmetleri.</p>
+        <a href="#randevu">Randevu Al</a>
+    </div>
+</section>
 
-          <section className="mt-10">
-            <h2 className="text-xl font-bold">Konum</h2>
-            <div className="mt-3 h-64 rounded-xl overflow-hidden">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="100%" style={{border:0}} loading="lazy"></iframe>
-            </div>
-          </section>
+<!-- Hizmetler -->
+<section id="hizmetler" class="features">
+    <div class="box"><img src="https://img.icons8.com/ios-filled/50/000000/stethoscope.png"/><br>Genel Muayene</div>
+    <div class="box"><img src="https://img.icons8.com/ios-filled/50/000000/syringe.png"/><br>Aşı Hizmetleri</div>
+    <div class="box"><img src="https://img.icons8.com/ios-filled/50/000000/hospital-room.png"/><br>Acil Müdahale</div>
+    <div class="box"><img src="https://img.icons8.com/ios-filled/50/000000/grooming.png"/><br>Pet Kuaför</div>
+    <div class="box"><img src="https://img.icons8.com/ios-filled/50/000000/laboratory.png"/><br>Laboratuvar Testleri</div>
+    <div class="box"><img src="https://img.icons8.com/ios-filled/50/000000/surgery.png"/><br>Cerrahi Operasyonlar</div>
+</section>
 
-          <section className="mt-10">
-            <h2 className="text-xl font-bold">Randevu Formu</h2>
-            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" className="mt-4 grid gap-4">
-              <input name="isim" placeholder="İsim" className="p-3 border rounded" />
-              <input name="telefon" placeholder="Telefon" className="p-3 border rounded" />
-              <input name="email" placeholder="E-posta" className="p-3 border rounded" />
-              <textarea name="mesaj" placeholder="Mesaj" className="p-3 border rounded"></textarea>
-              <button className="bg-green-600 text-white p-3 rounded">Gönder</button>
-            </form>
-          </section>
-        </div>
-      );
-    }
+<!-- Randevu Form -->
+<section id="randevu" class="about">
+<h2>Randevu Oluştur</h2>
+<p>Aşağıdaki formu doldurarak hızlıca randevu oluşturabilirsiniz.</p>
 
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
-  </script>
+<form action="https://formspree.io/f/maylnzjp" method="POST">
+    <label>İsminiz</label>
+    <input type="text" name="name" required>
+
+    <label>Telefon Numaranız</label>
+    <input type="text" name="phone" required>
+
+    <label>Evcil Hayvan Türü</label>
+    <select name="pet_type">
+        <option>Kedi</option>
+        <option>Köpek</option>
+        <option>Diğer</option>
+    </select>
+
+    <label>Randevu Notu</label>
+    <textarea name="message"></textarea>
+
+    <button type="submit">Gönder</button>
+</form>
+</section>
+
+<!-- İletişim -->
+<section id="iletisim" class="about">
+<h2>İletişim</h2>
+<div class="contact-container">
+    <div class="contact-box"><h3>📍 Adres</h3><p>Gazimağusa Vadili</p></div>
+    <div class="contact-box"><h3>📞 Telefon</h3><p><a href="tel:05338406218">0533 840 6218</a></p></div>
+    <div class="contact-box"><h3>💬 WhatsApp</h3><p><a href="https://wa.me/905338388696" target="_blank">0533 838 8696</a></p></div>
+    <div class="contact-box"><h3>📧 E-posta</h3><p><a href="mailto:pettowncyprus@gmail.com">pettowncyprus@gmail.com</a></p></div>
+</div>
+
+<h3 style="margin-top:40px;">📌 Google Maps Konumu</h3>
+<iframe src="https://www.google.com/maps?q=Gazimağusa%20Vadili&output=embed"></iframe>
+</section>
+
+<footer>
+© 2025 PET TOWN VETERİNER KLİNİĞİ — Tüm Hakları Saklıdır.
+</footer>
+
+<script>
+// Slider Otomatik Geçiş
+let slides = document.querySelectorAll('.slider img');
+let current = 0;
+setInterval(()=> {
+    slides[current].classList.remove('active');
+    current = (current +1) % slides.length;
+    slides[current].classList.add('active');
+}, 4000);
+</script>
+
 </body>
 </html>
