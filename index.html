@@ -3,114 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Town Veteriner Kliniği | Profesyonel Veteriner Hizmetleri</title>
-    <meta name="description" content="Pet Town Veteriner Kliniği - 7/24 acil servis, aşı, muayene, cerrahi işlemler, diş sağlığı ve daha fazlası.">
+    <title>Pet Town Veteriner Kliniği | Kıbrıs</title>
+    <meta name="description" content="Pet Town Veteriner Kliniği - Kıbrıs'ın en güvenilir veteriner hizmetleri. Aşı, muayene, cerrahi, 7/24 acil destek.">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     
     <style>
         :root {
-            --primary: #00b5ad;
-            --secondary: #ff6b6b;
-            --dark: #2d3748;
-            --light: #f8fafc;
-            --gray: #718096;
+            --primary: #00d4c2;   /* Canlı turkuaz */
+            --secondary: #ff6b9d; /* Pembe-kırmızı */
+            --dark: #1a1a2e;     /* Derin lacivert */
+            --light: #f8f9ff;
+            --gray: #94a3b8;
+            --gradient: linear-gradient(135deg, #00d4c2 0%, #0099cc 100%);
         }
         
         * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Poppins',sans-serif; line-height:1.6; color:var(--dark); background:#fff; }
-        a { text-decoration:none; color:inherit; }
+        body { font-family:'Nunito', sans-serif; color:#333; background:var(--light); line-height:1.7; overflow-x:hidden; }
+        a { text-decoration:none; }
         img { max-width:100%; display:block; }
-        .container { width:90%; max-width:1200px; margin:0 auto; padding:0 15px; }
+        .container { width:90%; max-width:1300px; margin:0 auto; padding:0 20px; }
+
+        /* Logo */
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .logo span { color: var(--secondary); }
 
         /* Header */
         header {
-            background:rgba(255,255,255,0.97);
-            backdrop-filter:blur(10px);
             position:fixed;
-            width:100%;
-            top:0;
+            top:0; left:0; width:100%;
+            background:rgba(255,255,255,0.95);
+            backdrop-filter:blur(12px);
             z-index:1000;
-            box-shadow:0 2px 20px rgba(0,0,0,0.1);
+            box-shadow:0 4px 30px rgba(0,0,0,0.08);
+            transition:all 0.4s;
         }
-        nav { display:flex; justify-content:space-between; align-items:center; padding:1rem 0; }
-        .logo { font-size:1.9rem; font-weight:700; color:var(--primary); }
-        .logo span { color:var(--secondary); }
-        .nav-links { display:flex; gap:2.5rem; align-items:center; }
-        .nav-links a { font-weight:500; transition:color .3s; }
+        nav {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:1.2rem 0;
+        }
+        .nav-links {
+            display:flex;
+            gap:2.5rem;
+            align-items:center;
+        }
+        .nav-links a {
+            font-weight:600;
+            color:#444;
+            transition:all 0.3s;
+            position:relative;
+        }
         .nav-links a:hover { color:var(--primary); }
-        .mobile-toggle { display:none; font-size:1.6rem; cursor:pointer; }
+        .nav-links a::after {
+            content:''; position:absolute; bottom:-6px; left:0; width:0; height:3px;
+            background:var(--primary); transition:0.3s; border-radius:3px;
+        }
+        .nav-links a:hover::after { width:100%; }
+
+        /* WhatsApp Sabit Buton */
+        .whatsapp-float {
+            position:fixed;
+            bottom:25px; right:25px;
+            background:#25d366;
+            color:white;
+            width:60px; height:60px;
+            border-radius:50%;
+            display:flex; align-items:center; justify-content:center;
+            font-size:30px;
+            box-shadow:0 8px 25px rgba(37,211,102,0.4);
+            z-index:999;
+            animation: pulse 2s infinite;
+            transition:all 0.3s;
+        }
+        .whatsapp-float:hover { transform:scale(1.1); }
+        @keyframes pulse {
+            0% { box-shadow:0 0 0 0 rgba(37,211,102,0.7); }
+            70% { box-shadow:0 0 0 15px rgba(37,211,102,0); }
+            100% { box-shadow:0 0 0 0 rgba(37,211,102,0); }
+        }
 
         /* Hero */
         .hero {
-            background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1583511655826-05700d52f4d9?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
             height:100vh;
+            background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
             display:flex;
             align-items:center;
-            color:white;
             text-align:center;
+            color:white;
+            position:relative;
         }
-        .hero h1 { font-size:3.8rem; margin-bottom:1rem; }
-        .hero p { font-size:1.3rem; max-width:800px; margin:0 auto 2rem; }
+        .hero::before {
+            content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+            background: var(--gradient); opacity:0.8;
+        }
+        .hero-content {
+            position:relative; z-index:2;
+            animation: fadeUp 1s ease 0.5s forwards; opacity:0; transform:translateY(30px);
+        }
+        @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+        .hero h1 {
+            font-family:'Playfair Display',serif;
+            font-size:4.5rem;
+            margin-bottom:1rem;
+            text-shadow:0 4px 15px rgba(0,0,0,0.5);
+        }
+        .hero p { font-size:1.4rem; max-width:800px; margin:0 auto 2rem; }
+
         .btn {
             display:inline-block;
-            padding:14px 34px;
+            padding:16px 36px;
             border-radius:50px;
-            font-weight:600;
-            transition:all .3s;
-            margin:0 8px;
+            font-weight:700;
+            margin:10px;
+            transition:all 0.4s;
+            box-shadow:0 8px 25px rgba(0,0,0,0.15);
         }
-        .btn-primary { background:var(--primary); color:white; }
-        .btn-primary:hover { background:#009a93; transform:translateY(-4px); }
-        .btn-secondary { background:var(--secondary); color:white; }
-        .btn-secondary:hover { background:#ff5252; transform:translateY(-4px); }
+        .btn-primary {
+            background:var(--primary);
+            color:white;
+        }
+        .btn-primary:hover {
+            background:#00b8a8;
+            transform:translateY(-5px);
+            box-shadow:0 15px 35px rgba(0,212,194,0.4);
+        }
+        .btn-outline {
+            background:transparent;
+            color:white;
+            border:2px solid white;
+        }
+        .btn-outline:hover {
+            background:white;
+            color:var(--dark);
+        }
 
         /* Sections */
-        section { padding:100px 0; }
-        section h2 { text-align:center; font-size:2.6rem; margin-bottom:3rem; color:var(--dark); }
-        .services { background:var(--light); }
-        .service-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:2rem; }
+        section { padding:120px 0; }
+        h2 {
+            font-family:'Playfair Display',serif;
+            font-size:3rem;
+            text-align:center;
+            margin-bottom:4rem;
+            color:var(--dark);
+            position:relative;
+        }
+        h2::after {
+            content:''; width:100px; height:4px; background:var(--primary);
+            position:absolute; bottom:-15px; left:50%; transform:translateX(-50%);
+            border-radius:2px;
+        }
+
+        .services { background:#ffffff; }
+        .service-grid {
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+            gap:2rem;
+        }
         .service-card {
             background:white;
-            padding:2.5rem 2rem;
-            border-radius:16px;
+            padding:2.5rem;
+            border-radius:20px;
             text-align:center;
-            box-shadow:0 10px 30px rgba(0,0,0,0.08);
-            transition:transform .3s;
+            box-shadow:0 15px 40px rgba(0,0,0,0.08);
+            transition:all 0.4s;
+            border:1px solid #f0f0f0;
         }
-        .service-card:hover { transform:translateY(-12px); }
-        .service-card i { font-size:3.2rem; color:var(--primary); margin-bottom:1.2rem; }
+        .service-card:hover {
+            transform:translateY(-15px);
+            box-shadow:0 25px 50px rgba(0,212,194,0.2);
+            border-color:var(--primary);
+        }
+        .service-card i {
+            font-size:3.5rem;
+            background:var(--gradient);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            margin-bottom:1.5rem;
+        }
 
-        .about { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-        .about img { border-radius:16px; box-shadow:0 20px 40px rgba(0,0,0,0.15); }
+        .about-grid {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:5rem;
+            align-items:center;
+        }
+        .about-img {
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 20px 50px rgba(0,0,0,0.15);
+        }
 
-        .contact { background:var(--dark); color:white; }
-        .contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:3rem; }
-        .contact-info h3 { color:var(--primary); margin-bottom:1rem; }
-        .contact-info a { color:var(--secondary); font-weight:600; }
+        .contact {
+            background:var(--dark);
+            color:white;
+        }
+        .contact-grid {
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+            gap:3rem;
+            margin-bottom:4rem;
+        }
+        .contact-info i {
+            color:var(--primary);
+            font-size:1.8rem;
+            margin-bottom:1rem;
+        }
+        .contact-info a {
+            color:var(--secondary);
+            font-weight:600;
+        }
 
-        footer { background:#1a202c; color:#a0aec0; text-align:center; padding:2rem 0; }
+        /* Harita */
+        .map-container {
+            height:450px;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 20px 50px rgba(0,0,0,0.2);
+            margin-top:3rem;
+        }
+
+        footer {
+            background:#0f0f1a;
+            color:#94a3b8;
+            text-align:center;
+            padding:3rem 0;
+        }
 
         /* Responsive */
+        @media (max-width:968px) {
+            .hero h1 { font-size:3.2rem; }
+            .about-grid { grid-template-columns:1fr; }
+            .about-img { order:-1; }
+        }
         @media (max-width:768px) {
-            .mobile-toggle { display:block; }
             .nav-links {
-                position:fixed; top:70px; left:-100%; background:white; width:100%;
-                flex-direction:column; padding:2rem; transition:.4s; height:calc(100vh - 70px);
-                box-shadow:0 10px 30px rgba(0,0,0,0.2);
+                position:fixed; top:80px; left:-100%; width:100%; height:calc(100vh - 80px);
+                background:white; flex-direction:column; padding:3rem 0;
+                transition:0.4s; box-shadow:0 10px 30px rgba(0,0,0,0.2);
             }
             .nav-links.active { left:0; }
-            .hero h1 { font-size:2.6rem; }
-            .about { grid-template-columns:1fr; }
-            .about img { order:-1; }
+            .mobile-toggle { display:block; font-size:1.8rem; cursor:pointer; color:var(--primary); }
         }
     </style>
 </head>
 <body>
+
+    <!-- WhatsApp Sabit Buton -->
+    <a href="https://wa.me/905338388696" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Header -->
     <header>
@@ -123,7 +276,7 @@
                     <a href="#hizmetler">Hizmetler</a>
                     <a href="#hakkimizda">Hakkımızda</a>
                     <a href="#iletisim">İletişim</a>
-                    <a href="tel:+905551234567" class="btn btn-secondary" style="padding:10px 24px; font-size:0.95rem;">Acil: 0555 123 45 67</a>
+                    <a href="tel:+905338406218" class="btn btn-primary" style="padding:12px 28px; font-size:0.95rem;">0533 840 62 18</a>
                 </div>
             </nav>
         </div>
@@ -132,11 +285,13 @@
     <!-- Hero -->
     <section id="anasayfa" class="hero">
         <div class="container">
-            <h1>Pet Town Veteriner Kliniği</h1>
-            <p>Sevgili dostlarınızın sağlığı bizim için her şeyden önemli. 7/24 acil servis, modern ekipmanlar ve uzman veteriner hekim kadromuzla her zaman yanınızdayız.</p>
-            <div>
-                <a href="tel:+905551234567" class="btn btn-primary">Hemen Arayın</a>
-                <a href="#iletisim" class="btn btn-secondary">Randevu Al</a>
+            <div class="hero-content">
+                <h1>Pet Town Veteriner Kliniği</h1>
+                <p>Sevgili dostlarınızın sağlığı ve mutluluğu için buradayız. Kıbrıs’ın en güvenilir veteriner kliniği.</p>
+                <div>
+                    <a href="tel:+905338406218" class="btn btn-primary">Hemen Arayın</a>
+                    <a href="https://wa.me/905338388696" class="btn btn-outline" target="_blank">WhatsApp'tan Yaz</a>
+                </div>
             </div>
         </div>
     </section>
@@ -147,67 +302,71 @@
             <h2>Hizmetlerimiz</h2>
             <div class="service-grid">
                 <div class="service-card"><i class="fas fa-stethoscope"></i><h3>Genel Muayene</h3><p>Rutin kontroller ve sağlık taramaları</p></div>
-                <div class="service-card"><i class="fas fa-syringe"></i><h3>Aşı & Parazit</h3><p>Yıllık aşı programı ve parazit koruması</p></div>
-                <div class="service-card"><i class="fas fa-cut"></i><h3>Cerrahi İşlemler</h3><p>Kısırlaştırma, tümör ve ortopedi ameliyatları</p></div>
-                <div class="service-card"><i class="fas fa-x-ray"></i><h3>Görüntüleme & Laboratuvar</h3><p>Röntgen, ultrason ve kan tahlilleri</p></div>
+                <div class="service-card"><i class="fas fa-syringe"></i><h3>Aşı Programları</h3><p>Tam aşı takvimi ve koruyucu sağlık</p></div>
+                <div class="service-card"><i class="fas fa-cut"></i><h3>Cerrahi Müdahaleler</h3><p>Kısırlaştırma ve ileri cerrahi işlemler</p></div>
+                <div class="service-card"><i class="fas fa-x-ray"></i><h3>Laboratuvar & Görüntüleme</h3><p>Kan tahlili, röntgen, ultrason</p></div>
                 <div class="service-card"><i class="fas fa-tooth"></i><h3>Diş Sağlığı</h3><p>Diş taşı temizliği ve ağız bakımı</p></div>
-                <div class="service-card"><i class="fas fa-ambulance"></i><h3>7/24 Acil Servis</h3><p>Gece gündüz acil müdahale</p></div>
+                <div class="service-card"><i class="fas fa-heartbeat"></i><h3>Acil Servis</h3><p>Hızlı müdahale ve 7/24 destek</p></div>
             </div>
         </div>
     </section>
 
     <!-- Hakkımızda -->
-    <section id="hakkimizda" class="about">
+    <section id="hakkimizda">
         <div class="container">
-            <div>
-                <h2>Pet Town Veteriner Kliniği</h2>
-                <p>Uzun yıllardır hayvan sağlığı alanında hizmet veren kliniğimizde, evcil dostlarınızı kendi ailemizden biri gibi görüyoruz. En son teknoloji tıbbi cihazlarımız ve hayvan sevgisiyle dolu uzman ekibimizle her zaman en iyi bakımı sunuyoruz.</p>
-                <br>
-                <p>Her hasta bireysel olarak değerlendirilir, size ve dostunuza özel tedavi planları hazırlanır.</p>
-                <br>
-                <a href="#iletisim" class="btn btn-primary">Bize Ulaşın</a>
-            </div>
-            <div>
-                <img src="https://images.unsplash.com/photo-1583511666401-76eba91d5a5b?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Pet Town Veteriner Kliniği">
+            <h2>Biz Kimiz?</h2>
+            <div class="about-grid">
+                <div>
+                    <p style="font-size:1.15rem; color:#555;">
+                        Pet Town Veteriner Kliniği olarak, evcil dostlarınızın sağlığını en üst düzeyde tutmak için son teknoloji ekipmanlar ve hayvan sevgisiyle dolu uzman kadromuzla hizmet veriyoruz.
+                    </p>
+                    <br>
+                    <p style="color:#666;">
+                        Her hastamızı kendi ailemizden biri gibi görüyor, bireysel ihtiyaçlarına özel tedavi planları hazırlıyoruz. Kıbrıs’ın en güvenilen veteriner kliniği olmaktan gurur duyuyoruz.
+                    </p>
+                    <br>
+                    <a href="#iletisim" class="btn btn-primary">Bize Ulaşın</a>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1583511666401-76eba91d5a5b?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Pet Town Veteriner Kliniği">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- İletişim -->
+    <!-- İletişim & Harita -->
     <section id="iletisim" class="contact">
         <div class="container">
             <h2 style="color:white">İletişim & Konum</h2>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h3><i class="fas fa-map-marker-alt"></i> Adres</h3>
-                    <p>Pet Town Veteriner Kliniği<br>
-                       <a href="https://maps.app.goo.gl/kpGMGNTPiPLFaLBx7?g_st=ac" target="_blank">Google Haritalar'da Gör →</a></p>
+                    <i class="fas fa-phone"></i>
+                    <h3>Telefon</h3>
+                    <p><a href="tel:+905338406218">0533 840 62 18</a> (Klinik)<br>
+                       <a href="tel:+905338388696">0533 838 86 96</a> (Acil & WhatsApp)</p>
                 </div>
                 <div class="contact-info">
-                    <h3><i class="fas fa-phone"></i> Telefon</h3>
-                    <p>Klinik: <a href="tel:+902165554433">0216 555 44 33</a><br>
-                       Acil & WhatsApp: <a href="https://wa.me/905551234567">0555 123 45 67</a></p>
+                    <i class="fas fa-envelope"></i>
+                    <h3>E-Posta</h3>
+                    <p><a href="mailto:pettowncyprus@gmail.com">pettowncyprus@gmail.com</a></p>
                 </div>
                 <div class="contact-info">
-                    <h3><i class="fas fa-clock"></i> Çalışma Saatleri</h3>
-                    <p>Hafta İçi: 09:00 - 21:00<br>
-                       Cumartesi: 09:00 - 19:00<br>
-                       Pazar: 10:00 - 16:00 (Acil servis 7/24)</p>
+                    <i class="fas fa-clock"></i>
+                    <h3>Çalışma Saatleri</h3>
+                    <p>Hafta İçi: 08:00 - 18:30<br>
+                       Cumartesi: 08:00 - 14:30<br>
+                       Pazar: 09:00 - 12:00</p>
                 </div>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13048.971582617398!2d33.3352!3d35.1804!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDEwJzQ5LjQiTiAzM8KwMjAnMDYuNyJF!5e0!3m2!1str!2s!4v1670000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Pet Town Veteriner Kliniği. Tüm hakları saklıdır.</p>
+            <p>&copy; 2025 Pet Town Veteriner Kliniği • Kıbrıs. Tüm hakları saklıdır.</p>
         </div>
-    </footer>
-
-    <script>
-        document.querySelector('.mobile-toggle').addEventListener('click', () => {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-    </script>
-</body>
-</html>
+   ...
