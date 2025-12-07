@@ -4,190 +4,274 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Town Veteriner Kliniği | Vadili Kıbrıs</title>
-    <meta name="description" content="Vadili'nin en modern ve güvenilir veteriner kliniği.">
+    <meta name="description" content="Vadili'nin en modern veteriner kliniği. 7/24 acil hizmet, aşı, muayene, cerrahi.">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    
-    <!-- AOS Animasyon Kütüphanesi (süper hafif) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         :root{
-            --pri: #6366f1;     /* indigo */
-            --sec: #ec4899;     /* pink */
-            --tur: #14b8a6;     /* teal */
+            --pri: #00d4ff;     /* Canlı cyan */
+            --sec: #ff2e96;     /* Canlı magenta */
+            --acc: #7c3aed;     /* Mor */
             --dark: #0f172a;
-            --light: #f8fafc;
-            --grad: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+            --light: #f8f9ff;
+            --grad: linear-gradient(135deg, #00d4ff 0%, #ff2e96 70%);
         }
         *{margin:0;padding:0;box-sizing:border-box;}
-        body{font-family:'Poppins',sans-serif;background:var(--light);color:#334155;line-height:1.7;overflow-x:hidden;}
-        .container{width:92%;max-width:1400px;margin:auto;padding:0 15px;}
+        body{
+            font-family:'Poppins',sans-serif;
+            background:var(--light);
+            color:#333;
+            line-height:1.7;
+        }
+        .container{
+            width:92%;
+            max-width:1400px;
+            margin:auto;
+            padding:0 15px;
+        }
 
         /* Header */
         header{
-            position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.98);
-            backdrop-filter:blur(15px);z-index:1000;
-            box-shadow:0 4px 30px rgba(0,0,0,0.08);
-            padding:14px 0;transition:0.4s;
+            position:fixed;
+            top:0;
+            left:0;
+            right:0;
+            background:rgba(255,255,255,0.97);
+            backdrop-filter:blur(15px);
+            z-index:1000;
+            padding:18px 0;
+            box-shadow:0 4px 30px rgba(0,0,0,0.1);
         }
-        header.scrolled{background:rgba(255,255,255,0.98);box-shadow:0 8px 40px rgba(0,0,0,0.15);}
         .logo{
-            font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:900;
-            background:var(--grad);-webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;background-clip:text;
+            font-family:'Playfair Display',serif;
+            font-size:2.6rem;
+            font-weight:900;
+            background:var(--grad);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
         }
-        .logo span{color:var(--sec);}
-        .nav-links{
-            display:flex;gap:2.2rem;align-items:center;
+        .mobile-menu{
+            display:none;
+            font-size:2rem;
+            color:var(--pri);
+            cursor:pointer;
         }
-        .nav-links a{
-            font-weight:600;color:#475569;position:relative;
-            transition:0.4s;
-        }
-        .nav-links a::after{
-            content:'';position:absolute;bottom:-8px;left:50%;width:0;height:3px;
-            background:var(--pri);border-radius:3px;transition:0.4s;
-        }
-        .nav-links a:hover{color:var(--pri);}
-        .nav-links a:hover::after{width:100%;left:0;}
-        .mobile-menu{display:none;font-size:1.9rem;color:var(--pri);cursor:pointer;}
 
         /* Floating Buttons */
         .float-btn{
-            position:fixed;bottom:22px;z-index:998;
-            width:64px;height:64px;border-radius:50%;
-            display:flex;align-items:center;justify-content:center;
-            font-size:34px;color:#fff;
-            box-shadow:0 12px 35px rgba(0,0,0,0.3);
-            transform:translateY(0);animation:float 6s ease-in-out infinite;
+            position:fixed;
+            bottom:25px;
+            z-index:998;
+            width:68px;
+            height:68px;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:36px;
+            color:#fff;
+            box-shadow:0 12px 40px rgba(0,0,0,0.3);
+            animation:float 5s ease-in-out infinite;
         }
-        .wa{right:22px;background:#25d366;}
-        .phone{right:96px;background:var(--pri);}
-        @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
+        .wa{right:20px;background:#25d366;}
+        .phone{right:100px;background:var(--pri);}
+        @keyframes float{
+            0%,100%{transform:translateY(0);}
+            50%{transform:translateY(-18px);}
+        }
 
         /* Hero */
         .hero{
-            height:100vh;min-height:680px;
-            background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),
+            height:100vh;
+            min-height:680px;
+            background:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.7)),
             url('https://images.unsplash.com/photo-1583511655826-05700d52f4d9?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
-            display:flex;align-items:center;text-align:center;color:#fff;
+            display:flex;
+            align-items:center;
+            text-align:center;
+            color:#fff;
             position:relative;
         }
         .hero::before{
-            content:'';position:absolute;inset:0;
-            background:var(--grad);opacity:0.8;
+            content:'';
+            position:absolute;
+            inset:0;
+            background:var(--grad);
+            opacity:0.85;
         }
-        .hero-content{position:relative;z-index:2;}
-        .hero h1{
-            font-family:'Playfair Display',serif;font-size:4.8rem;margin-bottom:1rem;
-            text-shadow:0 6px 30px rgba(0,0,0,0.6);
-        }
-        .hero p{font-size:1.4rem;max-width:800px;margin:0 auto 2.5rem;opacity:0.95;}
-        .btn{
-            display:inline-block;padding:20px 44px;margin:12px;
-            border-radius:50px;font-weight:700;font-size:1.15rem;
-            min-width:240px;transition:0.5s;box-shadow:0 15px 35px rgba(0,0,0,0.2);
-        }
-        .btn-pri{background:var(--pri);color:#fff;}
-        .btn-pri:hover{transform:translateY(-8px) scale(1.05);box-shadow:0 25px 50px rgba(99,102,241,0.5);}
-        .btn-out{border:3px solid #fff;color:#fff;background:transparent;}
-        .btn-out:hover{background:#fff;color:var(--dark);transform:translateY(-8px);}
-
-        section{padding:120px 0;}
-        h2{
-            font-family:'Playfair Display',serif;font-size:3.4rem;text-align:center;
-            margin-bottom:5rem;color:var(--dark);
+        .hero-content{
             position:relative;
+            z-index:2;
+            padding:0 20px;
         }
-        h2::after{
-            content:'';width:120px;height:5px;background:var(--grad);
-            position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);
-            border-radius:5px;
+        .hero h1{
+            font-family:'Playfair Display',serif;
+            font-size:4.2rem;
+            margin-bottom:1rem;
+            line-height:1.1;
+        }
+        .hero p{
+            font-size:1.4rem;
+            margin-bottom:2.5rem;
+            opacity:0.95;
+        }
+        .btn{
+            display:inline-block;
+            padding:22px 50px;
+            margin:12px;
+            border-radius:60px;
+            font-weight:700;
+            font-size:1.2rem;
+            min-width:260px;
+            transition:all 0.4s;
+        }
+        .btn-pri{
+            background:var(--pri);
+            color:#fff;
+            box-shadow:0 15px 40px rgba(0,212,255,0.4);
+        }
+        .btn-pri:hover{
+            transform:translateY(-8px) scale(1.05);
+            box-shadow:0 25px 60px rgba(0,212,255,0.6);
+        }
+        .btn-sec{
+            background:var(--sec);
+            color:#fff;
+            box-shadow:0 15px 40px rgba(255,46,150,0.4);
+        }
+        .btn-sec:hover{
+            transform:translateY(-8px) scale(1.05);
+            box-shadow:0 25px 60px rgba(255,46,150,0.6);
         }
 
-        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:2.5rem;}
-        .card{
-            background:#fff;padding:3rem 2rem;border-radius:28px;text-align:center;
-            box-shadow:0 15px 45px rgba(0,0,0,0.08);transition:0.6s;
-            border:1px solid #f1f5f9;
-        }
-        .card:hover{
-            transform:translateY(-20px) scale(1.03);
-            box-shadow:0 30px 70px rgba(99,102,241,0.25);
-            border-color:var(--pri);
-        }
-        .card i{
-            font-size:4rem;margin-bottom:1.5rem;
-            background:var(--grad);-webkit-background-clip:text;
+        section{padding:100px 0;}
+        h2{
+            font-family:'Playfair Display',serif;
+            font-size:3rem;
+            text-align:center;
+            margin-bottom:4rem;
+            background:var(--grad);
+            -webkit-background-clip:text;
             -webkit-text-fill-color:transparent;
         }
 
-        .about{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
-        .about-img{border-radius:28px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,0.2);}
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            gap:2rem;
+        }
+        .card{
+            background:#fff;
+            padding:2.8rem 2rem;
+            border-radius:28px;
+            text-align:center;
+            box-shadow:0 15px 45px rgba(0,0,0,0.08);
+            transition:0.5s;
+        }
+        .card:hover{
+            transform:translateY(-18px);
+            box-shadow:0 30px 70px rgba(0,212,255,0.25);
+        }
+        .card i{
+            font-size:4rem;
+            margin-bottom:1.2rem;
+            background:var(--grad);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
 
-        .gallery{
-            display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;
+        .contact{
+            background:var(--dark);
+            color:#fff;
         }
-        .gallery img{
-            border-radius:24px;width:100%;height:320px;object-fit:cover;
-            box-shadow:0 15px 40px rgba(0,0,0,0.15);
-            transition:0.6s;filter:saturate(1);
-        }
-        .gallery img:hover{
-            transform:scale(1.07);filter:saturate(1.3);
-            box-shadow:0 25px 60px rgba(0,0,0,0.3);
-        }
-
-        .contact{background:var(--dark);color:#fff;}
         .contact-grid{
-            display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:3.5rem;
-            margin-bottom:5rem;text-align:center;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:3rem;
+            text-align:center;
         }
-        .contact-info i{color:var(--tur);font-size:3rem;margin-bottom:1.2rem;}
-        .contact-info a{color:var(--sec);font-weight:700;font-size:1.3rem;}
+        .contact-info i{
+            font-size:3rem;
+            color:var(--pri);
+            margin-bottom:1rem;
+        }
+        .contact-info a{
+            color:var(--sec);
+            font-weight:700;
+            font-size:1.3rem;
+        }
 
         .map{
-            height:520px;border-radius:28px;overflow:hidden;
-            box-shadow:0 25px 60px rgba(0,0,0,0.4);
+            height:480px;
+            border-radius:28px;
+            overflow:hidden;
+            margin-top:3rem;
+            box-shadow:0 20px 60px rgba(0,0,0,0.4);
         }
 
-        footer{background:#0f172a;color:#94a3b8;text-align:center;padding:4rem 0;font-size:1rem;}
+        footer{
+            background:#0f172a;
+            color:#94a3b8;
+            text-align:center;
+            padding:3rem 0;
+        }
 
-        /* Responsive */
-        @media(max-width:992px){.about{grid-template-columns:1fr;}}
+        /* MOBİL ÖNCELİKLİ TASARIM */
         @media(max-width:768px){
-            .hero h1{font-size:3.4rem;}
+            .hero h1{font-size:3.2rem;}
+            .hero p{font-size:1.25rem;}
+            .btn{
+                padding:20px 40px;
+                font-size:1.15rem;
+                min-width:90%;
+                margin:15px 0;
+            }
+            .mobile-menu{display:block;}
             .nav-links{
-                position:fixed;top:0;left:-100%;width:100%;height:100vh;
-                background:#fff;flex-direction:column;justify-content:center;
-                gap:3rem;font-size:1.5rem;transition:0.5s;z-index:999;
-                padding:20px;
+                position:fixed;
+                top:0;
+                left:-100%;
+                width:100%;
+                height:100vh;
+                background:#fff;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+                gap:3rem;
+                font-size:1.6rem;
+                font-weight:600;
+                transition:0.5s;
+                z-index:999;
             }
             .nav-links.active{left:0;}
-            .mobile-menu{display:block;}
+            .nav-links a{color:var(--dark);}
+            .nav-links a:hover{color:var(--pri);}
         }
     </style>
 </head>
 <body>
 
     <!-- Floating Buttons -->
-    <a href="https://wa.me/905338388696" class="float-btn wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="tel:+905338406218" class="float-btn phone"><i class="fas fa-phone"></i></a>
+    <a href="https://wa.me/905338388696" class="float-btn wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:+905338406218" class="float-btn phone">
+        <i class="fas fa-phone"></i>
+    </a>
 
     <!-- Header -->
-    <header id="header">
+    <header>
         <div class="container">
-            <nav>
-                <div class="logo">Pet<span>Town</span></div>
+            <nav style="display:flex;justify-content:space-between;align-items:center;">
+                <div class="logo">Pet<span style="color:#ff2e96">Town</span></div>
                 <div class="mobile-menu"><i class="fas fa-bars"></i></div>
                 <div class="nav-links">
                     <a href="#anasayfa">Ana Sayfa</a>
                     <a href="#hizmetler">Hizmetler</a>
                     <a href="#hakkimizda">Hakkımızda</a>
-                    <a href="#galeri">Galeri</a>
                     <a href="#iletisim">İletişim</a>
                 </div>
             </nav>
@@ -196,59 +280,25 @@
 
     <!-- Hero -->
     <section id="anasayfa" class="hero">
-        <div class="container hero-content" data-aos="fade-up" data-aos-duration="1200">
-            <h1 data-aos="fade-up" data-aos-delay="300">Pet Town Veteriner Kliniği</h1>
-            <p data-aos="fade-up" data-aos-delay="600">Vadili / Kıbrıs • Sevgiyle, uzmanlıkla, 7/24 dostlarınızın yanındayız</p>
-            <div data-aos="fade-up" data-aos-delay="900">
-                <a href="tel:+905338406218" class="btn btn-pri">Hemen Arayın</a>
-                <a href="https://wa.me/905338388696" class="btn btn-out">WhatsApp'tan Yaz</a>
-            </div>
+        <div class="container hero-content">
+            <h1>Pet Town Veteriner Kliniği</h1>
+            <p>Vadili / Kıbrıs • Sevgiyle, uzmanlıkla, 7/24 dostlarınızın yanındayız</p>
+            <a href="tel:+905338406218" class="btn btn-pri">Hemen Arayın</a>
+            <a href="https://wa.me/905338388696" class="btn btn-sec">WhatsApp'tan Yaz</a>
         </div>
     </section>
 
     <!-- Hizmetler -->
-    <section id="hizmetler" class="services">
+    <section id="hizmetler">
         <div class="container">
-            <h2 data-aos="fade-up">Hizmetlerimiz</h2>
+            <h2>Hizmetlerimiz</h2>
             <div class="grid">
-                <div class="card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-stethoscope"></i><h3>Genel Muayene</h3><p>Rutin kontroller</p></div>
-                <div class="card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-syringe"></i><h3>Aşı & Parazit</h3><p>Koruyucu sağlık</p></div>
-                <div class="card" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-cut"></i><h3>Cerrahi</h3><p>Kısırlaştırma ve ameliyat</p></div>
-                <div class="card" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-x-ray"></i><h3>Görüntüleme</h3><p>Röntgen & ultrason</p></div>
-                <div class="card" data-aos="fade-up" data-aos-delay="500"><i class="fas fa-tooth"></i><h3>Diş Sağlığı</h3><p>Temizlik ve bakım</p></div>
-                <div class="card" data-aos="fade-up" data-aos-delay="600"><i class="fas fa-ambulance"></i><h3>7/24 Acil</h3><p>Hızlı müdahale</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hakkımızda -->
-    <section id="hakkimizda">
-        <div class="container">
-            <h2 data-aos="fade-up">Biz Kimiz?</h2>
-            <div class="about">
-                <div data-aos="fade-right">
-                    <p style="font-size:1.15rem;color:#555;">Pet Town Veteriner Kliniği olarak 10 yılı aşkın tecrübemizle Vadili ve çevresinde en güvenilen sağlık merkezi olmaktan gurur duyuyoruz.</p><br>
-                    <p style="color:#666;">Hayvanları gerçekten seven ekibimiz ve son teknoloji cihazlarımızla her dostumuzu ailemizden biri gibi görüyoruz.</p><br>
-                    <a href="#iletisim" class="btn btn-pri">Bize Ulaşın</a>
-                </div>
-                <div data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1583511666401-76eba91d5a5b?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Klinik içi" class="about-img">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Galeri -->
-    <section id="galeri" style="background:#f8fafc;">
-        <div class="container">
-            <h2 data-aos="fade-up">Kliniğimizden Kareler</h2>
-            <div class="gallery">
-                <img src="https://images.unsplash.com/photo-1591605356700-4f7e8054b14d?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="" data-aos="zoom-in" data-aos-delay="100">
-                <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="" data-aos="zoom-in" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1548767793-2582e74e8f8e?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="" data-aos="zoom-in" data-aos-delay="300">
-                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="" data-aos="zoom-in" data-aos-delay="400">
-                <img src="https://images.unsplash.com/photo-1576201835900-9f88ad7f3e37?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="" data-aos="zoom-in" data-aos-delay="500">
-                <img src="https://images.unsplash.com/photo-1591605356700-4f7e8054b14d?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="" data-aos="zoom-in" data-aos-delay="600">
+                <div class="card"><i class="fas fa-stethoscope"></i><h3>Genel Muayene</h3></div>
+                <div class="card"><i class="fas fa-syringe"></i><h3>Aşı Programı</h3></div>
+                <div class="card"><i class="fas fa-cut"></i><h3>Cerrahi</h3></div>
+                <div class="card"><i class="fas fa-x-ray"></i><h3>Tahlil & Görüntüleme</h3></div>
+                <div class="card"><i class="fas fa-tooth"></i><h3>Diş Sağlığı</h3></div>
+                <div class="card"><i class="fas fa-ambulance"></i><h3>7/24 Acil</h3></div>
             </div>
         </div>
     </section>
@@ -256,15 +306,34 @@
     <!-- İletişim -->
     <section id="iletisim" class="contact">
         <div class="container">
-            <h2 data-aos="fade-up" style="color:#fff">İletişim & Konum</h2>
+            <h2>İletişim Bilgileri</h2>
             <div class="contact-grid">
-                <div class="contact-info" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-map-marker-alt"></i><h3>Adres</h3><p>Vadili, Kıbrıs<br><a href="https://maps.app.goo.gl/6i4r4bYLZ19nNUc49?g_st=ac" target="_blank">Haritada Gör →</a></p></div>
-                <div class="contact-info" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-phone"></i><h3>Telefon</h3><p><a href="tel:+905338406218">0533 840 62 18</a><br><a href="tel:+905338388696">0533 838 86 96 (Acil)</a></p></div>
-                <div class="contact-info" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-clock"></i><h3>Çalışma Saatleri</h3><p>Hafta İçi 08:00-18:30<br>Cumartesi 08:00-14:30<br>Pazar 09:00-12:00</p></div>
-                <div class="contact-info" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-envelope"></i><h3>E-Posta</h3><p><a href="mailto:pettowncyprus@gmail.com">pettowncyprus@gmail.com</a></p></div>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Adres</h3>
+                    <p>Vadili, Kıbrıs<br><a href="https://maps.app.goo.gl/6i4r4bYLZ19nNUc49?g_st=ac" target="_blank">Haritada Gör →</a></p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i>
+                    <h3>Telefon</h3>
+                    <p><a href="tel:+905338406218">0533 840 62 18</a><br>
+                    <a href="tel:+905338388696">0533 838 86 96 (Acil)</a></p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-clock"></i>
+                    <h3>Çalışma Saatleri</h3>
+                    <p>Hafta İçi: 08:00 - 18:30<br>
+                       Cumartesi: 08:00 - 14:30<br>
+                       Pazar: 09:00 - 12:00</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <h3>E-Posta</h3>
+                    <p><a href="mailto:pettowncyprus@gmail.com">pettowncyprus@gmail.com</a></p>
+                </div>
             </div>
-            <div class="map" data-aos="fade-up" data-aos-delay="500">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.244881763295!2d33.783!3d35.160!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA5JzM2LjAiTiAzM8KwNDYnNTkuMCJF!5e0!3m2!1str!2s!4v1700000000000" width="100%" height="520" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.244881763295!2d33.783!3d35.160!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA5JzM2LjAiTiAzM8KwNDYnNTkuMCJF!5e0!3m2!1str!2s!4v1700000000000" width="100%" height="480" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -275,17 +344,7 @@
         </div>
     </footer>
 
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({once:true,duration:1000,easing:'ease-out-quart'});
-        
-        // Header scroll efekti
-        window.addEventListener('scroll', () => {
-            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
-        });
-        
-        // Mobil menü
         document.querySelector('.mobile-menu').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
         });
