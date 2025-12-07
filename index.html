@@ -50,17 +50,19 @@ body{
 }
 .logo i{font-size:3.2rem;background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .logo span{background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.logo:hover{transform:scale(1.05) rotate(-2deg);}
 
+/* Header */
 header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .5s;}
 header.scrolled{background:rgba(15,23,42,0.98);backdrop-filter:blur(20px);padding:14px 0;box-shadow:0 15px 50px rgba(0,0,0,0.6);}
 nav{display:flex;justify-content:space-between;align-items:center;position:relative;}
-.mobile-toggle{display:none;font-size:2.4rem;color:#fff;cursor:pointer;position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:1001;}
 .nav-links a{color:#e2e8f0;font-weight:600;margin:0 1.8rem;position:relative;transition:.4s;}
 .nav-links a:hover{color:var(--gold);}
 .nav-links a::after{content:'';position:absolute;bottom:-10px;left:0;width:0;height:3px;background:var(--gold);border-radius:3px;transition:.4s;}
 .nav-links a:hover::after{width:100%;}
 
-/* Mobil Menü */
+/* Mobile Menu */
+.mobile-toggle{display:none;font-size:2.4rem;color:#fff;cursor:pointer;position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:1001;}
 .mobile-menu{position:fixed;top:0;left:0;width:100%;height:100vh;background:linear-gradient(135deg,#0f172a,#0ea5e9);backdrop-filter:blur(20px);
     display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;transform:translateY(-100%);transition:.7s ease;z-index:1000;}
 .mobile-menu.active{transform:translateY(0);}
@@ -72,18 +74,20 @@ nav{display:flex;justify-content:space-between;align-items:center;position:relat
     display:flex;align-items:center;justify-content:center;font-size:3rem;cursor:pointer;transition:.5s;}
 .close-menu:hover{transform:rotate(90deg) scale(1.2);}
 
-/* Floating Butonlar + Randevu */
+/* Floating Buttons */
 .fab{position:fixed;bottom:30px;right:30px;width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-    font-size:36px;color:#fff;box-shadow:0 18px 50px rgba(0,0,0,0.6);z-index:998;transition:.4s;cursor:pointer;}
+    font-size:36px;color:#fff;box-shadow:0 18px 50px rgba(0,0,0,0.6);z-index:998;transition:.4s;cursor:pointer;animation:floating 2.5s ease-in-out infinite;}
 .fab:hover{transform:translateY(-14px) scale(1.15);}
+@keyframes floating{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .wa{background:#25d366;bottom:30px;}
 .phone{background:var(--cyan);bottom:110px;}
 .appointment{background:var(--gold);color:#000;bottom:190px;font-size:28px;}
 
-/* Randevu Modal */
+/* Modal */
 .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:2000;align-items:center;justify-content:center;padding:20px;}
 .modal.active{display:flex;}
-.modal-content{background:#fff;color:#333;border-radius:30px;padding:40px 30px;max-width:500px;width:100%;position:relative;}
+.modal-content{background:#fff;color:#333;border-radius:30px;padding:40px 30px;max-width:500px;width:100%;position:relative;transform:scale(0.9);opacity:0;transition:all .4s ease;}
+.modal.active .modal-content{transform:scale(1);opacity:1;}
 .close-modal{position:absolute;top:15px;right:20px;font-size:2.5rem;cursor:pointer;color:#999;}
 .close-modal:hover{color:#000;}
 .modal h3{font-family:'Playfair Display',serif;font-size:2.2rem;margin-bottom:20px;text-align:center;color:var(--cyan);}
@@ -96,25 +100,27 @@ nav{display:flex;justify-content:space-between;align-items:center;position:relat
 
 /* Hero */
 .hero{height:100vh;min-height:800px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;z-index:2;}
-.hero h1{font-family:'Playfair Display',serif;font-size:7.5rem;margin-bottom:1.5rem;text-shadow:0 10px 40px rgba(0,0,0,0.7);line-height:1.1;}
-.hero p{font-size:2rem;font-weight:500;margin-bottom:4rem;max-width:900px;margin:auto;opacity:0.95;}
+.hero h1{font-family:'Playfair Display',serif;font-size:7.5rem;margin-bottom:1.5rem;text-shadow:0 10px 40px rgba(0,0,0,0.7);line-height:1.1;opacity:0;transform:translateY(50px);transition:all .8s ease;}
+.hero p{font-size:2rem;font-weight:500;margin-bottom:4rem;max-width:900px;margin:auto;opacity:0;transform:translateY(50px);transition:all .8s ease;}
+.hero .btn{opacity:0;transform:translateY(50px);transition:all .8s ease;}
+.hero.show h1,.hero.show p,.hero.show .btn{opacity:1;transform:translateY(0);}
 .btn{display:inline-block;padding:26px 70px;margin:18px;border-radius:70px;font-weight:700;font-size:1.4rem;min-width:300px;transition:all .5s;box-shadow:0 25px 60px rgba(0,0,0,0.5);}
 .btn-primary{background:var(--cyan);color:#fff;}
 .btn-primary:hover{transform:translateY(-14px) scale(1.1);}
 .btn-gold{background:var(--gold);color:#0f172a;}
 .btn-gold:hover{transform:translateY(-14px) scale(1.1);}
 
-/* Section */
+/* Cards */
 section{padding:160px 0;position:relative;z-index:2;}
-h2{font-family:'Playfair Display',serif;font-size:4.5rem;text-align:center;margin-bottom:7rem;
-    background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+h2{font-family:'Playfair Display',serif;font-size:4.5rem;text-align:center;margin-bottom:7rem;background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:4rem;}
 .card{background:rgba(255,255,255,0.18);backdrop-filter:blur(25px);border:1px solid rgba(255,255,255,0.3);
     padding:4.5rem 3rem;border-radius:40px;text-align:center;transition:.7s;box-shadow:0 30px 80px rgba(0,0,0,0.4);}
 .card:hover{transform:translateY(-35px) scale(1.07);background:rgba(255,255,255,0.3);}
 .card i{font-size:5.5rem;margin-bottom:2.2rem;color:var(--gold);}
 .card h3{font-size:1.7rem;margin:1.5rem 0;background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.card p{font-size:1.2rem;}
+.card p{font-size:1.2rem;transition:color .4s;}
+.card:hover p{color:#fff;}
 
 /* Contact */
 .contact{background:rgba(15,23,42,0.97);backdrop-filter:blur(20px);border-radius:50px;margin:0 20px;padding:100px 0;}
@@ -126,6 +132,7 @@ h2{font-family:'Playfair Display',serif;font-size:4.5rem;text-align:center;margi
 .map{height:620px;border-radius:40px;overflow:hidden;margin-top:6rem;box-shadow:0 40px 100px rgba(0,0,0,0.8);}
 footer{background:rgba(0,0,0,0.95);padding:6rem 0;text-align:center;}
 
+/* Responsive */
 @media(max-width:992px){
     .nav-links{display:none;}
     .mobile-toggle{display:block !important;}
@@ -283,6 +290,11 @@ mobileToggle.addEventListener('click', () => mobileMenu.classList.add('active'))
 closeMenu.addEventListener('click', () => mobileMenu.classList.remove('active'));
 document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', () => mobileMenu.classList.remove('active'));
+});
+
+// Hero animation
+window.addEventListener('load', () => {
+    document.querySelector('.hero').classList.add('show');
 });
 </script>
 </body>
