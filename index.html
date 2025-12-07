@@ -1,162 +1,361 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PET TOWN VETERİNER KLİNİĞİ</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PET TOWN VETERİNER & PETSHOP</title>
+<meta name="description" content="PET TOWN - Gazimağusa Vadili. Veteriner hizmetleri ve petshop. Randevu ve online ürünler.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* Reset & Body */
-* {box-sizing:border-box; margin:0; padding:0;}
-body {font-family:'Roboto', sans-serif; background:#fdfdfd; color:#333; scroll-behavior:smooth;}
-a {text-decoration:none;}
-h1,h2,h3,h4,h5,h6 {font-family:'Montserrat', sans-serif;}
-
-/* Header */
-header {background:#fff; padding:20px 50px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 4px 20px rgba(0,0,0,0.1); position:sticky; top:0; z-index:100;}
-header .logo {font-size:28px; font-weight:700; color:#1a73e8;}
-header nav a {margin-left:25px; font-weight:500; color:#333; transition:0.3s;}
-header nav a:hover {color:#34a853;}
-header nav a.btn {background:#1a73e8; color:#fff; padding:10px 22px; border-radius:8px;}
-header nav a.btn:hover {background:#155ab6;}
-
-/* Hero */
-.hero {position:relative; height:600px; display:flex; justify-content:center; align-items:center; text-align:center; background: linear-gradient(135deg, #1a73e8, #34a853); overflow:hidden;}
-.hero::before {content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:url('https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg') center/cover no-repeat; opacity:0.15;}
-.hero-content {position:relative; color:white; z-index:2; max-width:700px; animation:fadeIn 2s ease-in-out;}
-.hero-content h1 {font-size:52px; margin-bottom:20px;}
-.hero-content p {font-size:22px; margin-bottom:25px;}
-.hero-content a {background:#fff; color:#1a73e8; padding:14px 30px; border-radius:8px; font-weight:600; transition:0.3s;}
-.hero-content a:hover {background:#e6e6e6; transform:translateY(-3px);}
-@keyframes fadeIn {0%{opacity:0; transform:translateY(20px);}100%{opacity:1; transform:translateY(0);}}
-
-/* Paw Animations */
-.paw {position:absolute; width:40px; height:40px; background:url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center/contain; opacity:0.2; animation:movePaw 20s linear infinite;}
-@keyframes movePaw {
-0%{transform:translateY(0) translateX(0);}
-50%{transform:translateY(-200px) translateX(150px);}
-100%{transform:translateY(0) translateX(0);}
-}
-
-/* Hizmetler */
-section {padding:80px 20px;}
-section h2 {text-align:center; font-size:36px; margin-bottom:50px; opacity:0; transform:translateY(50px); transition:1s;}
-section.visible h2 {opacity:1; transform:translateY(0);}
-.features {display:flex; flex-wrap:wrap; justify-content:center; gap:30px;}
-.features .box {background:#fff; width:260px; padding:30px 20px; text-align:center; border-radius:16px; box-shadow:0 8px 25px rgba(0,0,0,0.08); transition:0.4s; opacity:0; transform:translateY(50px);}
-.features .box:hover {transform:translateY(-10px); box-shadow:0 15px 35px rgba(0,0,0,0.15);}
-.features .box.visible {opacity:1; transform:translateY(0);}
-.features i {font-size:50px; margin-bottom:15px; color:#1a73e8;}
-.features h3 {font-size:20px; margin-top:10px; color:#333;}
-
-/* Randevu Form */
-#randevu {background:#f4f6f9; text-align:center;}
-form {max-width:500px; margin:0 auto;}
-form input, form select, form textarea {width:100%; padding:14px; margin:10px 0; border-radius:8px; border:1px solid #ccc; transition:0.3s;}
-form input:focus, form select:focus, form textarea:focus {border-color:#1a73e8; box-shadow:0 0 6px rgba(26,115,232,0.3); outline:none;}
-form button {width:100%; padding:14px; margin-top:12px; border:none; border-radius:8px; background:#1a73e8; color:#fff; font-weight:600; cursor:pointer; transition:0.3s;}
-form button:hover {background:#155ab6; transform:translateY(-2px);}
-
-/* İletişim */
-#iletisim h2 {margin-bottom:50px; opacity:0; transform:translateY(50px); transition:1s;}
-#iletisim.visible h2 {opacity:1; transform:translateY(0);}
-.contact-container {display:flex; flex-wrap:wrap; justify-content:center; gap:25px;}
-.contact-box {background:#fff; width:260px; padding:25px; border-radius:16px; box-shadow:0 8px 25px rgba(0,0,0,0.08); transition:0.3s; opacity:0; transform:translateY(50px);}
-.contact-box:hover {transform:translateY(-5px); box-shadow:0 15px 35px rgba(0,0,0,0.15);}
-.contact-box.visible {opacity:1; transform:translateY(0);}
-.contact-box h3 {margin-bottom:12px; color:#1a73e8;}
-iframe {width:90%; height:320px; border:0; border-radius:12px; margin-top:20px;}
-
-/* Footer */
-footer {background:#222; color:#fff; text-align:center; padding:25px; font-size:14px;}
-footer a {color:#1a73e8; margin:0 5px;}
-footer a:hover {text-decoration:underline;}
-
-/* Responsive */
-@media(max-width:768px){.features .box{width:90%;} header{flex-direction:column; gap:15px;} header nav a{margin-left:0; display:inline-block; margin:8px;}}
+  :root{
+    --blue:#0f766e;
+    --teal:#06b6d4;
+    --muted:#6b7280;
+    --accent:#06b6d4;
+    --card:#ffffff;
+    --bg:#f8fafc;
+    --maxw:1150px;
+  }
+  *{box-sizing:border-box}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;background:var(--bg);color:#0f172a;line-height:1.4}
+  a{color:inherit}
+  .container{max-width:var(--maxw);margin:0 auto;padding:18px}
+  header{background:linear-gradient(90deg,var(--blue),#0891b2);color:#fff}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:48px;height:48px;border-radius:10px;background:#fff;color:var(--blue);display:grid;place-items:center;font-weight:800}
+  nav{display:flex;gap:14px;align-items:center}
+  nav a{color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600;font-size:15px}
+  .contact-sm{font-size:13px;opacity:.95}
+  /* HERO */
+  .hero{display:grid;grid-template-columns:1fr 420px;gap:18px;align-items:center;padding:28px}
+  .hero-left h1{font-size:32px;margin:0 0 10px 0}
+  .hero-left p{color:rgba(255,255,255,0.95);margin:0 0 16px}
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700}
+  .hero-card{background:#fff;border-radius:10px;padding:14px;box-shadow:0 6px 18px rgba(4,4,6,0.12);color:#0b1220}
+  /* SEARCH & CATEGORIES */
+  .searchbar{display:flex;gap:8px;margin-top:14px}
+  .searchbar input{flex:1;padding:10px;border-radius:8px;border:0;box-shadow:inset 0 0 0 1px rgba(2,6,23,0.06)}
+  .searchbar button{padding:10px 12px;border-radius:8px;border:0;background:var(--blue);color:#fff;font-weight:700}
+  .cats{display:flex;gap:12px;overflow:auto;padding:12px 0}
+  .cat{background:#fff;padding:12px 14px;border-radius:10px;min-width:140px;box-shadow:0 4px 12px rgba(2,6,23,0.06);text-align:center}
+  /* MAIN */
+  main{padding:24px 0}
+  .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .product{background:var(--card);border-radius:10px;padding:12px;box-shadow:0 6px 14px rgba(2,6,23,0.06);display:flex;flex-direction:column}
+  .product img{width:100%;height:180px;object-fit:cover;border-radius:8px}
+  .product h4{margin:10px 0 6px 0}
+  .price{color:var(--blue);font-weight:700}
+  .small{font-size:13px;color:var(--muted)}
+  .row{display:flex;gap:12px;align-items:center}
+  .pill{padding:8px 10px;background:#eef2f2;border-radius:8px;font-weight:600;color:#0f172a}
+  /* services */
+  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px}
+  .service{background:linear-gradient(180deg,#fff,#f8faff);padding:14px;border-radius:10px;box-shadow:0 6px 14px rgba(2,6,23,0.04)}
+  /* sticky footer contact bar */
+  .sticky-contact{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px;z-index:120}
+  .sticky-contact a{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:12px 14px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(3,7,18,0.18)}
+  footer{margin-top:30px;padding:22px;background:#04202a;color:#fff;border-radius:10px}
+  /* responsive */
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr; padding:18px}
+    nav{display:none}
+    .topbar{padding:10px}
+  }
+  /* modal */
+  .modal-bg{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;place-items:center;z-index:200}
+  .modal{background:#fff;padding:18px;border-radius:12px;max-width:720px;width:96%}
+  .close{background:#ef4444;color:#fff;padding:6px 8px;border-radius:8px;border:0}
+  .cart-list{max-height:260px;overflow:auto;margin-top:8px}
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo">PET TOWN</div>
-<nav>
-<a href="#">Ana Sayfa</a>
-<a href="#hizmetler">Hizmetler</a>
-<a href="#iletisim">İletişim</a>
-<a href="#randevu" class="btn">Randevu Al</a>
-</nav>
+  <div class="container topbar">
+    <div class="brand">
+      <div class="logo">PT</div>
+      <div>
+        <div style="font-weight:800;font-size:16px">PET TOWN VETERİNER KLİNİĞİ</div>
+        <div class="contact-sm">Gazimağusa Vadili • 0533 840 62 18</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#urunler">Ürünler</a>
+      <a href="#iletisim">İletişim</a>
+      <a href="#randevu" class="pill">Randevu Al</a>
+    </nav>
+  </div>
+
+  <div class="container hero">
+    <div class="hero-left">
+      <h1>Evcil dostların için kapsamlı bakım ve güven</h1>
+      <p style="margin-bottom:8px">Veteriner hizmetleri, acil müdahale, diş bakımı ve içerisinde petshop mağazamızla ihtiyaçlarınızı karşılıyoruz.</p>
+      <div class="searchbar" style="max-width:720px">
+        <input id="searchInput" placeholder="Mama, oyuncak, aşı, veteriner..." aria-label="Ara" />
+        <button id="searchBtn">Ara</button>
+      </div>
+
+      <div class="cats" style="margin-top:12px">
+        <div class="cat">Mamalık & Gıda</div>
+        <div class="cat">Aksesuar & Tasma</div>
+        <div class="cat">Bakım Ürünleri</div>
+        <div class="cat">İlaç & Sağlık</div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-size:12px;color:var(--muted)">Çalışma Saatleri</div>
+          <div style="font-weight:800">Hafta içi 08:00 - 18:30</div>
+          <div style="font-size:13px;color:var(--muted)">Cumartesi 08:00 - 14:30 · Pazar 09:00 - 12:00</div>
+        </div>
+        <div style="text-align:right">
+          <div class="pill">Hemen Ara</div>
+          <div class="small" style="margin-top:6px">(0533 840 62 18)</div>
+        </div>
+      </div>
+      <hr style="margin:12px 0;border:none;border-top:1px solid #eef2f2" />
+      <div style="font-weight:700;margin-bottom:8px">Popüler Ürünler</div>
+
+      <div class="row" style="gap:10px">
+        <div style="flex:1">
+          <img src="https://images.unsplash.com/photo-1600253972874-5fc7d2d1ab15?auto=format&fit=crop&w=600&q=60" style="width:100%;height:80px;object-fit:cover;border-radius:8px" alt="">
+        </div>
+        <div style="flex:1">
+          <img src="https://images.unsplash.com/photo-1602548679984-ef0a6a6a6a4d?auto=format&fit=crop&w=600&q=60" style="width:100%;height:80px;object-fit:cover;border-radius:8px" alt="">
+        </div>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <button class="btn" onclick="openCart()">Sepete Bak (<span id="cartCount">0</span>)</button>
+        <a class="btn" href="#randevu" style="background:#0ea5a4">Randevu Al</a>
+      </div>
+    </div>
+  </div>
 </header>
 
-<section class="hero">
-<div class="hero-content">
-<h1>PET TOWN VETERİNER KLİNİĞİ</h1>
-<p>Dostlarınız için güvenilir veteriner hizmetleri, sevgi dolu bir ortamda</p>
-<a href="#randevu">Hemen Randevu Al</a>
+<main class="container">
+  <!-- ÜRÜNLER -->
+  <section id="urunler">
+    <div style="display:flex;justify-content:space-between;align-items:end">
+      <h2>Mağaza — Öne Çıkan Ürünler</h2>
+      <div class="small">Toplam <strong id="productsTotal">8</strong> ürün</div>
+    </div>
+
+    <div class="grid-3" style="margin-top:12px" id="productGrid">
+      <!-- Ürün kartları (JS ile doldurulacak) -->
+    </div>
+  </section>
+
+  <!-- HİZMETLER -->
+  <section id="hizmetler" style="margin-top:28px">
+    <h2>Veteriner Hizmetleri</h2>
+    <div class="services">
+      <div class="service">
+        <h4>Genel Muayene</h4>
+        <p class="small">Rutin kontroller, hasta değerlendirme ve rehberlik.</p>
+      </div>
+      <div class="service">
+        <h4>Aşı & Koruma</h4>
+        <p class="small">Kedi/köpek aşı programları ve parazit kontrolü.</p>
+      </div>
+      <div class="service">
+        <h4>Ameliyat & Klinik</h4>
+        <p class="small">Steril ameliyathane ve tecrübeli cerrahi ekip.</p>
+      </div>
+      <div class="service">
+        <h4>Diş Sağlığı</h4>
+        <p class="small">Diş temizliği, çekim ve ağız sağlığı değerlendirmesi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PETSHOP DETAY -->
+  <section id="petshop" style="margin-top:28px">
+    <h2>Pet Shop Kategorileri</h2>
+    <div class="grid-3" style="margin-top:12px">
+      <div class="card">
+        <h4>Mama & Beslenme</h4>
+        <p class="small">Kuru ve yaş mamalar, diyet ürünleri.</p>
+      </div>
+      <div class="card">
+        <h4>Bakım & Hijyen</h4>
+        <p class="small">Şampuan, tırnak makası, fırça ve bakım setleri.</p>
+      </div>
+      <div class="card">
+        <h4>Aksesuar & Oyuncak</h4>
+        <p class="small">Tasmalar, oyuncaklar ve taşıma çantaları.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RANDEVU -->
+  <section id="randevu" style="margin-top:28px">
+    <h2>Randevu Talebi</h2>
+    <p class="small">Aşağıdan randevu talebinizi bırakabilirsiniz. Ayrıca hızlı rezervasyon için WhatsApp butonunu kullanın.</p>
+
+    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" style="margin-top:12px;max-width:720px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <input name="isim" placeholder="Adınız" required style="padding:10px;border-radius:8px;border:0;box-shadow:inset 0 0 0 1px rgba(2,6,23,0.06)">
+        <input name="telefon" placeholder="Telefon" required style="padding:10px;border-radius:8px;border:0;box-shadow:inset 0 0 0 1px rgba(2,6,23,0.06)">
+        <input name="email" placeholder="E-posta" style="padding:10px;border-radius:8px;border:0;box-shadow:inset 0 0 0 1px rgba(2,6,23,0.06)">
+        <select name="tür" style="padding:10px;border-radius:8px;border:0;box-shadow:inset 0 0 0 1px rgba(2,6,23,0.06)">
+          <option>Köpek</option>
+          <option>Kedi</option>
+          <option>Kuş</option>
+          <option>Küçük memeli</option>
+        </select>
+      </div>
+      <textarea name="mesaj" placeholder="Kısa açıklama veya şikayet" style="width:100%;margin-top:10px;padding:10px;border-radius:8px;border:0;box-shadow:inset 0 0 0 1px rgba(2,6,23,0.06)"></textarea>
+      <div style="display:flex;gap:10px;margin-top:10px">
+        <button class="btn" type="submit">Randevu Gönder</button>
+        <a class="btn" href="https://wa.me/905338406218" style="background:#25d366">WhatsApp ile Hızlı</a>
+      </div>
+    </form>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <section id="iletisim" style="margin-top:28px">
+    <h2>İletişim & Konum</h2>
+    <p><strong>Adres:</strong> Gazimağusa Vadili</p>
+    <p><strong>Telefon:</strong> <a href="tel:05338406218">0533 840 62 18</a></p>
+
+    <div style="margin-top:12px;max-width:900px">
+      <iframe src="https://www.google.com/maps?q=Vadili,+Gazimağusa&output=embed"></iframe>
+    </div>
+  </section>
+
+  <footer style="margin-top:28px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div>© 2025 PET TOWN Veteriner Kliniği</div>
+      <div style="color:rgba(255,255,255,0.8)">GAZİMAĞUSA VADİLİ • 0533 840 62 18</div>
+    </div>
+  </footer>
+</main>
+
+<!-- sticky contact -->
+<div class="sticky-contact">
+  <a href="tel:05338406218">📞 Ara</a>
+  <a href="https://wa.me/905338406218">💬 WhatsApp</a>
+  <a href="#" onclick="openCart();return false">🛒 Sepet (<span id="cartCount2">0</span>)</a>
 </div>
-<!-- Paw Animations -->
-<div class="paw" style="top:50px; left:10%; animation-duration:18s;"></div>
-<div class="paw" style="top:150px; left:30%; animation-duration:22s;"></div>
-<div class="paw" style="top:100px; left:60%; animation-duration:20s;"></div>
-<div class="paw" style="top:200px; left:80%; animation-duration:25s;"></div>
-</section>
 
-<section id="hizmetler">
-<h2>Hizmetlerimiz</h2>
-<div class="features">
-<div class="box"><i class="fas fa-stethoscope"></i><h3>Genel Muayene</h3></div>
-<div class="box"><i class="fas fa-syringe"></i><h3>Aşı Hizmetleri</h3></div>
-<div class="box"><i class="fas fa-hospital"></i><h3>Acil Müdahale</h3></div>
-<div class="box"><i class="fas fa-cut"></i><h3>Pet Kuaför</h3></div>
-<div class="box"><i class="fas fa-vials"></i><h3>Laboratuvar Testleri</h3></div>
-<div class="box"><i class="fas fa-user-md"></i><h3>Cerrahi Operasyonlar</h3></div>
+<!-- modal cart -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h3 id="cartTitle">Sepetiniz</h3>
+      <button class="close" onclick="closeCart()">Kapat</button>
+    </div>
+    <div class="cart-list" id="cartList">
+      <div class="small">Sepet boş.</div>
+    </div>
+    <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+      <div><strong>Toplam:</strong> <span id="cartTotal">0.00 TL</span></div>
+      <div>
+        <button class="btn" onclick="checkout()">Ödeme / İleri</button>
+      </div>
+    </div>
+  </div>
 </div>
-</section>
-
-<section id="randevu">
-<h2>Randevu Oluştur</h2>
-<form action="https://formspree.io/f/maylnzjp" method="POST">
-<input type="text" name="name" placeholder="İsminiz" required>
-<input type="text" name="phone" placeholder="Telefon Numaranız" required>
-<select name="pet_type">
-<option>Kedi</option>
-<option>Köpek</option>
-<option>Diğer</option>
-</select>
-<textarea name="message" placeholder="Randevu Notu"></textarea>
-<button type="submit">Gönder</button>
-</form>
-</section>
-
-<section id="iletisim">
-<h2>İletişim</h2>
-<div class="contact-container">
-<div class="contact-box"><h3>📍 Adres</h3><p>Gazimağusa Vadili</p></div>
-<div class="contact-box"><h3>📞 Telefon</h3><p><a href="tel:05338406218">0533 840 6218</a></p></div>
-<div class="contact-box"><h3>💬 WhatsApp</h3><p><a href="https://wa.me/905338388696" target="_blank">0533 838 8696</a></p></div>
-<div class="contact-box"><h3>📧 E-posta</h3><p><a href="mailto:pettowncyprus@gmail.com">pettowncyprus@gmail.com</a></p></div>
-</div>
-<iframe src="https://www.google.com/maps?q=Gazimağusa%20Vadili&output=embed"></iframe>
-</section>
-
-<footer>
-© 2025 PET TOWN VETERİNER KLİNİĞİ — Tüm Hakları Saklıdır. <br>
-<a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
-</footer>
 
 <script>
-// Scroll Animations
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
+  // Basit ürün verisi (örnek) - kendi ürünlerini buradan kolayca düzenle
+  const products = [
+    {id:1, title:"Premium Köpek Maması 12kg", price:1299.00, img:"https://images.unsplash.com/photo-1556228720-0a549b8f3b3a?auto=format&fit=crop&w=800&q=60"},
+    {id:2, title:"Kedi Maması Tahılsız 5kg", price:549.00, img:"https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=800&q=60"},
+    {id:3, title:"Tasma + Göğüs Tasması Seti", price:149.90, img:"https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=800&q=60"},
+    {id:4, title:"Diş Fırçası & Macun", price:79.50, img:"https://images.unsplash.com/photo-1583511655902-2c8e6f0f1fb6?auto=format&fit=crop&w=800&q=60"},
+    {id:5, title:"Vitamin & Takviye (Köpek)", price:199.00, img:"https://images.unsplash.com/photo-1582719478181-6e7f0523f4e0?auto=format&fit=crop&w=800&q=60"},
+    {id:6, title:"Kedi Oyuncağı Top", price:39.90, img:"https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=60"},
+    {id:7, title:"Taşıma Çantası (Küçük)", price:269.00, img:"https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=800&q=60"},
+    {id:8, title:"Kedi Kumu 10L", price:89.90, img:"https://images.unsplash.com/photo-1603333672863-5f8a5b9f7b49?auto=format&fit=crop&w=800&q=60"},
+  ];
+
+  const cart = [];
+
+  // Render products
+  const grid = document.getElementById('productGrid');
+  function money(n){ return n.toLocaleString('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}) + ' TL'; }
+  products.forEach(p=>{
+    const el = document.createElement('div'); el.className='product';
+    el.innerHTML = `
+      <img src="${p.img}" alt="${p.title}">
+      <h4>${p.title}</h4>
+      <div class="small">Ücretsiz mağaza teslimi (seçenekli)</div>
+      <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center">
+        <div class="price">${money(p.price)}</div>
+        <div>
+          <button class="btn" style="padding:8px 10px" onclick="addToCart(${p.id})">Sepete Ekle</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(el);
   });
-},{threshold:0.2});
+  document.getElementById('productsTotal').innerText = products.length;
 
-document.querySelectorAll('section h2, .features .box, .contact-box').forEach(el=>observer.observe(el));
+  // Cart functions
+  function addToCart(id){
+    const p = products.find(x=>x.id===id);
+    const item = cart.find(x=>x.id===id);
+    if(item) item.qty++;
+    else cart.push({id:p.id,title:p.title,price:p.price,qty:1});
+    updateCartUI();
+    openCart();
+  }
+  function updateCartUI(){
+    const cartList = document.getElementById('cartList');
+    cartList.innerHTML = '';
+    if(cart.length===0){ cartList.innerHTML = '<div class="small">Sepet boş.</div>'; }
+    else {
+      cart.forEach(it=>{
+        const row = document.createElement('div');
+        row.style.display='flex';row.style.justifyContent='space-between';row.style.alignItems='center';row.style.padding='8px 0';
+        row.innerHTML = `<div style="flex:1"><strong style="font-size:14px">${it.title}</strong><div class="small">${it.qty} x ${money(it.price)}</div></div>
+                         <div style="display:flex;gap:6px;align-items:center">
+                           <button onclick="changeQty(${it.id}, -1)" style="padding:6px;border-radius:6px">-</button>
+                           <button onclick="changeQty(${it.id}, 1)" style="padding:6px;border-radius:6px">+</button>
+                         </div>`;
+        cartList.appendChild(row);
+      });
+    }
+    const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+    document.getElementById('cartTotal').innerText = money(total);
+    document.getElementById('cartCount').innerText = cart.reduce((s,i)=>s+i.qty,0);
+    document.getElementById('cartCount2').innerText = cart.reduce((s,i)=>s+i.qty,0);
+  }
+  function changeQty(id, delta){
+    const it = cart.find(x=>x.id===id);
+    if(!it) return;
+    it.qty += delta;
+    if(it.qty<=0) { const idx = cart.findIndex(x=>x.id===id); cart.splice(idx,1); }
+    updateCartUI();
+  }
+  function openCart(){ document.getElementById('modalBg').style.display='grid'; updateCartUI(); }
+  function closeCart(){ document.getElementById('modalBg').style.display='none'; }
+  function checkout(){
+    if(cart.length===0){ alert('Sepet boş. Ürün ekleyin.'); return; }
+    // Burada gerçek ödeme sayfasına yönlendirme veya ödeme entegrasyonu yapılır.
+    alert('Ödeme entegrasyonu şu an demo. Gerçek ödeme için Stripe / API bağlanmalı.');
+  }
+
+  // Search interaction (basit)
+  document.getElementById('searchBtn').addEventListener('click', ()=>{
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    if(!q){ alert('Arama terimini girin'); return; }
+    const found = products.filter(p=>p.title.toLowerCase().includes(q));
+    if(found.length===0){ alert('Aradığınız ürün bulunamadı. Mağazamızı keşfedin.'); return; }
+    // Scroll to first found product (simple UX)
+    const idx = products.indexOf(found[0]);
+    const el = document.querySelectorAll('#productGrid .product')[idx];
+    if(el){ el.scrollIntoView({behavior:'smooth',block:'center'}); el.style.outline='3px solid #06b6d4'; setTimeout(()=>el.style.outline='none',2000) }
+  });
+
+  // Initialize
+  updateCartUI();
 </script>
-
 </body>
 </html>
