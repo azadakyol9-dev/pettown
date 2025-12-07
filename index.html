@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sevgi Patiler Veteriner Kliniği</title>
-    <meta name="description" content="Profesyonel veteriner hizmetleri, aşı, muayene, cerrahi işlemler ve 7/24 acil servis.">
+    <title>Pet Town Veteriner Kliniği | Profesyonel Veteriner Hizmetleri</title>
+    <meta name="description" content="Pet Town Veteriner Kliniği - 7/24 acil servis, aşı, muayene, cerrahi işlemler, diş sağlığı ve daha fazlası.">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,202 +14,99 @@
     
     <style>
         :root {
-            --primary: #2c98f0;
-            --secondary: #34c0a1;
+            --primary: #00b5ad;
+            --secondary: #ff6b6b;
             --dark: #2d3748;
             --light: #f8fafc;
             --gray: #718096;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background: #fff;
-        }
-        
-        a { text-decoration: none; color: inherit; }
-        img { max-width: 100%; display: block; }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Header & Nav */
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Poppins',sans-serif; line-height:1.6; color:var(--dark); background:#fff; }
+        a { text-decoration:none; color:inherit; }
+        img { max-width:100%; display:block; }
+        .container { width:90%; max-width:1200px; margin:0 auto; padding:0 15px; }
+
+        /* Header */
         header {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            background:rgba(255,255,255,0.97);
+            backdrop-filter:blur(10px);
+            position:fixed;
+            width:100%;
+            top:0;
+            z-index:1000;
+            box-shadow:0 2px 20px rgba(0,0,0,0.1);
         }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .logo span { color: var(--secondary); }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover { color: var(--primary); }
-        
-        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
-        
-        /* Hero Section */
+        nav { display:flex; justify-content:space-between; align-items:center; padding:1rem 0; }
+        .logo { font-size:1.9rem; font-weight:700; color:var(--primary); }
+        .logo span { color:var(--secondary); }
+        .nav-links { display:flex; gap:2.5rem; align-items:center; }
+        .nav-links a { font-weight:500; transition:color .3s; }
+        .nav-links a:hover { color:var(--primary); }
+        .mobile-toggle { display:none; font-size:1.6rem; cursor:pointer; }
+
+        /* Hero */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1559839915-531a16118c69?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            color: white;
-            text-align: center;
+            background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1583511655826-05700d52f4d9?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
+            height:100vh;
+            display:flex;
+            align-items:center;
+            color:white;
+            text-align:center;
         }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        
+        .hero h1 { font-size:3.8rem; margin-bottom:1rem; }
+        .hero p { font-size:1.3rem; max-width:800px; margin:0 auto 2rem; }
         .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--secondary);
-            color: white;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
+            display:inline-block;
+            padding:14px 34px;
+            border-radius:50px;
+            font-weight:600;
+            transition:all .3s;
+            margin:0 8px;
         }
-        
-        .btn:hover { background: #2aa88a; transform: translateY(-3px); }
-        .btn-primary { background: var(--primary); }
-        .btn-primary:hover { background: #1d7fd4; }
-        
-        /* Services */
-        .services {
-            padding: 100px 0;
-            background: var(--light);
-        }
-        
-        section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--dark);
-        }
-        
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        
+        .btn-primary { background:var(--primary); color:white; }
+        .btn-primary:hover { background:#009a93; transform:translateY(-4px); }
+        .btn-secondary { background:var(--secondary); color:white; }
+        .btn-secondary:hover { background:#ff5252; transform:translateY(-4px); }
+
+        /* Sections */
+        section { padding:100px 0; }
+        section h2 { text-align:center; font-size:2.6rem; margin-bottom:3rem; color:var(--dark); }
+        .services { background:var(--light); }
+        .service-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:2rem; }
         .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            background:white;
+            padding:2.5rem 2rem;
+            border-radius:16px;
+            text-align:center;
+            box-shadow:0 10px 30px rgba(0,0,0,0.08);
+            transition:transform .3s;
         }
-        
-        .service-card:hover { transform: translateY(-10px); }
-        
-        .service-card i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        /* About */
-        .about {
-            padding: 100px 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .about img {
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-        
-        /* Contact & Footer */
-        .contact {
-            padding: 100px 0;
-            background: var(--dark);
-            color: white;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-        
-        .contact-info h3 { color: var(--secondary); margin-bottom: 1rem; }
-        .contact-info p { margin-bottom: 0.5rem; opacity: 0.9; }
-        
-        footer {
-            background: #1a202c;
-            color: #a0aec0;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        
+        .service-card:hover { transform:translateY(-12px); }
+        .service-card i { font-size:3.2rem; color:var(--primary); margin-bottom:1.2rem; }
+
+        .about { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+        .about img { border-radius:16px; box-shadow:0 20px 40px rgba(0,0,0,0.15); }
+
+        .contact { background:var(--dark); color:white; }
+        .contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:3rem; }
+        .contact-info h3 { color:var(--primary); margin-bottom:1rem; }
+        .contact-info a { color:var(--secondary); font-weight:600; }
+
+        footer { background:#1a202c; color:#a0aec0; text-align:center; padding:2rem 0; }
+
         /* Responsive */
-        @media (max-width: 768px) {
-            .mobile-toggle { display: block; }
+        @media (max-width:768px) {
+            .mobile-toggle { display:block; }
             .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                background: white;
-                flex-direction: column;
-                width: 100%;
-                height: calc(100vh - 70px);
-                padding: 2rem;
-                transition: 0.3s;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                position:fixed; top:70px; left:-100%; background:white; width:100%;
+                flex-direction:column; padding:2rem; transition:.4s; height:calc(100vh - 70px);
+                box-shadow:0 10px 30px rgba(0,0,0,0.2);
             }
-            .nav-links.active { left: 0; }
-            .hero h1 { font-size: 2.5rem; }
-            .about { grid-template-columns: 1fr; }
+            .nav-links.active { left:0; }
+            .hero h1 { font-size:2.6rem; }
+            .about { grid-template-columns:1fr; }
+            .about img { order:-1; }
         }
     </style>
 </head>
@@ -219,14 +116,14 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Sevgi<span>Patiler</span></div>
+                <div class="logo">Pet<span>Town</span></div>
                 <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
                 <div class="nav-links">
                     <a href="#anasayfa">Ana Sayfa</a>
                     <a href="#hizmetler">Hizmetler</a>
                     <a href="#hakkimizda">Hakkımızda</a>
                     <a href="#iletisim">İletişim</a>
-                    <a href="tel:+905551234567" class="btn btn-primary" style="padding: 8px 20px;">Acil: 0555 123 45 67</a>
+                    <a href="tel:+905551234567" class="btn btn-secondary" style="padding:10px 24px; font-size:0.95rem;">Acil: 0555 123 45 67</a>
                 </div>
             </nav>
         </div>
@@ -235,88 +132,67 @@
     <!-- Hero -->
     <section id="anasayfa" class="hero">
         <div class="container">
-            <h1>Sevgiyle İyileştiriyoruz</h1>
-            <p>Evcil dostlarınızın sağlığı bizim için en önemli öncelik. 7/24 acil servis, modern ekipmanlar ve deneyimli veteriner hekim kadromuzla yanınızdayız.</p>
-            <a href="tel:+905551234567" class="btn btn-primary">Hemen Arayın</a>
-            <a href="#hizmetler" class="btn" style="margin-left: 15px; background: rgba(255,255,255,0.2);">Hizmetlerimiz</a>
+            <h1>Pet Town Veteriner Kliniği</h1>
+            <p>Sevgili dostlarınızın sağlığı bizim için her şeyden önemli. 7/24 acil servis, modern ekipmanlar ve uzman veteriner hekim kadromuzla her zaman yanınızdayız.</p>
+            <div>
+                <a href="tel:+905551234567" class="btn btn-primary">Hemen Arayın</a>
+                <a href="#iletisim" class="btn btn-secondary">Randevu Al</a>
+            </div>
         </div>
     </section>
 
-    <!-- Services -->
+    <!-- Hizmetler -->
     <section id="hizmetler" class="services">
         <div class="container">
             <h2>Hizmetlerimiz</h2>
             <div class="service-grid">
-                <div class="service-card">
-                    <i class="fas fa-stethoscope"></i>
-                    <h3>Genel Muayene</h3>
-                    <p>Rutin kontroller, aşı uygulamaları ve sağlık taramaları</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-syringe"></i>
-                    <h3>Aşı & Parazit</h3>
-                    <p>Tüm iç ve dış parazit uygulamaları, yıllık aşı programları</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-cut"></i>
-                    <h3>Cerrahi İşlemler</h3>
-                    <p>Kısırlaştırma, tümör ameliyatları, ortopedi ve yumuşak doku cerrahisi</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-x-ray"></i>
-                    <h3>Görüntüleme</h3>
-                    <p>Dijital röntgen, ultrason, kan tahlilleri</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-paw"></i>
-                    <h3>Diş Sağlığı</h3>
-                    <p>Diş taşı temizliği, diş çekimi ve ağız sağlığı uygulamaları</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-ambulance"></i>
-                    <h3>7/24 Acil Servis</h3>
-                    <p>Gece gündüz demeden acil durumlar için buradayız</p>
-                </div>
+                <div class="service-card"><i class="fas fa-stethoscope"></i><h3>Genel Muayene</h3><p>Rutin kontroller ve sağlık taramaları</p></div>
+                <div class="service-card"><i class="fas fa-syringe"></i><h3>Aşı & Parazit</h3><p>Yıllık aşı programı ve parazit koruması</p></div>
+                <div class="service-card"><i class="fas fa-cut"></i><h3>Cerrahi İşlemler</h3><p>Kısırlaştırma, tümör ve ortopedi ameliyatları</p></div>
+                <div class="service-card"><i class="fas fa-x-ray"></i><h3>Görüntüleme & Laboratuvar</h3><p>Röntgen, ultrason ve kan tahlilleri</p></div>
+                <div class="service-card"><i class="fas fa-tooth"></i><h3>Diş Sağlığı</h3><p>Diş taşı temizliği ve ağız bakımı</p></div>
+                <div class="service-card"><i class="fas fa-ambulance"></i><h3>7/24 Acil Servis</h3><p>Gece gündüz acil müdahale</p></div>
             </div>
         </div>
     </section>
 
-    <!-- About -->
+    <!-- Hakkımızda -->
     <section id="hakkimizda" class="about">
         <div class="container">
             <div>
-                <h2>Biz Kimiz?</h2>
-                <p>Sevgi Patiler Veteriner Kliniği olarak 10 yılı aşkın süredir İstanbul’da evcil hayvanlarınızın sağlığını koruyoruz. Modern tıbbi cihazlarımız ve hayvan sevgisiyle dolu ekibimizle her zaman en iyi hizmeti sunmayı hedefliyoruz.</p>
+                <h2>Pet Town Veteriner Kliniği</h2>
+                <p>Uzun yıllardır hayvan sağlığı alanında hizmet veren kliniğimizde, evcil dostlarınızı kendi ailemizden biri gibi görüyoruz. En son teknoloji tıbbi cihazlarımız ve hayvan sevgisiyle dolu uzman ekibimizle her zaman en iyi bakımı sunuyoruz.</p>
                 <br>
-                <p>Kliniğimizde her hayvan birey olarak ele alınır ve kişiye özel tedavi planları hazırlanır.</p>
+                <p>Her hasta bireysel olarak değerlendirilir, size ve dostunuza özel tedavi planları hazırlanır.</p>
                 <br>
                 <a href="#iletisim" class="btn btn-primary">Bize Ulaşın</a>
             </div>
             <div>
-                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Veteriner kliniği içi">
+                <img src="https://images.unsplash.com/photo-1583511666401-76eba91d5a5b?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Pet Town Veteriner Kliniği">
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- İletişim -->
     <section id="iletisim" class="contact">
         <div class="container">
-            <h2 style="color:white; text-align:center; margin-bottom:3rem;">İletişim & Randevu</h2>
+            <h2 style="color:white">İletişim & Konum</h2>
             <div class="contact-grid">
                 <div class="contact-info">
                     <h3><i class="fas fa-map-marker-alt"></i> Adres</h3>
-                    <p>Örnek Mahallesi, Veteriner Caddesi No:123<br>Kadıköy / İstanbul</p>
+                    <p>Pet Town Veteriner Kliniği<br>
+                       <a href="https://maps.app.goo.gl/kpGMGNTPiPLFaLBx7?g_st=ac" target="_blank">Google Haritalar'da Gör →</a></p>
                 </div>
                 <div class="contact-info">
                     <h3><i class="fas fa-phone"></i> Telefon</h3>
-                    <p>Telefon: <a href="tel:+902165554433">0216 555 44 33</a><br>
+                    <p>Klinik: <a href="tel:+902165554433">0216 555 44 33</a><br>
                        Acil & WhatsApp: <a href="https://wa.me/905551234567">0555 123 45 67</a></p>
                 </div>
                 <div class="contact-info">
                     <h3><i class="fas fa-clock"></i> Çalışma Saatleri</h3>
                     <p>Hafta İçi: 09:00 - 21:00<br>
-                       Cumartesi: 10:00 - 18:00<br>
-                       Pazar: Acil Servis</p>
+                       Cumartesi: 09:00 - 19:00<br>
+                       Pazar: 10:00 - 16:00 (Acil servis 7/24)</p>
                 </div>
             </div>
         </div>
@@ -324,12 +200,11 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Sevgi Patiler Veteriner Kliniği. Tüm hakları saklıdır.</p>
+            <p>&copy; 2025 Pet Town Veteriner Kliniği. Tüm hakları saklıdır.</p>
         </div>
     </footer>
 
     <script>
-        // Mobil menü aç/kapat
         document.querySelector('.mobile-toggle').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
         });
