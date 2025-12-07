@@ -3,359 +3,187 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>PET TOWN VETERİNER & PETSHOP</title>
-<meta name="description" content="PET TOWN - Gazimağusa Vadili. Veteriner hizmetleri ve petshop. Randevu ve online ürünler.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>PET TOWN Veteriner Kliniği — Gazimağusa Vadili</title>
+<meta name="description" content="PET TOWN Veteriner Kliniği — Gazimağusa Vadili. Profesyonel muayene, acil müdahale, cerrahi ve diş sağlığı. WhatsApp ile hızlı randevu.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --blue:#0f766e;
-    --teal:#06b6d4;
-    --muted:#6b7280;
+    --primary:#0b6b74;
     --accent:#06b6d4;
+    --muted:#6b7280;
+    --bg:#f6fbfc;
     --card:#ffffff;
-    --bg:#f8fafc;
-    --maxw:1150px;
+    --maxw:1100px;
   }
   *{box-sizing:border-box}
-  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;background:var(--bg);color:#0f172a;line-height:1.4}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;background:var(--bg);color:#04202a}
   a{color:inherit}
-  .container{max-width:var(--maxw);margin:0 auto;padding:18px}
-  header{background:linear-gradient(90deg,var(--blue),#0891b2);color:#fff}
-  .topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+  .container{max-width:var(--maxw);margin:0 auto;padding:20px}
+  header{background:linear-gradient(90deg,var(--primary), #0891b2);color:#fff}
+  .top{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;gap:12px}
   .brand{display:flex;align-items:center;gap:12px}
-  .logo{width:48px;height:48px;border-radius:10px;background:#fff;color:var(--blue);display:grid;place-items:center;font-weight:800}
-  nav{display:flex;gap:14px;align-items:center}
-  nav a{color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600;font-size:15px}
-  .contact-sm{font-size:13px;opacity:.95}
-  /* HERO */
-  .hero{display:grid;grid-template-columns:1fr 420px;gap:18px;align-items:center;padding:28px}
-  .hero-left h1{font-size:32px;margin:0 0 10px 0}
-  .hero-left p{color:rgba(255,255,255,0.95);margin:0 0 16px}
-  .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700}
-  .hero-card{background:#fff;border-radius:10px;padding:14px;box-shadow:0 6px 18px rgba(4,4,6,0.12);color:#0b1220}
-  /* SEARCH & CATEGORIES */
-  .searchbar{display:flex;gap:8px;margin-top:14px}
-  .searchbar input{flex:1;padding:10px;border-radius:8px;border:0;box-shadow:inset 0 0 0 1px rgba(2,6,23,0.06)}
-  .searchbar button{padding:10px 12px;border-radius:8px;border:0;background:var(--blue);color:#fff;font-weight:700}
-  .cats{display:flex;gap:12px;overflow:auto;padding:12px 0}
-  .cat{background:#fff;padding:12px 14px;border-radius:10px;min-width:140px;box-shadow:0 4px 12px rgba(2,6,23,0.06);text-align:center}
-  /* MAIN */
-  main{padding:24px 0}
-  .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-  .product{background:var(--card);border-radius:10px;padding:12px;box-shadow:0 6px 14px rgba(2,6,23,0.06);display:flex;flex-direction:column}
-  .product img{width:100%;height:180px;object-fit:cover;border-radius:8px}
-  .product h4{margin:10px 0 6px 0}
-  .price{color:var(--blue);font-weight:700}
+  .logo{width:56px;height:56px;border-radius:12px;background:#fff;color:var(--primary);display:grid;place-items:center;font-weight:900;font-size:18px}
+  .nav{display:flex;gap:14px;align-items:center}
+  .nav a{color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600;font-size:15px}
+  .cta{background:#fff;color:var(--primary);padding:8px 12px;border-radius:8px;font-weight:700}
+  .hero{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:center;padding:28px}
+  .hero h1{font-size:30px;margin:0 0 10px 0;color:#fff;line-height:1.05}
+  .hero p{margin:0 0 16px;color:rgba(255,255,255,0.95)}
+  .hero-card{background:var(--card);border-radius:12px;padding:16px;color:#04202a;box-shadow:0 8px 28px rgba(3,10,18,0.12)}
+  .searchbar{display:flex;gap:8px;margin-top:8px}
+  .searchbar input{flex:1;padding:12px;border-radius:10px;border:0;box-shadow:inset 0 0 0 1px rgba(2,6,23,0.06)}
+  .searchbar button{padding:10px 12px;border-radius:10px;border:0;background:var(--primary);color:#fff;font-weight:700}
+  .cats{display:flex;gap:10px;overflow:auto;padding-top:12px}
+  .cat{background:#fff;padding:10px 12px;border-radius:10px;min-width:120px;text-align:center;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+  main{padding:26px 0}
+  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
+  .service{background:linear-gradient(180deg,#fff,#f7fbfd);padding:16px;border-radius:10px;box-shadow:0 8px 18px rgba(2,6,23,0.04)}
+  .section-card{background:var(--card);padding:26px;border-radius:12px;box-shadow:0 8px 24px rgba(3,10,18,0.06)}
+  h2{color:var(--primary);margin-top:0}
   .small{font-size:13px;color:var(--muted)}
-  .row{display:flex;gap:12px;align-items:center}
-  .pill{padding:8px 10px;background:#eef2f2;border-radius:8px;font-weight:600;color:#0f172a}
-  /* services */
-  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px}
-  .service{background:linear-gradient(180deg,#fff,#f8faff);padding:14px;border-radius:10px;box-shadow:0 6px 14px rgba(2,6,23,0.04)}
-  /* sticky footer contact bar */
-  .sticky-contact{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px;z-index:120}
-  .sticky-contact a{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:12px 14px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(3,7,18,0.18)}
-  footer{margin-top:30px;padding:22px;background:#04202a;color:#fff;border-radius:10px}
-  /* responsive */
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+  footer{background:#04202a;color:#fff;padding:20px;border-radius:10px;margin-top:30px}
+  .sticky{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px;z-index:160}
+  .sticky a{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:12px 14px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:0 10px 30px rgba(3,10,18,0.18)}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   @media (max-width:900px){
-    .hero{grid-template-columns:1fr; padding:18px}
-    nav{display:none}
-    .topbar{padding:10px}
+    .hero{grid-template-columns:1fr;padding:18px;gap:14px}
+    .nav{display:none}
+    .top{padding:10px}
+    .grid-2{grid-template-columns:1fr}
   }
-  /* modal */
-  .modal-bg{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;place-items:center;z-index:200}
-  .modal{background:#fff;padding:18px;border-radius:12px;max-width:720px;width:96%}
-  .close{background:#ef4444;color:#fff;padding:6px 8px;border-radius:8px;border:0}
-  .cart-list{max-height:260px;overflow:auto;margin-top:8px}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="container topbar">
+  <div class="container top">
     <div class="brand">
-      <div class="logo">PT</div>
+      <div class="logo" aria-hidden="true">PT</div>
       <div>
-        <div style="font-weight:800;font-size:16px">PET TOWN VETERİNER KLİNİĞİ</div>
-        <div class="contact-sm">Gazimağusa Vadili • 0533 840 62 18</div>
+        <div style="font-weight:900">PET TOWN VETERİNER KLİNİĞİ</div>
+        <div class="small">Gazimağusa Vadili • 0533 840 62 18</div>
       </div>
     </div>
-    <nav>
+
+    <nav class="nav" aria-label="Ana menü">
       <a href="#hizmetler">Hizmetler</a>
-      <a href="#urunler">Ürünler</a>
+      <a href="#randevu">Randevu</a>
       <a href="#iletisim">İletişim</a>
-      <a href="#randevu" class="pill">Randevu Al</a>
+      <a class="cta" href="tel:05338406218">Hemen Ara</a>
     </nav>
   </div>
 
-  <div class="container hero">
-    <div class="hero-left">
-      <h1>Evcil dostların için kapsamlı bakım ve güven</h1>
-      <p style="margin-bottom:8px">Veteriner hizmetleri, acil müdahale, diş bakımı ve içerisinde petshop mağazamızla ihtiyaçlarınızı karşılıyoruz.</p>
-      <div class="searchbar" style="max-width:720px">
-        <input id="searchInput" placeholder="Mama, oyuncak, aşı, veteriner..." aria-label="Ara" />
-        <button id="searchBtn">Ara</button>
-      </div>
+  <div class="container hero" role="region" aria-label="Tanıtım">
+    <div>
+      <h1>Evcil dostlarınız için kapsamlı veteriner bakım</h1>
+      <p>Profesyonel muayene, cerrahi, acil müdahale, diş sağlığı ve güvenilir bakım — PET TOWN’da.</p>
 
-      <div class="cats" style="margin-top:12px">
-        <div class="cat">Mamalık & Gıda</div>
-        <div class="cat">Aksesuar & Tasma</div>
-        <div class="cat">Bakım Ürünleri</div>
-        <div class="cat">İlaç & Sağlık</div>
+      <div class="cats" aria-hidden="true" style="margin-top:8px">
+        <div class="cat">Muayene & Tanı</div>
+        <div class="cat">Aşı & Koruma</div>
+        <div class="cat">Cerrahi</div>
+        <div class="cat">Acil Hizmet</div>
       </div>
     </div>
 
-    <div class="hero-card">
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <div>
-          <div style="font-size:12px;color:var(--muted)">Çalışma Saatleri</div>
-          <div style="font-weight:800">Hafta içi 08:00 - 18:30</div>
-          <div style="font-size:13px;color:var(--muted)">Cumartesi 08:00 - 14:30 · Pazar 09:00 - 12:00</div>
-        </div>
-        <div style="text-align:right">
-          <div class="pill">Hemen Ara</div>
-          <div class="small" style="margin-top:6px">(0533 840 62 18)</div>
-        </div>
-      </div>
-      <hr style="margin:12px 0;border:none;border-top:1px solid #eef2f2" />
-      <div style="font-weight:700;margin-bottom:8px">Popüler Ürünler</div>
-
-      <div class="row" style="gap:10px">
-        <div style="flex:1">
-          <img src="https://images.unsplash.com/photo-1600253972874-5fc7d2d1ab15?auto=format&fit=crop&w=600&q=60" style="width:100%;height:80px;object-fit:cover;border-radius:8px" alt="">
-        </div>
-        <div style="flex:1">
-          <img src="https://images.unsplash.com/photo-1602548679984-ef0a6a6a6a4d?auto=format&fit=crop&w=600&q=60" style="width:100%;height:80px;object-fit:cover;border-radius:8px" alt="">
-        </div>
+    <aside class="hero-card" aria-labelledby="clinic-info">
+      <div id="clinic-info" style="margin-bottom:10px">
+        <div class="small">Çalışma Saatleri</div>
+        <div style="font-weight:800">Hafta içi 08:00 - 18:30</div>
+        <div class="small">Cumartesi 08:00 - 14:30 · Pazar 09:00 - 12:00</div>
       </div>
 
-      <div style="margin-top:12px;display:flex;gap:8px">
-        <button class="btn" onclick="openCart()">Sepete Bak (<span id="cartCount">0</span>)</button>
-        <a class="btn" href="#randevu" style="background:#0ea5a4">Randevu Al</a>
+      <div style="margin-top:10px">
+        <div style="font-weight:800;margin-bottom:6px">Hızlı Randevu</div>
+        <a class="btn" href="https://wa.me/905338406218" aria-label="WhatsApp ile randevu">WhatsApp ile Hemen</a>
+        <a class="btn" href="tel:05338406218" style="background:var(--primary);margin-left:8px">Bizi Ara</a>
       </div>
-    </div>
+
+      <hr style="border:none;border-top:1px solid #eef3f5;margin:12px 0">
+
+      <p class="small" style="margin:0">Adres: Gazimağusa Vadili</p>
+      <p class="small" style="margin:0">E-posta: <span id="clinicEmail">info@pettown.example</span></p>
+    </aside>
   </div>
 </header>
 
-<main class="container">
-  <!-- ÜRÜNLER -->
-  <section id="urunler">
-    <div style="display:flex;justify-content:space-between;align-items:end">
-      <h2>Mağaza — Öne Çıkan Ürünler</h2>
-      <div class="small">Toplam <strong id="productsTotal">8</strong> ürün</div>
-    </div>
-
-    <div class="grid-3" style="margin-top:12px" id="productGrid">
-      <!-- Ürün kartları (JS ile doldurulacak) -->
+<main class="container" id="main">
+  <section id="hizmetler" class="section-card" aria-labelledby="hizmetler-title">
+    <h2 id="hizmetler-title">Veteriner Hizmetlerimiz</h2>
+    <div class="services" role="list">
+      <div class="service" role="listitem"><h4>Genel Muayene</h4><p class="small">Evcil hayvanınızın genel sağlığı ve rutin kontroller.</p></div>
+      <div class="service" role="listitem"><h4>Aşı Uygulamaları</h4><p class="small">Güncel aşı takibi ve koruyucu hekimlik.</p></div>
+      <div class="service" role="listitem"><h4>Parazit Tedavisi</h4><p class="small">Kene, pire ve bağırsak parazitlerine karşı tedavi.</p></div>
+      <div class="service" role="listitem"><h4>Laboratuvar & Görüntüleme</h4><p class="small">Kan testleri, röntgen ve ultrason hizmetleri.</p></div>
+      <div class="service" role="listitem"><h4>Ameliyat & Cerrahi</h4><p class="small">Steril ortamda güvenli cerrahi müdahaleler.</p></div>
+      <div class="service" role="listitem"><h4>Acil Müdahale</h4><p class="small">Acil vakalarda hızlı değerlendirme ve stabilizasyon.</p></div>
     </div>
   </section>
 
-  <!-- HİZMETLER -->
-  <section id="hizmetler" style="margin-top:28px">
-    <h2>Veteriner Hizmetleri</h2>
-    <div class="services">
-      <div class="service">
-        <h4>Genel Muayene</h4>
-        <p class="small">Rutin kontroller, hasta değerlendirme ve rehberlik.</p>
+  <section id="randevu" class="section-card" style="margin-top:22px">
+    <h2>Randevu & Hızlı İletişim</h2>
+    <p class="small">Form kaldırıldı. Randevu almak için aşağıdaki yöntemlerden birini kullanabilirsiniz:</p>
+
+    <div class="grid-2" style="margin-top:14px">
+      <div>
+        <h3 style="margin-top:0">Telefon</h3>
+        <p class="small">Bizi arayın: <a href="tel:05338406218">0533 840 62 18</a></p>
+        <p class="small">Çalışma saatleri içinde doğrudan konuşup randevu alabilirsiniz.</p>
+        <a class="btn" href="tel:05338406218" aria-label="Telefon ile arama">Hemen Ara</a>
       </div>
-      <div class="service">
-        <h4>Aşı & Koruma</h4>
-        <p class="small">Kedi/köpek aşı programları ve parazit kontrolü.</p>
-      </div>
-      <div class="service">
-        <h4>Ameliyat & Klinik</h4>
-        <p class="small">Steril ameliyathane ve tecrübeli cerrahi ekip.</p>
-      </div>
-      <div class="service">
-        <h4>Diş Sağlığı</h4>
-        <p class="small">Diş temizliği, çekim ve ağız sağlığı değerlendirmesi.</p>
+
+      <div>
+        <h3 style="margin-top:0">WhatsApp</h3>
+        <p class="small">Hızlı rezervasyon, fotoğraf gönderme ve anlık cevap için:</p>
+        <a class="btn" href="https://wa.me/905338406218" aria-label="WhatsApp sohbet">WhatsApp ile Mesaj Gönder</a>
+        <p class="small" style="margin-top:8px">WhatsApp üzerinden telefon numarası, evcil hayvan bilgisi ve tercih ettiğiniz tarih/saat gönderin — size cevap verelim.</p>
       </div>
     </div>
   </section>
 
-  <!-- PETSHOP DETAY -->
-  <section id="petshop" style="margin-top:28px">
-    <h2>Pet Shop Kategorileri</h2>
-    <div class="grid-3" style="margin-top:12px">
-      <div class="card">
-        <h4>Mama & Beslenme</h4>
-        <p class="small">Kuru ve yaş mamalar, diyet ürünleri.</p>
-      </div>
-      <div class="card">
-        <h4>Bakım & Hijyen</h4>
-        <p class="small">Şampuan, tırnak makası, fırça ve bakım setleri.</p>
-      </div>
-      <div class="card">
-        <h4>Aksesuar & Oyuncak</h4>
-        <p class="small">Tasmalar, oyuncaklar ve taşıma çantaları.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- RANDEVU -->
-  <section id="randevu" style="margin-top:28px">
-    <h2>Randevu Talebi</h2>
-    <p class="small">Aşağıdan randevu talebinizi bırakabilirsiniz. Ayrıca hızlı rezervasyon için WhatsApp butonunu kullanın.</p>
-
-    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" style="margin-top:12px;max-width:720px">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-        <input name="isim" placeholder="Adınız" required style="padding:10px;border-radius:8px;border:0;box-shadow:inset 0 0 0 1px rgba(2,6,23,0.06)">
-        <input name="telefon" placeholder="Telefon" required style="padding:10px;border-radius:8px;border:0;box-shadow:inset 0 0 0 1px rgba(2,6,23,0.06)">
-        <input name="email" placeholder="E-posta" style="padding:10px;border-radius:8px;border:0;box-shadow:inset 0 0 0 1px rgba(2,6,23,0.06)">
-        <select name="tür" style="padding:10px;border-radius:8px;border:0;box-shadow:inset 0 0 0 1px rgba(2,6,23,0.06)">
-          <option>Köpek</option>
-          <option>Kedi</option>
-          <option>Kuş</option>
-          <option>Küçük memeli</option>
-        </select>
-      </div>
-      <textarea name="mesaj" placeholder="Kısa açıklama veya şikayet" style="width:100%;margin-top:10px;padding:10px;border-radius:8px;border:0;box-shadow:inset 0 0 0 1px rgba(2,6,23,0.06)"></textarea>
-      <div style="display:flex;gap:10px;margin-top:10px">
-        <button class="btn" type="submit">Randevu Gönder</button>
-        <a class="btn" href="https://wa.me/905338406218" style="background:#25d366">WhatsApp ile Hızlı</a>
-      </div>
-    </form>
-  </section>
-
-  <!-- İLETİŞİM -->
-  <section id="iletisim" style="margin-top:28px">
+  <section id="iletisim" class="section-card" style="margin-top:22px">
     <h2>İletişim & Konum</h2>
     <p><strong>Adres:</strong> Gazimağusa Vadili</p>
     <p><strong>Telefon:</strong> <a href="tel:05338406218">0533 840 62 18</a></p>
+    <p><strong>Çalışma Saatleri:</strong><br>
+      Hafta içi: 08:00 - 18:30<br>
+      Cumartesi: 08:00 - 14:30<br>
+      Pazar: 09:00 - 12:00
+    </p>
 
     <div style="margin-top:12px;max-width:900px">
-      <iframe src="https://www.google.com/maps?q=Vadili,+Gazimağusa&output=embed"></iframe>
+      <!-- Eğer özel embed kodun varsa buraya yapıştır; yoksa genel Vadili haritası gösterir -->
+      <iframe src="https://www.google.com/maps?q=Vadili,+Gazimağusa&output=embed" style="width:100%;height:340px;border:0;border-radius:10px" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
-
-  <footer style="margin-top:28px">
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-      <div>© 2025 PET TOWN Veteriner Kliniği</div>
-      <div style="color:rgba(255,255,255,0.8)">GAZİMAĞUSA VADİLİ • 0533 840 62 18</div>
-    </div>
-  </footer>
 </main>
 
-<!-- sticky contact -->
-<div class="sticky-contact">
-  <a href="tel:05338406218">📞 Ara</a>
-  <a href="https://wa.me/905338406218">💬 WhatsApp</a>
-  <a href="#" onclick="openCart();return false">🛒 Sepet (<span id="cartCount2">0</span>)</a>
-</div>
-
-<!-- modal cart -->
-<div class="modal-bg" id="modalBg">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <h3 id="cartTitle">Sepetiniz</h3>
-      <button class="close" onclick="closeCart()">Kapat</button>
-    </div>
-    <div class="cart-list" id="cartList">
-      <div class="small">Sepet boş.</div>
-    </div>
-    <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
-      <div><strong>Toplam:</strong> <span id="cartTotal">0.00 TL</span></div>
-      <div>
-        <button class="btn" onclick="checkout()">Ödeme / İleri</button>
-      </div>
-    </div>
+<footer class="container" role="contentinfo">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div>© <span id="year"></span> PET TOWN Veteriner Kliniği</div>
+    <div class="small">Gazimağusa Vadili • <a href="tel:05338406218">0533 840 62 18</a></div>
   </div>
+</footer>
+
+<!-- Sticky contact buttons -->
+<div class="sticky" aria-hidden="false">
+  <a href="tel:05338406218" title="Ara">📞 Ara</a>
+  <a href="https://wa.me/905338406218" title="WhatsApp">💬 WhatsApp</a>
 </div>
 
 <script>
-  // Basit ürün verisi (örnek) - kendi ürünlerini buradan kolayca düzenle
-  const products = [
-    {id:1, title:"Premium Köpek Maması 12kg", price:1299.00, img:"https://images.unsplash.com/photo-1556228720-0a549b8f3b3a?auto=format&fit=crop&w=800&q=60"},
-    {id:2, title:"Kedi Maması Tahılsız 5kg", price:549.00, img:"https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=800&q=60"},
-    {id:3, title:"Tasma + Göğüs Tasması Seti", price:149.90, img:"https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=800&q=60"},
-    {id:4, title:"Diş Fırçası & Macun", price:79.50, img:"https://images.unsplash.com/photo-1583511655902-2c8e6f0f1fb6?auto=format&fit=crop&w=800&q=60"},
-    {id:5, title:"Vitamin & Takviye (Köpek)", price:199.00, img:"https://images.unsplash.com/photo-1582719478181-6e7f0523f4e0?auto=format&fit=crop&w=800&q=60"},
-    {id:6, title:"Kedi Oyuncağı Top", price:39.90, img:"https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=60"},
-    {id:7, title:"Taşıma Çantası (Küçük)", price:269.00, img:"https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=800&q=60"},
-    {id:8, title:"Kedi Kumu 10L", price:89.90, img:"https://images.unsplash.com/photo-1603333672863-5f8a5b9f7b49?auto=format&fit=crop&w=800&q=60"},
-  ];
+  // Dynamic year
+  document.getElementById('year').innerText = new Date().getFullYear();
 
-  const cart = [];
+  // If you want to change clinic email shown on page via JS:
+  // document.getElementById('clinicEmail').innerText = 'seninmail@domain.com';
 
-  // Render products
-  const grid = document.getElementById('productGrid');
-  function money(n){ return n.toLocaleString('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2}) + ' TL'; }
-  products.forEach(p=>{
-    const el = document.createElement('div'); el.className='product';
-    el.innerHTML = `
-      <img src="${p.img}" alt="${p.title}">
-      <h4>${p.title}</h4>
-      <div class="small">Ücretsiz mağaza teslimi (seçenekli)</div>
-      <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center">
-        <div class="price">${money(p.price)}</div>
-        <div>
-          <button class="btn" style="padding:8px 10px" onclick="addToCart(${p.id})">Sepete Ekle</button>
-        </div>
-      </div>
-    `;
-    grid.appendChild(el);
+  // Small accessibility: focus outline for keyboard users when clicking hero buttons
+  document.querySelectorAll('.btn, .cta').forEach(b=>{
+    b.addEventListener('focus', ()=>b.style.boxShadow='0 0 0 4px rgba(3,198,206,0.15)');
+    b.addEventListener('blur', ()=>b.style.boxShadow='none');
   });
-  document.getElementById('productsTotal').innerText = products.length;
-
-  // Cart functions
-  function addToCart(id){
-    const p = products.find(x=>x.id===id);
-    const item = cart.find(x=>x.id===id);
-    if(item) item.qty++;
-    else cart.push({id:p.id,title:p.title,price:p.price,qty:1});
-    updateCartUI();
-    openCart();
-  }
-  function updateCartUI(){
-    const cartList = document.getElementById('cartList');
-    cartList.innerHTML = '';
-    if(cart.length===0){ cartList.innerHTML = '<div class="small">Sepet boş.</div>'; }
-    else {
-      cart.forEach(it=>{
-        const row = document.createElement('div');
-        row.style.display='flex';row.style.justifyContent='space-between';row.style.alignItems='center';row.style.padding='8px 0';
-        row.innerHTML = `<div style="flex:1"><strong style="font-size:14px">${it.title}</strong><div class="small">${it.qty} x ${money(it.price)}</div></div>
-                         <div style="display:flex;gap:6px;align-items:center">
-                           <button onclick="changeQty(${it.id}, -1)" style="padding:6px;border-radius:6px">-</button>
-                           <button onclick="changeQty(${it.id}, 1)" style="padding:6px;border-radius:6px">+</button>
-                         </div>`;
-        cartList.appendChild(row);
-      });
-    }
-    const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
-    document.getElementById('cartTotal').innerText = money(total);
-    document.getElementById('cartCount').innerText = cart.reduce((s,i)=>s+i.qty,0);
-    document.getElementById('cartCount2').innerText = cart.reduce((s,i)=>s+i.qty,0);
-  }
-  function changeQty(id, delta){
-    const it = cart.find(x=>x.id===id);
-    if(!it) return;
-    it.qty += delta;
-    if(it.qty<=0) { const idx = cart.findIndex(x=>x.id===id); cart.splice(idx,1); }
-    updateCartUI();
-  }
-  function openCart(){ document.getElementById('modalBg').style.display='grid'; updateCartUI(); }
-  function closeCart(){ document.getElementById('modalBg').style.display='none'; }
-  function checkout(){
-    if(cart.length===0){ alert('Sepet boş. Ürün ekleyin.'); return; }
-    // Burada gerçek ödeme sayfasına yönlendirme veya ödeme entegrasyonu yapılır.
-    alert('Ödeme entegrasyonu şu an demo. Gerçek ödeme için Stripe / API bağlanmalı.');
-  }
-
-  // Search interaction (basit)
-  document.getElementById('searchBtn').addEventListener('click', ()=>{
-    const q = document.getElementById('searchInput').value.trim().toLowerCase();
-    if(!q){ alert('Arama terimini girin'); return; }
-    const found = products.filter(p=>p.title.toLowerCase().includes(q));
-    if(found.length===0){ alert('Aradığınız ürün bulunamadı. Mağazamızı keşfedin.'); return; }
-    // Scroll to first found product (simple UX)
-    const idx = products.indexOf(found[0]);
-    const el = document.querySelectorAll('#productGrid .product')[idx];
-    if(el){ el.scrollIntoView({behavior:'smooth',block:'center'}); el.style.outline='3px solid #06b6d4'; setTimeout(()=>el.style.outline='none',2000) }
-  });
-
-  // Initialize
-  updateCartUI();
 </script>
 </body>
 </html>
