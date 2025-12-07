@@ -32,7 +32,7 @@
         }
         .container{position:relative;z-index:2;width:92%;max-width:1400px;margin:auto;padding:0 20px;}
 
-        /* LOGO - MOBİLDE ÇOK KÜÇÜK */
+        /* LOGO - MOBİLDE KÜÇÜK */
         .logo{
             font-family:'Playfair Display',serif;
             font-size:2.8rem;font-weight:900;
@@ -44,7 +44,6 @@
             backdrop-filter:blur(12px);
             box-shadow:0 6px 25px rgba(0,0,0,0.5);
             text-decoration:none;color:#fff;
-            transition:all .3s;
         }
         .logo i,.logo span{
             background:linear-gradient(135deg,#0ea5e9,#fcd34d);
@@ -53,40 +52,15 @@
         }
         .logo i{font-size:2.6rem;}
 
-        header{
-            position:fixed;top:0;left:0;right:0;z-index:1000;
-            padding:16px 0;transition:all .5s;
-        }
-        header.scrolled{
-            background:rgba(15,23,42,0.98);backdrop-filter:blur(20px);
-            padding:12px 0;box-shadow:0 15px 50px rgba(0,0,0,0.6);
-        }
+        header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:all .5s;}
+        header.scrolled{background:rgba(15,23,42,0.98);backdrop-filter:blur(20px);padding:12px 0;box-shadow:0 15px 50px rgba(0,0,0,0.6);}
         nav{display:flex;justify-content:space-between;align-items:center;position:relative;}
-        .mobile-toggle{
-            display:none;font-size:2.4rem;color:#fff;cursor:pointer;
-            position:absolute;right:15px;top:50%;transform:translateY(-50%);z-index:1001;
-        }
+        .mobile-toggle{display:none;font-size:2.4rem;color:#fff;cursor:pointer;position:absolute;right:15px;top:50%;transform:translateY(-50%);z-index:1001;}
 
-        /* MASAÜSTÜ: DİKEY BUTONLAR */
-        .desktop-buttons{
-            position:fixed;bottom:30px;right:30px;display:flex;flex-direction:column;gap:16px;z-index:998;
-        }
-
-        /* MOBİL: YATAY ALT BAR */
-        .mobile-buttons{
-            position:fixed;bottom:0;left:0;right:0;
-            background:rgba(15,23,42,0.97);backdrop-filter:blur(20px);
-            display:none;justify-content:space-around;align-items:center;
-            padding:14px 0;border-top:1px solid rgba(255,255,255,0.1);z-index:999;
-        }
-
-        .action-btn{
-            width:64px;height:64px;border-radius:50%;
-            display:flex;align-items:center;justify-content:center;
-            font-size:30px;color:#fff;
-            box-shadow:0 12px 40px rgba(0,0,0,0.6);
-            transition:all .4s;cursor:pointer;
-        }
+        /* BUTONLAR */
+        .desktop-buttons{position:fixed;bottom:30px;right:30px;display:flex;flex-direction:column;gap:16px;z-index:998;}
+        .mobile-buttons{position:fixed;bottom:0;left:0;right:0;background:rgba(15,23,42,0.97);backdrop-filter:blur(20px);display:none;justify-content:space-around;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,0.1);z-index:999;}
+        .action-btn{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;box-shadow:0 12px 40px rgba(0,0,0,0.6);transition:all .4s;cursor:pointer;}
         .action-btn:hover{transform:scale(1.15);}
         .wa{background:#25d366;}
         .phone{background:var(--cyan);}
@@ -107,26 +81,12 @@
         .btn-submit:hover{background:#0d8bc7;transform:scale(1.05);}
 
         /* MOBİL MENÜ */
-        .mobile-menu{
-            position:fixed;top:0;left:0;width:100%;height:100vh;
-            background:linear-gradient(135deg,#0f172a,#0ea5e9);backdrop-filter:blur(20px);
-            display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;
-            transform:translateY(-100%);transition:.7s ease;z-index:1000;
-        }
+        .mobile-menu{position:fixed;top:0;left:0;width:100%;height:100vh;background:linear-gradient(135deg,#0f172a,#0ea5e9);backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;transform:translateY(-100%);transition:.7s ease;z-index:1000;}
         .mobile-menu.active{transform:translateY(0);}
-        .mobile-menu a{
-            display:block;width:88%;max-width:420px;padding:1.8rem;
-            background:rgba(255,255,255,0.15);border:2px solid rgba(252,211,77,0.5);
-            border-radius:28px;color:#fff;font-size:1.8rem;font-weight:600;
-            text-align:center;text-decoration:none;transition:.5s;box-shadow:0 15px 40px rgba(0,0,0,0.4);
-        }
+        .mobile-menu a{display:block;width:88%;max-width:420px;padding:1.8rem;background:rgba(255,255,255,0.15);border:2px solid rgba(252,211,77,0.5);border-radius:28px;color:#fff;font-size:1.8rem;font-weight:600;text-align:center;text-decoration:none;transition:.5s;box-shadow:0 15px 40px rgba(0,0,0,0.4);}
         .mobile-menu a:hover{background:var(--gold);color:#0f172a;transform:scale(1.08);}
         .mobile-menu a i{margin-right:16px;}
-        .close-menu{
-            position:absolute;top:30px;right:30px;width:75px;height:75px;
-            background:var(--gold);color:#0f172a;border-radius:50%;
-            display:flex;align-items:center;justify-content:center;font-size:3rem;cursor:pointer;transition:.5s;
-        }
+        .close-menu{position:absolute;top:30px;right:30px;width:75px;height:75px;background:var(--gold);color:#0f172a;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:3rem;cursor:pointer;transition:.5s;}
         .close-menu:hover{transform:rotate(90deg) scale(1.2);}
 
         .hero{height:100vh;min-height:800px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;z-index:2;}
@@ -144,14 +104,66 @@
         .card i{font-size:5.5rem;margin-bottom:2.2rem;color:var(--gold);}
         .card h3{font-size:1.7rem;margin:1.5rem 0;background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 
-        .contact{background:rgba(15,23,42,0.97);backdrop-filter:blur(20px);border-radius:50px;margin:0 20px;padding:100px 0;}
-        .contact-grid{gap:4.5rem;}
-        .contact-info{background:rgba(255,255,255,0.15);backdrop-filter:blur(15px);padding:3.5rem;border-radius:32px;transition:all .5s;border:2px solid rgba(252,211,77,0.3);box-shadow:0 20px 50px rgba(0,0,0,0.5);}
-        .contact-info:hover{transform:translateY(-25px) scale(1.05);background:rgba(252,211,77,0.25);}
-        .contact-info i{font-size:4.5rem;margin-bottom:2rem;color:var(--gold);}
-        .contact-info h3,.contact-info p,.contact-info a{color:#fff !important;font-weight:600;}
+        /* YENİ İLETİŞİM BÖLÜMÜ - ULTRA PREMİUM */
+        .contact-new{
+            background:linear-gradient(135deg, rgba(15,23,42,0.98), rgba(6,182,212,0.2));
+            backdrop-filter:blur(20px);
+            border-radius:60px;
+            margin:100px 20px;
+            padding:100px 40px;
+            box-shadow:0 40px 100px rgba(0,0,0,0.7);
+            overflow:hidden;
+        }
+        .contact-grid-new{
+            display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:3rem;
+        }
+        .contact-card{
+            background:rgba(255,255,255,0.12);
+            backdrop-filter:blur(20px);
+            padding:3rem 2.5rem;
+            border-radius:32px;
+            text-align:center;
+            border:2px solid rgba(252,211,77,0.3);
+            transition:all .6s;
+            box-shadow:0 20px 60px rgba(0,0,0,0.4);
+        }
+        .contact-card:hover{
+            transform:translateY(-25px) scale(1.08);
+            border-color:var(--gold);
+            background:rgba(252,211,77,0.25);
+            box-shadow:0 50px 100px rgba(252,211,77,0.5);
+        }
+        .contact-card i{
+            font-size:5rem;
+            color:var(--gold);
+            margin-bottom:1.8rem;
+            text-shadow:0 10px 30px rgba(0,0,0,0.5);
+        }
+        .contact-card h3{
+            font-size:1.9rem;
+            margin-bottom:1rem;
+            color:#fff;
+        }
+        .contact-card p,.contact-card a{
+            font-size:1.3rem;
+            color:#fff;
+            font-weight:600;
+            text-decoration:none;
+        }
+        .contact-card a:hover{color:var(--gold);}
 
-        .map{height:620px;border-radius:40px;overflow:hidden;margin-top:6rem;box-shadow:0 40px 100px rgba(0,0,0,0.8);}
+        .map-container{
+            margin-top:5rem;
+            border-radius:40px;
+            overflow:hidden;
+            box-shadow:0 40px 100px rgba(0,0,0,0.8);
+            transform:translateY(0);
+            transition:all .6s;
+        }
+        .map-container:hover{
+            transform:translateY(-15px);
+        }
+
         footer{background:rgba(0,0,0,0.95);padding:6rem 0;text-align:center;}
 
         @media(max-width:992px){
@@ -168,6 +180,7 @@
             .logo i{font-size:1.8rem;}
             .hero h1{font-size:3.6rem;}
             .hero p{font-size:1.4rem;}
+            .contact-new{padding:80px 20px;margin:60px 10px;}
         }
     </style>
 </head>
@@ -175,7 +188,7 @@
 
     <div class="overlay"></div>
 
-    <!-- MASAÜSTÜ BUTONLAR (dikey) -->
+    <!-- BUTONLAR -->
     <div class="desktop-buttons">
         <a href="https://wa.me/905338388696" class="action-btn wa"><i class="fab fa-whatsapp"></i></a>
         <a href="tel:+905338406218" class="action-btn phone"><i class="fas fa-phone"></i></a>
@@ -184,7 +197,6 @@
         </div>
     </div>
 
-    <!-- MOBİL BUTONLAR (yatay alt bar) -->
     <div class="mobile-buttons">
         <a href="https://wa.me/905338388696" class="action-btn wa"><i class="fab fa-whatsapp"></i></a>
         <a href="tel:+905338406218" class="action-btn phone"><i class="fas fa-phone"></i></a>
@@ -286,18 +298,35 @@
         </div>
     </section>
 
-    <!-- İLETİŞİM -->
-    <section id="iletisim" class="contact" data-aos="fade-up">
+    <!-- YENİ İLETİŞİM BÖLÜMÜ -->
+    <section id="iletisim" class="contact-new" data-aos="fade-up">
         <div class="container">
-            <h2>İletişim & Konum</h2>
-            <div class="contact-grid">
-                <div class="contact-info"><i class="fas fa-map-marker-alt"></i><h3>Adres</h3><p>Vadili, Kıbrıs<br><a href="https://maps.app.goo.gl/6i4r4bYLZ19nNUc49" target="_blank">Haritada Gör</a></p></div>
-                <div class="contact-info"><i class="fas fa-phone"></i><h3>Telefon</h3><p><a href="tel:+905338406218">0533 840 62 18</a><br><a href="tel:+905338388696">0533 838 86 96</a></p></div>
-                <div class="contact-info"><i class="fas fa-clock"></i><h3>Çalışma Saatleri</h3><p>Hafta İçi: 08:00-18:30<br>Cumartesi: 08:00-14:30<br>Pazar: 09:00-12:00</p></div>
-                <div class="contact-info"><i class="fas fa-envelope"></i><h3>E-Posta</h3><p><a href="mailto:pettowncyprus@gmail.com">pettowncyprus@gmail.com</a></p></div>
+            <h2>Bize Ulaşın</h2>
+            <div class="contact-grid-new">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Adresimiz</h3>
+                    <p>Vadili Merkez, Gazimağusa<br>Kıbrıs</p>
+                    <a href="https://maps.app.goo.gl/6i4r4bYLZ19nNUc49" target="_blank">Haritada Aç →</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone-volume"></i>
+                    <h3>Hemen Ara</h3>
+                    <p><a href="tel:+905338406218">0533 840 62 18</a><br><a href="tel:+905338388696">0533 838 86 96</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/905338388696" target="_blank">Hemen Yaz</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Çalışma Saatleri</h3>
+                    <p>Hafta İçi: 08:00 - 18:30<br>Cumartesi: 08:00 - 14:30<br>Pazar: 09:00 - 12:00</p>
+                </div>
             </div>
-            <div class="map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.244881763295!2d33.783!3d35.160!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA5JzM2LjAiTiAzM8KwNDYnNTkuMCJF!5e0!3m2!1str!2s!4v1700000000000" width="100%" height="620" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.244881763295!2d33.783!3d35.160!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA5JzM2LjAiTiAzM8KwNDYnNTkuMCJF!5e0!3m2!1str!2s!4v1700000000000" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -311,7 +340,6 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({duration: 1000, once: true});
-
         const header = document.getElementById('header');
         const mobileToggle = document.querySelector('.mobile-toggle');
         const mobileMenu = document.getElementById('mobileMenu');
