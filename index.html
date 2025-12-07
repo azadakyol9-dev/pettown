@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Town Veteriner Kliniği | Vadili Kıbrıs</title>
-    <meta name="description" content="Vadili'nin en modern veteriner kliniği.">
+    <meta name="description" content="Kıbrıs'ın en modern veteriner kliniği.">
+    <meta name="theme-color" content="#06b6d4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
@@ -45,6 +48,8 @@
         .logo{
             font-family:'Playfair Display',serif;
             font-size:2.8rem;font-weight:900;
+        }
+        .logo span{
             background:linear-gradient(135deg,#06b6d4,#fbbf24);
             -webkit-background-clip:text;-webkit-text-fill-color:transparent;
         }
@@ -62,7 +67,7 @@
         }
         .nav-links a:hover::after{width:100%;}
 
-        /* Mobil Menü - Süper Şık */
+        /* Mobil Menü */
         .mobile-toggle{
             display:none;font-size:2.2rem;color:#fff;cursor:pointer;z-index:1001;
         }
@@ -136,6 +141,12 @@
             box-shadow:0 40px 90px rgba(6,182,212,0.4);
         }
         .card i{font-size:4.5rem;margin-bottom:1.8rem;color:var(--gold);}
+        .card h3{
+            font-size:1.6rem;margin:1.5rem 0 1rem;
+            background:linear-gradient(135deg,#06b6d4,#fbbf24);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+        }
+        .card p{font-size:1.1rem;opacity:0.9;}
 
         .contact{background:rgba(15,23,42,0.95);backdrop-filter:blur(15px);}
         .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:4rem;text-align:center;}
@@ -151,6 +162,9 @@
             background:rgba(0,0,0,0.8);color:#94a3b8;text-align:center;padding:4rem 0;
         }
 
+        @media(min-width:1200px){
+            .hero h1{font-size:6.5rem;}
+        }
         @media(max-width:992px){
             .hero h1{font-size:4rem;}
             .nav-links{display:none;}
@@ -207,17 +221,59 @@
         </div>
     </section>
 
+    <!-- Hakkımızda -->
+    <section id="hakkimizda">
+        <div class="container">
+            <h2>Hakkımızda</h2>
+            <div class="grid">
+                <div class="card" style="grid-column:1/-1;max-width:900px;margin:auto;">
+                    <p style="font-size:1.35rem;line-height:2;">
+                        Pet Town Veteriner Kliniği olarak 10 yılı aşkın tecrübemizle, Vadili ve çevresinde en güvenilir sağlık hizmeti sunmaktayız. 
+                        Modern cihazlarımız, uzman kadromuz ve en önemlisi hayvanlara duyduğumuz sevgiyle, dostlarınızın her zaman yanında olmaya devam ediyoruz.
+                    </p>
+                </div>
+                <div class="card"><i class="fas fa-heart" style="color:#e11d48;"></i><h3>Sevgi</h3><p>Her canlının hak ettiği şefkat</p></div>
+                <div class="card"><i class="fas fa-user-md"></i><h3>Uzmanlık</h3><p>Deneyimli veteriner hekim kadrosu</p></div>
+                <div class="card"><i class="fas fa-medkit"></i><h3>Güven</h3><p>Modern teknoloji ve hijyen</p></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Hizmetler -->
     <section id="hizmetler">
         <div class="container">
             <h2>Hizmetlerimiz</h2>
             <div class="grid">
-                <div class="card"><i class="fas fa-stethoscope"></i><h3>Genel Muayene</h3></div>
-                <div class="card"><i class="fas fa-syringe"></i><h3>Aşı & Koruma</h3></div>
-                <div class="card"><i class="fas fa-cut"></i><h3>Cerrahi İşlemler</h3></div>
-                <div class="card"><i class="fas fa-x-ray"></i><h3>Tanı & Görüntüleme</h3></div>
-                <div class="card"><i class="fas fa-tooth"></i><h3>Diş Sağlığı</h3></div>
-                <div class="card"><i class="fas fa-ambulance"></i><h3>7/24 Acil Servis</h3></div>
+                <div class="card">
+                    <i class="fas fa-stethoscope"></i>
+                    <h3>Genel Muayene</h3>
+                    <p>Rutin kontroller, sağlık taramaları ve erken teşhis</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-syringe"></i>
+                    <h3>Aşı & Parazit Koruma</h3>
+                    <p>Tüm aşılar ve iç/dış parazit uygulamaları</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-cut"></i>
+                    <h3>Cerrahi İşlemler</h3>
+                    <p>Kısırlaştırma, tümör ameliyatları ve ortopedi</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-x-ray"></i>
+                    <h3>Dijital Röntgen & Ultrason</h3>
+                    <p>Yüksek çözünürlüklü görüntüleme cihazları</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-tooth"></i>
+                    <h3>Diş Sağlığı & Temizlik</h3>
+                    <p>Diş taşı temizliği ve ağız sağlığı</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-ambulance"></i>
+                    <h3>7/24 Acil Servis</h3>
+                    <p>Gece gündüz demeden dostlarınızın yanındayız</p>
+                </div>
             </div>
         </div>
     </section>
@@ -227,20 +283,36 @@
         <div class="container">
             <h2>İletişim & Konum</h2>
             <div class="contact-grid">
-                <div class="contact-info"><i class="fas fa-map-marker-alt"></i><h3>Adres</h3><p>Vadili, Kıbrıs<br><a href="https://maps.app.goo.gl/6i4r4bYLZ19nNUc49?g_st=ac" target="_blank">Haritada Gör</a></p></div>
-                <div class="contact-info"><i class="fas fa-phone"></i><h3>Telefon</h3><p><a href="tel:+905338406218">0533 840 62 18</a><br><a href="tel:+905338388696">0533 838 86 96</a></p></div>
-                <div class="contact-info"><i class="fas fa-clock"></i><h3>Çalışma Saatleri</h3><p>Hafta İçi: 08:00-18:30<br>Cumartesi: 08:00-14:30<br>Pazar: 09:00-12:00</p></div>
-                <div class="contact-info"><i class="fas fa-envelope"></i><h3>E-Posta</h3><p><a href="mailto:pettowncyprus@gmail.com">pettowncyprus@gmail.com</a></p></div>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Adres</h3>
+                    <p>Vadili, Kıbrıs<br><a href="https://maps.app.goo.gl/6i4r4bYLZ19nNUc49?g_st=ac" target="_blank">Haritada Gör →</a></p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i>
+                    <h3>Telefon</h3>
+                    <p><a href="tel:+905338406218">0533 840 62 18</a><br><a href="tel:+905338388696">0533 838 86 96</a></p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-clock"></i>
+                    <h3>Çalışma Saatleri</h3>
+                    <p>Hafta İçi: 08:00-18:30<br>Cumartesi: 08:00-14:30<br>Pazar: 09:00-12:00</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <h3>E-Posta</h3>
+                    <p><a href="mailto:pettowncyprus@gmail.com">pettowncyprus@gmail.com</a></p>
+                </div>
             </div>
             <div class="map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.244881763295!2d33.783!3d35.160!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA5JzM2LjAiTiAzM8KwNDYnNTkuMCJF!5e0!3m2!1str!2s!4v1700000000000" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.244881763295!2d33.783!3d35.160!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA5JzM2LjAiTiAzM8KwNDYnNTkuMCJF!5e0!3m2!1str!2s!4v1700000000000" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>© 2025 Pet Town Veteriner Kliniği • Vadili / Kıbrıs</p>
+            <p>© 2025 Pet Town Veteriner Kliniği • Vadili / Kıbrıs • Tüm hakları saklıdır.</p>
         </div>
     </footer>
 
