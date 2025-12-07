@@ -6,13 +6,13 @@
 <title>PET TOWN VETERİNER KLİNİĞİ</title>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
-<!-- Icons -->
+<!-- Font Awesome Icons -->
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-/* Reset & Body */
+/* Reset */
 * {box-sizing:border-box; margin:0; padding:0;}
 body {font-family:'Roboto', sans-serif; background:#f4f6f9; color:#333;}
 
@@ -25,21 +25,18 @@ nav a:hover::after {content:""; position:absolute; left:0; bottom:-5px; width:10
 nav a.btn {background:#1a73e8; color:#fff; padding:10px 22px; border-radius:6px;}
 nav a.btn:hover {background:#155ab6;}
 
-/* Hero Slider */
-.hero {position:relative; height:500px; overflow:hidden;}
-.slider img {width:100%; height:500px; object-fit:cover; position:absolute; top:0; left:0; opacity:0; transition:opacity 1s ease-in-out;}
-.slider img.active {opacity:1;}
-.hero-text {position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); text-align:center; color:white; text-shadow:2px 2px 10px rgba(0,0,0,0.6);}
-.hero-text h1 {font-family:'Montserrat', sans-serif; font-size:48px; margin-bottom:15px;}
+/* Hero */
+.hero {position:relative; height:500px; overflow:hidden; display:flex; align-items:center; justify-content:center; background: linear-gradient(135deg, #1a73e8 0%, #34a853 100%); color:white; text-align:center;}
+.hero-text h1 {font-family:'Montserrat', sans-serif; font-size:48px; margin-bottom:15px; text-shadow:2px 2px 10px rgba(0,0,0,0.4);}
 .hero-text p {font-size:20px; margin-bottom:20px;}
-.hero-text a {display:inline-block; padding:12px 26px; background:#1a73e8; color:#fff; border-radius:6px; text-decoration:none; font-weight:500; transition:0.3s;}
-.hero-text a:hover {background:#155ab6; transform:translateY(-3px);}
+.hero-text a {display:inline-block; padding:12px 26px; background:#fff; color:#1a73e8; border-radius:6px; text-decoration:none; font-weight:600; transition:0.3s;}
+.hero-text a:hover {background:#e6e6e6; transform:translateY(-3px);}
 
 /* Hizmetler */
 .features {display:flex; justify-content:space-around; flex-wrap:wrap; padding:60px 20px; gap:20px;}
 .features .box {background:#fff; width:30%; padding:30px 20px; text-align:center; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:0.4s; cursor:pointer;}
 .features .box:hover {transform:translateY(-8px); box-shadow:0 10px 25px rgba(0,0,0,0.12);}
-.features .box img {width:70px; height:70px; margin-bottom:15px;}
+.features .box i {font-size:50px; margin-bottom:15px; color:#1a73e8;}
 
 /* Randevu Form */
 section#randevu {text-align:center; padding:60px 20px;}
@@ -84,13 +81,8 @@ footer a:hover {text-decoration:underline;}
     </nav>
 </header>
 
-<!-- Hero Slider -->
+<!-- Hero -->
 <section class="hero">
-    <div class="slider">
-        <img src="https://png.pngtree.com/png-clipart/20240914/original/pngtree-veterinarian-and-doctor-with-dog-and-cat-on-counter-in-vet-png-image_16006959.png" class="active" alt="Veteriner ve hayvanlar">
-        <img src="https://d2ki7eiqd260sq.cloudfront.net/7a9d0a4c5-fd40-47f5-b84e-312546183cd1.jpg" alt="Mutlu köpek ve veteriner">
-        <img src="https://st.depositphotos.com/1000423/5007/i/450/depositphotos_50071117-stock-photo-cat-at-vet-clinic.jpg" alt="Kedi veteriner klinik">
-    </div>
     <div class="hero-text">
         <h1>PET TOWN VETERİNER KLİNİĞİ</h1>
         <p>Dostlarınız için güvenilir veteriner hizmetleri.</p>
@@ -100,12 +92,12 @@ footer a:hover {text-decoration:underline;}
 
 <!-- Hizmetler -->
 <section id="hizmetler" class="features">
-    <div class="box"><img src="https://img.icons8.com/ios-filled/70/000000/stethoscope.png"/><br>Genel Muayene</div>
-    <div class="box"><img src="https://img.icons8.com/ios-filled/70/000000/syringe.png"/><br>Aşı Hizmetleri</div>
-    <div class="box"><img src="https://img.icons8.com/ios-filled/70/000000/hospital-room.png"/><br>Acil Müdahale</div>
-    <div class="box"><img src="https://img.icons8.com/ios-filled/70/000000/grooming.png"/><br>Pet Kuaför</div>
-    <div class="box"><img src="https://img.icons8.com/ios-filled/70/000000/laboratory.png"/><br>Laboratuvar Testleri</div>
-    <div class="box"><img src="https://img.icons8.com/ios-filled/70/000000/surgery.png"/><br>Cerrahi Operasyonlar</div>
+    <div class="box"><i class="fas fa-stethoscope"></i><br>Genel Muayene</div>
+    <div class="box"><i class="fas fa-syringe"></i><br>Aşı Hizmetleri</div>
+    <div class="box"><i class="fas fa-hospital"></i><br>Acil Müdahale</div>
+    <div class="box"><i class="fas fa-cut"></i><br>Pet Kuaför</div>
+    <div class="box"><i class="fas fa-vials"></i><br>Laboratuvar Testleri</div>
+    <div class="box"><i class="fas fa-user-md"></i><br>Cerrahi Operasyonlar</div>
 </section>
 
 <!-- Randevu Form -->
@@ -151,17 +143,6 @@ footer a:hover {text-decoration:underline;}
 © 2025 PET TOWN VETERİNER KLİNİĞİ — Tüm Hakları Saklıdır. <br>
 <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
 </footer>
-
-<script>
-// Slider Otomatik Fade
-let slides = document.querySelectorAll('.slider img');
-let current = 0;
-setInterval(()=> {
-    slides[current].classList.remove('active');
-    current = (current+1)%slides.length;
-    slides[current].classList.add('active');
-}, 5000);
-</script>
 
 </body>
 </html>
