@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
         :root{
             --navy: #0f172a;
@@ -33,7 +34,7 @@
         }
         .container{position:relative;z-index:2;width:92%;max-width:1400px;margin:auto;padding:0 20px;}
 
-        /* Logo - Mobilde küçük */
+        /* Logo */
         .logo{
             font-family:'Playfair Display',serif;
             font-size:3.2rem;font-weight:900;
@@ -71,7 +72,7 @@
             display:flex;align-items:center;justify-content:center;font-size:3rem;cursor:pointer;transition:.5s;}
         .close-menu:hover{transform:rotate(90deg) scale(1.2);}
 
-        /* Floating Butonlar + Randevu Butonu */
+        /* Floating Butonlar + Randevu */
         .fab{position:fixed;bottom:30px;right:30px;width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;
             font-size:36px;color:#fff;box-shadow:0 18px 50px rgba(0,0,0,0.6);z-index:998;transition:.4s;cursor:pointer;}
         .fab:hover{transform:translateY(-14px) scale(1.15);}
@@ -93,7 +94,7 @@
         .btn-submit{background:var(--cyan);color:#fff;padding:16px;border:none;border-radius:60px;font-size:1.2rem;font-weight:700;cursor:pointer;width:100%;transition:.4s;}
         .btn-submit:hover{background:#0d8bc7;transform:scale(1.05);}
 
-        /* Hero ve diğer bölümler */
+        /* Hero */
         .hero{height:100vh;min-height:800px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;z-index:2;}
         .hero h1{font-family:'Playfair Display',serif;font-size:7.5rem;margin-bottom:1.5rem;text-shadow:0 10px 40px rgba(0,0,0,0.7);line-height:1.1;}
         .hero p{font-size:2rem;font-weight:500;margin-bottom:4rem;max-width:900px;margin:auto;opacity:0.95;}
@@ -104,23 +105,38 @@
         .btn-gold:hover{transform:translateY(-14px) scale(1.1);}
 
         section{padding:160px 0;position:relative;z-index:2;}
-        h2{font-family:'Playfair Display',serif;font-size:4.5rem;text-align:center;margin-bottom:7rem;background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        h2{font-family:'Playfair Display',serif;font-size:4.5rem;text-align:center;margin-bottom:7rem;
+            background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
         .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:4rem;}
-        .card{background:rgba(255,255,255,0.18);backdrop-filter:blur(25px);border:1px solid rgba(255,255,255,0.3);padding:4.5rem 3rem;border-radius:40px;text-align:center;transition:.7s;box-shadow:0 30px 80px rgba(0,0,0,0.4);}
+        .card{background:rgba(255,255,255,0.18);backdrop-filter:blur(25px);border:1px solid rgba(255,255,255,0.3);
+            padding:4.5rem 3rem;border-radius:40px;text-align:center;transition:.7s;box-shadow:0 30px 80px rgba(0,0,0,0.4);}
         .card:hover{transform:translateY(-35px) scale(1.07);background:rgba(255,255,255,0.3);}
         .card i{font-size:5.5rem;margin-bottom:2.2rem;color:var(--gold);}
         .card h3{font-size:1.7rem;margin:1.5rem 0;background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 
+        /* İletişim Bölümü - 3D Kartlar */
         .contact{background:rgba(15,23,42,0.97);backdrop-filter:blur(20px);border-radius:50px;margin:0 20px;padding:100px 0;}
-        .contact-grid{gap:5rem;}
-        .contact-info{background:rgba(255,255,255,0.12);padding:3rem;border-radius:32px;transition:.4s;border:1px solid rgba(252,211,77,0.3);}
-        .contact-info:hover{transform:translateY(-15px);background:rgba(252,211,77,0.2);}
+        .contact-grid{gap:4rem;}
+        .contact-info{
+            background:rgba(255,255,255,0.15);backdrop-filter:blur(15px);
+            padding:3rem;border-radius:32px;transition:all .5s;
+            border:2px solid rgba(252,211,77,0.3);
+            box-shadow:0 20px 50px rgba(0,0,0,0.5);
+            transform:translateY(0);
+        }
+        .contact-info:hover{
+            transform:translateY(-20px) scale(1.05);
+            background:rgba(252,211,77,0.25);
+            box-shadow:0 40px 80px rgba(252,211,77,0.4);
+        }
         .contact-info i{font-size:4.5rem;margin-bottom:2rem;color:var(--gold);}
+        .contact-info h3,.contact-info p,.contact-info a{color:#fff !important;font-weight:600;}
+
         .map{height:620px;border-radius:40px;overflow:hidden;margin-top:6rem;box-shadow:0 40px 100px rgba(0,0,0,0.8);}
         footer{background:rgba(0,0,0,0.95);padding:6rem 0;text-align:center;}
 
         @media(max-width:992px){
-            .nav-links,.mobile-toggle{display:none;}
+            .nav-links{display:none;}
             .mobile-toggle{display:block !important;}
             .logo{font-size:2.4rem;padding:6px 16px;}
             .logo i{font-size:2.6rem;}
@@ -131,6 +147,7 @@
             .hero h1{font-size:4.2rem;}
             .hero p{font-size:1.5rem;}
             .btn{min-width:90%;font-size:1.3rem;}
+            h2{font-size:3.6rem;}
         }
     </style>
 </head>
@@ -199,45 +216,72 @@
     </div>
 
     <!-- Ana Sayfa -->
-    <section id="anasayfa" class="hero">
+    <section id="anasayfa" class="hero" data-aos="fade-up">
         <div class="container">
             <h1>Pet Town<br>Veteriner Kliniği</h1>
             <p>Biz sadece tedavi etmiyoruz, dostlarınızın mutluluğunu koruyoruz</p>
-            <a href="tel:+905338406218" class="btn btn-primary">Hemen Arayın</a>
+            <a href="tel:+ creador538406218" class="btn btn-primary">Hemen Arayın</a>
             <a href="https://wa.me/905338388696" class="btn btn-gold">WhatsApp'tan Yaz</a>
         </div>
     </section>
 
-    <!-- Hakkımızda, Hizmetler, İletişim ve Footer (tam hali) -->
-    <section id="hakkimizda"><div class="container"><h2>Hakkımızda</h2><div class="grid">
-        <div class="card" style="grid-column:1/-1;max-width:1000px;margin:auto;"><p style="font-size:1.4rem;line-height:2;">Pet Town Veteriner Kliniği olarak 10 yılı aşkın tecrübemizle Vadili ve çevresinde en güvenilir sağlık hizmeti sunmaktayız. Modern cihazlarımız, uzman kadromuz ve hayvanlara duyduğumuz sevgiyle dostlarınızın her zaman yanındayız.</p></div>
-        <div class="card"><i class="fas fa-heart" style="color:#fca5a5;"></i><h3>Sevgi</h3><p>Her canlının hak ettiği şefkat</p></div>
-        <div class="card"><i class="fas fa-user-md"></i><h3>Uzmanlık</h3><p>Deneyimli veteriner hekim kadrosu</p></div>
-        <div class="card"><i class="fas fa-medkit"></i><h3>Güven</h3><p>Modern teknoloji ve hijyen</p></div>
-    </div></div></section>
+    <!-- Hakkımızda -->
+    <section id="hakkimizda" data-aos="fade-up">
+        <div class="container">
+            <h2>Hakkımızda</h2>
+            <div class="grid">
+                <div class="card" style="grid-column:1/-1;max-width:1000px;margin:auto;">
+                    <p style="font-size:1.4rem;line-height:2;">Pet Town Veteriner Kliniği olarak 10 yılı aşkın tecrübemizle Vadili ve çevresinde en güvenilir sağlık hizmeti sunmaktayız. Modern cihazlarımız, uzman kadromuz ve hayvanlara duyduğumuz sevgiyle dostlarınızın her zaman yanındayız.</p>
+                </div>
+                <div class="card"><i class="fas fa-heart" style="color:#fca5a5;"></i><h3>Sevgi</h3><p>Her canlının hak ettiği şefkat</p></div>
+                <div class="card"><i class="fas fa-user-md"></i><h3>Uzmanlık</h3><p>Deneyimli veteriner hekim kadrosu</p></div>
+                <div class="card"><i class="fas fa-medkit"></i><h3>Güven</h3><p>Modern teknoloji ve hijyen</p></div>
+            </div>
+        </div>
+    </section>
 
-    <section id="hizmetler"><div class="container"><h2>Hizmetlerimiz</h2><div class="grid">
-        <div class="card"><i class="fas fa-stethoscope"></i><h3>Genel Muayene</h3><p>Rutin kontroller ve erken teşhis</p></div>
-        <div class="card"><i class="fas fa-syringe"></i><h3>Aşı & Koruma</h3><p>Tüm aşılar ve parazit uygulamaları</p></div>
-        <div class="card"><i class="fas fa-cut"></i><h3>Cerrahi İşlemler</h3><p>Kısırlaştırma ve ortopedi</p></div>
-        <div class="card"><i class="fas fa-x-ray"></i><h3>Röntgen & Ultrason</h3><p>Yüksek çözünürlüklü görüntüleme</p></div>
-        <div class="card"><i class="fas fa-tooth"></i><h3>Diş Sağlığı</h3><p>Diş taşı temizliği</p></div>
-        <div class="card"><i class="fas fa-ambulance"></i><h3>7/24 Acil Servis</h3><p>Gece gündüz yanınızdayız</p></div>
-    </div></div></section>
+    <!-- Hizmetler -->
+    <section id="hizmetler" data-aos="fade-up">
+        <div class="container">
+            <h2>Hizmetlerimiz</h2>
+            <div class="grid">
+                <div class="card"><i class="fas fa-stethoscope"></i><h3>Genel Muayene</h3><p>Rutin kontroller ve erken teşhis</p></div>
+                <div class="card"><i class="fas fa-syringe"></i><h3>Aşı & Koruma</h3><p>Tüm aşılar ve parazit uygulamaları</p></div>
+                <div class="card"><i class="fas fa-cut"></i><h3>Cerrahi İşlemler</h3><p>Kısırlaştırma ve ortopedi</p></div>
+                <div class="card"><i class="fas fa-x-ray"></i><h3>Röntgen & Ultrason</h3><p>Yüksek çözünürlüklü görüntüleme</p></div>
+                <div class="card"><i class="fas fa-tooth"></i><h3>Diş Sağlığı</h3><p>Diş taşı temizliği</p></div>
+                <div class="card"><i class="fas fa-ambulance"></i><h3>7/24 Acil Servis</h3><p>Gece gündüz yanınızdayız</p></div>
+            </div>
+        </div>
+    </section>
 
-    <section id="iletisim" class="contact"><div class="container"><h2>İletişim & Konum</h2><div class="contact-grid">
-        <div class="contact-info"><i class="fas fa-map-marker-alt"></i><h3>Adres</h3><p>Vadili, Kıbrıs<br><a href="https://maps.app.goo.gl/6i4r4bYLZ19nNUc49" target="_blank">Haritada Gör</a></p></div>
-        <div class="contact-info"><i class="fas fa-phone"></i><h3>Telefon</h3><p><a href="tel:+905338406218">0533 840 62 18</a><br><a href="tel:+905338388696">0533 838 86 96</a></p></div>
-        <div class="contact-info"><i class="fas fa-clock"></i><h3>Çalışma Saatleri</h3><p>Hafta İçi: 08:00-18:30<br>Cumartesi: 08:00-14:30<br>Pazar: 09:00-12:00</p></div>
-        <div class="contact-info"><i class="fas fa-envelope"></i><h3>E-Posta</h3><p><a href="mailto:pettowncyprus@gmail.com">pettowncyprus@gmail.com</a></p></div>
-    </div>
-    <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.244881763295!2d33.783!3d35.160!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA5JzM2LjAiTiAzM8KwNDYnNTkuMCJF!5e0!3m2!1str!2s!4v1700000000000" width="100%" height="620" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div></div></section>
+    <!-- İletişim -->
+    <section id="iletisim" class="contact" data-aos="fade-up">
+        <div class="container">
+            <h2>İletişim & Konum</h2>
+            <div class="contact-grid">
+                <div class="contact-info"><i class="fas fa-map-marker-alt"></i><h3>Adres</h3><p>Vadili, Kıbrıs<br><a href="https://maps.app.goo.gl/6i4r4bYLZ19nNUc49" target="_blank">Haritada Gör</a></p></div>
+                <div class="contact-info"><i class="fas fa-phone"></i><h3>Telefon</h3><p><a href="tel:+905338406218">0533 840 62 18</a><br><a href="tel:+905338388696">0533 838 86 96</a></p></div>
+                <div class="contact-info"><i class="fas fa-clock"></i><h3>Çalışma Saatleri</h3><p>Hafta İçi: 08:00-18:30<br>Cumartesi: 08:00-14:30<br>Pazar: 09:00-12:00</p></div>
+                <div class="contact-info"><i class="fas fa-envelope"></i><h3>E-Posta</h3><p><a href="mailto:pettowncyprus@gmail.com">pettowncyprus@gmail.com</a></p></div>
+            </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.244881763295!2d33.783!3d35.160!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA5JzM2LjAiTiAzM8KwNDYnNTkuMCJF!5e0!3m2!1str!2s!4v1700000000000" width="100%" height="620" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
 
-    <footer><div class="container"><p>© 2025 Pet Town Veteriner Kliniği • Vadili / Kıbrıs • Sevgiyle, her zaman yanınızdayız</p></div></footer>
+    <footer>
+        <div class="container">
+            <p>© 2025 Pet Town Veteriner Kliniği • Vadili / Kıbrıs • Sevgiyle, her zaman yanınızdayız</p>
+        </div>
+    </footer>
 
+    <!-- AOS Animasyon + JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+        AOS.init({duration: 1000, once: true});
+
         const header = document.getElementById('header');
         const mobileToggle = document.querySelector('.mobile-toggle');
         const mobileMenu = document.getElementById('mobileMenu');
