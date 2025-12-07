@@ -19,6 +19,7 @@
     --white: #ffffff;
     --gradient-start: #0ea5e9;
     --gradient-end: #fcd34d;
+    --gradient-accent: #fbbf24;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
@@ -48,18 +49,28 @@ body{
     border-radius:60px;
     backdrop-filter:blur(12px);
     box-shadow:0 8px 32px rgba(0,0,0,0.5);
-    transition:.3s;
+    transition:.5s;
+    background-size:200% 200%;
+    animation:gradientLogo 4s ease infinite;
 }
-.logo i{font-size:3.2rem;background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.logo span{background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.logo:hover{transform:scale(1.05) rotate(-2deg);}
+@keyframes gradientLogo{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+.logo i, .logo span{
+    background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    transition:.5s;
+}
+.logo:hover{transform:scale(1.08) rotate(-2deg);}
 
 /* Header */
-header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .5s;}
-header.scrolled{background:rgba(15,23,42,0.98);backdrop-filter:blur(20px);padding:14px 0;box-shadow:0 15px 50px rgba(0,0,0,0.6);}
+header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .5s;background:transparent;}
+header.scrolled{background:linear-gradient(135deg, rgba(15,23,42,0.98), rgba(14,165,233,0.9));backdrop-filter:blur(20px);padding:14px 0;box-shadow:0 15px 50px rgba(0,0,0,0.6);}
 nav{display:flex;justify-content:space-between;align-items:center;position:relative;}
-.nav-links a{color:#e2e8f0;font-weight:600;margin:0 1.8rem;position:relative;transition:.4s;}
-.nav-links a:hover{color:var(--gold);}
+.nav-links a{color:#e2e8f0;font-weight:600;margin:0 1.8rem;position:relative;transition:.4s;background-size:200% 200%;}
+.nav-links a:hover{background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .nav-links a::after{content:'';position:absolute;bottom:-10px;left:0;width:0;height:3px;background:var(--gold);border-radius:3px;transition:.4s;}
 .nav-links a:hover::after{width:100%;}
 
@@ -78,29 +89,22 @@ nav{display:flex;justify-content:space-between;align-items:center;position:relat
 
 /* Floating Buttons */
 .fab{position:fixed;bottom:30px;right:30px;width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-    font-size:36px;color:#fff;box-shadow:0 18px 50px rgba(0,0,0,0.6);z-index:998;transition:.4s;cursor:pointer;animation:floating 2.5s ease-in-out infinite;}
-.fab:hover{transform:translateY(-14px) scale(1.15);}
+    font-size:36px;color:#fff;box-shadow:0 18px 50px rgba(0,0,0,0.6);z-index:998;transition:.4s;cursor:pointer;animation:floating 2.5s ease-in-out infinite;background-size:200% 200%;background-image:linear-gradient(45deg,var(--gradient-start),var(--gradient-end));}
 @keyframes floating{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.wa{background:#25d366;bottom:30px;}
-.phone{background:var(--cyan);bottom:110px;}
-.appointment{background:var(--gold);color:#000;bottom:190px;font-size:28px;}
+.fab:hover{transform:translateY(-14px) scale(1.15);}
+.wa{bottom:30px;}
+.phone{bottom:110px;}
+.appointment{bottom:190px;font-size:28px;color:#000;background:linear-gradient(45deg,var(--gold),var(--gradient-accent));}
 
 /* Modal */
 .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:2000;align-items:center;justify-content:center;padding:20px;}
 .modal.active{display:flex;}
-.modal-content{background:#fff;color:#333;border-radius:30px;padding:40px 30px;max-width:500px;width:100%;position:relative;transform:scale(0.9);opacity:0;transition:all .4s ease;}
+.modal-content{background:#fff;color:#333;border-radius:30px;padding:40px 30px;max-width:500px;width:100%;transform:scale(0.9);opacity:0;transition:all .4s ease;}
 .modal.active .modal-content{transform:scale(1);opacity:1;}
 .close-modal{position:absolute;top:15px;right:20px;font-size:2.5rem;cursor:pointer;color:#999;}
 .close-modal:hover{color:#000;}
-.modal h3{font-family:'Playfair Display',serif;font-size:2.2rem;margin-bottom:20px;text-align:center;color:var(--cyan);}
-.form-group{margin-bottom:20px;}
-.form-group label{display:block;margin-bottom:8px;font-weight:600;}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;font-size:1rem;}
-.form-group textarea{height:100px;}
-.btn-submit{background:var(--cyan);color:#fff;padding:16px;border:none;border-radius:60px;font-size:1.2rem;font-weight:700;cursor:pointer;width:100%;transition:.4s;}
-.btn-submit:hover{background:#0d8bc7;transform:scale(1.05);}
 
-/* Hero with parallax */
+/* Hero Section */
 .hero{
     height:100vh;min-height:800px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;z-index:2;
     background-attachment:fixed;background-position:center;background-size:cover;
@@ -109,13 +113,16 @@ nav{display:flex;justify-content:space-between;align-items:center;position:relat
 .hero p{font-size:2rem;font-weight:500;margin-bottom:4rem;max-width:900px;margin:auto;opacity:0;transform:translateY(50px);transition:all .8s ease;}
 .hero .btn{opacity:0;transform:translateY(50px);transition:all .8s ease;}
 .hero.show h1,.hero.show p,.hero.show .btn{opacity:1;transform:translateY(0);}
+
+/* Buttons Gradient Animations */
 .btn{display:inline-block;padding:26px 70px;margin:18px;border-radius:70px;font-weight:700;font-size:1.4rem;min-width:300px;transition:all .5s;box-shadow:0 25px 60px rgba(0,0,0,0.5);}
-.btn-primary{background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end));color:#fff;}
+.btn-primary{background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end));color:#fff;background-size:200% 200%;animation:gradientBtn 3s ease infinite;}
+@keyframes gradientBtn{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 .btn-primary:hover{transform:translateY(-14px) scale(1.1);filter:brightness(1.1);}
-.btn-gold{background:linear-gradient(135deg,var(--gold),#fbbf24);color:#0f172a;}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gradient-accent));color:#0f172a;background-size:200% 200%;animation:gradientBtn 3s ease infinite;}
 .btn-gold:hover{transform:translateY(-14px) scale(1.1);filter:brightness(1.1);}
 
-/* Cards with gradient hover */
+/* Cards Gradient Hover */
 .card{background:rgba(255,255,255,0.18);backdrop-filter:blur(25px);border:1px solid rgba(255,255,255,0.3);padding:4.5rem 3rem;border-radius:40px;text-align:center;transition:.7s;box-shadow:0 30px 80px rgba(0,0,0,0.4);}
 .card:hover{transform:translateY(-35px) scale(1.07);background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end,rgba(255,255,255,0.3)));box-shadow:0 40px 90px rgba(0,0,0,0.5);}
 .card i{font-size:5.5rem;margin-bottom:2.2rem;color:var(--gold);}
@@ -123,13 +130,100 @@ nav{display:flex;justify-content:space-between;align-items:center;position:relat
 .card p{font-size:1.2rem;transition:color .4s;}
 .card:hover p{color:#fff;}
 
-/* Contact and footer remain same... */
-/* Add other previous CSS for contact, map, footer, media queries here */
+/* Add Contact & Footer CSS here (same as before) */
+
+/* Responsive Media Queries */
+@media(max-width:992px){
+    .nav-links{display:none;}
+    .mobile-toggle{display:block !important;}
+    .logo{font-size:2.4rem;padding:6px 16px;}
+    .logo i{font-size:2.6rem;}
+    .hero h1{font-size:5.5rem;}
+    .appointment{bottom:270px;}
+}
+@media(max-width:768px){
+    .hero h1{font-size:4.2rem;}
+    .hero p{font-size:1.5rem;}
+    .btn{min-width:90%;font-size:1.3rem;}
+}
 </style>
 </head>
 <body>
 
-<!-- (Buraya önceki HTML body içeriği: overlay, floating buttonlar, modal, header, mobil menü, hero, hakkımızda, hizmetler, iletişim, footer) -->
+<!-- Overlay -->
+<div class="overlay"></div>
+
+<!-- Floating Buttons -->
+<a href="https://wa.me/905338388696" class="fab wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="tel:+905338406218" class="fab phone"><i class="fas fa-phone"></i></a>
+<div class="fab appointment" onclick="document.getElementById('randevuModal').classList.add('active')">
+    <i class="fas fa-calendar-check"></i>
+</div>
+
+<!-- Randevu Modal -->
+<div class="modal" id="randevuModal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="document.getElementById('randevuModal').classList.remove('active')">&times;</span>
+        <h3>Randevu Al</h3>
+        <form action="https://formspree.io/f/mknyznnp" method="POST">
+            <div class="form-group"><label>Ad Soyad</label><input type="text" name="name" required></div>
+            <div class="form-group"><label>Telefon</label><input type="tel" name="phone" required></div>
+            <div class="form-group"><label>E-Posta</label><input type="email" name="email" required></div>
+            <div class="form-group"><label>Tarih</label><input type="date" name="date" required></div>
+            <div class="form-group"><label>Saat</label>
+                <select name="time" required>
+                    <option value="">Seçiniz</option>
+                    <option>09:00 - 10:00</option>
+                    <option>10:00 - 11:00</option>
+                    <option>14:00 - 15:00</option>
+                    <option>15:00 - 16:00</option>
+                    <option>16:00 - 17:00</option>
+                    <option>17:00 - 18:00</option>
+                </select>
+            </div>
+            <div class="form-group"><label>Not (isteğe bağlı)</label><textarea name="message"></textarea></div>
+            <button type="submit" class="btn-submit">Randevu Gönder</button>
+        </form>
+    </div>
+</div>
+
+<!-- Header -->
+<header id="header">
+    <div class="container">
+        <nav>
+            <a href="#" class="logo"><i class="fas fa-paw"></i> Pet<span>Town</span></a>
+            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+            <div class="nav-links">
+                <a href="#anasayfa">Ana Sayfa</a>
+                <a href="#hizmetler">Hizmetler</a>
+                <a href="#hakkimizda">Hakkımızda</a>
+                <a href="#iletisim">İletişim</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="close-menu" id="closeMenu"><i class="fas fa-times"></i></div>
+    <a href="#anasayfa"><i class="fas fa-home"></i> Ana Sayfa</a>
+    <a href="#hizmetler"><i class="fas fa-stethoscope"></i> Hizmetlerimiz</a>
+    <a href="#hakkimizda"><i class="fas fa-info-circle"></i> Hakkımızda</a>
+    <a href="#iletisim"><i class="fas fa-phone-alt"></i> İletişim</a>
+    <a href="tel:+905338406218"><i class="fas fa-phone-volume"></i> Hemen Ara: 0533 840 62 18</a>
+</div>
+
+<!-- Hero Section -->
+<section id="anasayfa" class="hero" data-aos="fade-up">
+    <div class="container">
+        <h1>Pet Town<br>Veteriner Kliniği</h1>
+        <p>Biz sadece tedavi etmiyoruz, dostlarınızın mutluluğunu koruyoruz</p>
+        <a href="tel:+905338406218" class="btn btn-primary">Hemen Arayın</a>
+        <a href="https://wa.me/905338388696" class="btn btn-gold">WhatsApp'tan Yaz</a>
+    </div>
+</section>
+
+<!-- Hakkımızda, Hizmetler, İletişim ve Footer kodu öncekilerle aynı, gradient hover ve animasyonlar uygulanabilir -->
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
@@ -144,6 +238,7 @@ window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 50);
 });
 
+// Mobile toggle
 mobileToggle.addEventListener('click', () => mobileMenu.classList.add('active'));
 closeMenu.addEventListener('click', () => mobileMenu.classList.remove('active'));
 document.querySelectorAll('.mobile-menu a').forEach(link => {
