@@ -1,232 +1,215 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pet Town Veteriner Kliniği | Vadili Kıbrıs</title>
-<meta name="description" content="Vadili'nin en sevilen veteriner kliniği. Kedi, köpek ve tüm evcil hayvanlarınız için 7/24 hizmet.">
-<meta name="theme-color" content="#0ea5e9">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<style>
-:root{
-    --navy: #0f172a;
-    --cyan: #0ea5e9;
-    --gold: #fcd34d;
-    --white: #ffffff;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-    font-family:'Inter',sans-serif;
-    background: url('https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=2348&q=90') fixed center/cover;
-    color:#fff;
-    line-height:1.8;
-    min-height:100vh;
-    overflow-x:hidden;
-}
-.overlay{
-    position:fixed;top:0;left:0;width:100%;height:100%;
-    background:linear-gradient(135deg, rgba(14,165,233,0.74), rgba(15,23,42,0.90));
-    z-index:1;
-}
-.container{position:relative;z-index:2;width:92%;max-width:1400px;margin:auto;padding:0 20px;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Town Veteriner Kliniği | Vadili Kıbrıs</title>
+    <meta name="description" content="Vadili'nin en modern veteriner kliniği.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        :root{
+            --navy: #0f172a;
+            --cyan: #06b6d4;
+            --gold: #fbbf24;
+            --white: #ffffff;
+            --light: #f8fafc;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{
+            font-family:'Inter',sans-serif;
+            background: url('https://images.unsplash.com/photo-1583511666401-76eba91d5a5b?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') fixed center/cover;
+            color:#fff;
+            line-height:1.7;
+            min-height:100vh;
+        }
+        .overlay{
+            position:fixed;top:0;left:0;width:100%;height:100%;
+            background:linear-gradient(135deg,rgba(6,182,212,0.85),rgba(15,23,42,0.9));
+            z-index:1;
+        }
+        .container{position:relative;z-index:2;width:92%;max-width:1400px;margin:auto;padding:0 20px;}
 
-/* Logo */
-.logo{
-    font-family:'Playfair Display',serif;
-    font-size:3.2rem;font-weight:900;
-    display:flex;align-items:center;gap:12px;
-    color:#fff;text-decoration:none;
-    padding:8px 20px;
-    background:rgba(252,211,77,0.2);
-    border:2px solid var(--gold);
-    border-radius:60px;
-    backdrop-filter:blur(12px);
-    box-shadow:0 8px 32px rgba(0,0,0,0.5);
-    transition:.3s;
-}
-.logo i{font-size:3.2rem;background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.logo span{background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        /* Header */
+        header{
+            position:fixed;top:0;left:0;right:0;z-index:1000;
+            padding:22px 0;transition:all 0.5s;
+        }
+        header.scrolled{
+            background:rgba(15,23,42,0.95);
+            backdrop-filter:blur(20px);
+            box-shadow:0 15px 50px rgba(0,0,0,0.4);
+            padding:18px 0;
+        }
+        nav{display:flex;justify-content:space-between;align-items:center;}
+        .logo{
+            font-family:'Playfair Display',serif;
+            font-size:2.8rem;font-weight:900;
+            background:linear-gradient(135deg,#06b6d4,#fbbf24);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+        }
+        .nav-links{
+            display:flex;gap:3rem;align-items:center;
+        }
+        .nav-links a{
+            font-weight:600;color:#e2e8f0;font-size:1.1rem;
+            position:relative;transition:0.4s;
+        }
+        .nav-links a:hover{color:var(--gold);}
+        .nav-links a::after{
+            content:'';position:absolute;bottom:-10px;left:0;width:0;height:3px;
+            background:var(--gold);border-radius:3px;transition:0.4s;
+        }
+        .nav-links a:hover::after{width:100%;}
 
-/* Header */
-header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;transition:all .5s;}
-header.scrolled{background:rgba(15,23,42,0.98);backdrop-filter:blur(20px);padding:14px 0;box-shadow:0 15px 50px rgba(0,0,0,0.6);}
-nav{display:flex;justify-content:space-between;align-items:center;position:relative;}
-.nav-links a{color:#e2e8f0;font-weight:600;margin:0 1.8rem;position:relative;transition:.4s;}
-.nav-links a:hover{color:var(--gold);}
-.nav-links a::after{content:'';position:absolute;bottom:-10px;left:0;width:0;height:3px;background:var(--gold);border-radius:3px;transition:.4s;}
-.nav-links a:hover::after{width:100%;}
+        /* Mobil Menü */
+        .mobile-toggle{
+            display:none;font-size:2.2rem;color:#fff;cursor:pointer;z-index:1001;
+        }
+        .mobile-menu{
+            position:fixed;top:0;left:0;width:100%;height:100vh;
+            background:rgba(15,23,42,0.98);backdrop-filter:blur(15px);
+            display:flex;flex-direction:column;justify-content:center;align-items:center;
+            gap:4rem;font-size:2.2rem;font-weight:700;color:#fff;
+            transform:translateX(100%);transition:0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+            z-index:1000;
+        }
+        .mobile-menu.active{transform:translateX(0);}
+        .close-menu{
+            position:absolute;top:30px;right:30px;width:70px;height:70px;
+            background:var(--gold);color:var(--navy);border-radius:50%;
+            display:flex;align-items:center;justify-content:center;font-size:2.8rem;
+            cursor:pointer;transition:0.4s;box-shadow:0 10px 30px rgba(0,0,0,0.5);
+        }
+        .close-menu:hover{transform:rotate(90deg) scale(1.1);}
 
-/* Mobil Menü */
-.mobile-toggle{display:none;font-size:2.4rem;color:#fff;cursor:pointer;position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:1001;}
-.mobile-menu{position:fixed;top:0;left:0;width:100%;height:100vh;background:linear-gradient(135deg,#0f172a,#0ea5e9);backdrop-filter:blur(20px);
-    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;transform:translateY(-100%);transition:.7s ease;z-index:1000;}
-.mobile-menu.active{transform:translateY(0);}
-.mobile-menu a{display:block;width:88%;max-width:420px;padding:1.8rem;background:rgba(255,255,255,0.15);border:2px solid rgba(252,211,77,0.5);
-    border-radius:28px;color:#fff;font-size:1.8rem;font-weight:600;text-align:center;text-decoration:none;transition:.5s;box-shadow:0 15px 40px rgba(0,0,0,0.4);}
-.mobile-menu a:hover{background:var(--gold);color:#0f172a;transform:translateY(-12px) scale(1.08);}
-.mobile-menu a i{margin-right:16px;}
-.close-menu{position:absolute;top:30px;right:30px;width:75px;height:75px;background:var(--gold);color:#0f172a;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;font-size:3rem;cursor:pointer;transition:.5s;}
-.close-menu:hover{transform:rotate(90deg) scale(1.2);}
+        /* Floating Buttons */
+        .fab-container{
+            position:fixed;
+            bottom:30px;
+            right:30px;
+            display:flex;
+            flex-direction:column;
+            gap:20px;
+            z-index:998;
+        }
+        .fab{
+            width:70px;
+            height:70px;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:36px;
+            color:#fff;
+            box-shadow:0 15px 45px rgba(0,0,0,0.5);
+            cursor:pointer;
+            transition:transform 0.3s;
+        }
+        .fab:hover{transform:translateY(-12px) scale(1.1);}
+        .fab.wa{background:#25d366;}
+        .fab.phone{background:var(--cyan);}
+        .fab.appointment{background:var(--gold); color:#000;font-size:28px;}
 
-/* Floating Buttons */
-.fab-container{
-    position:fixed;
-    bottom:30px;
-    right:30px;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-    z-index:998;
-}
-.fab-wrapper{position:relative;display:flex;align-items:center;justify-content:center;}
-.fab{
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:36px;
-    color:#fff;
-    box-shadow:0 18px 50px rgba(0,0,0,0.6);
-    cursor:pointer;
-    transition:transform 0.3s;
-}
-.fab:hover{transform:translateY(-10px) scale(1.1);}
-.fab.wa{background:#25d366;}
-.fab.phone{background:var(--cyan);}
-.fab.appointment{background:var(--gold); color:#000; font-size:28px;}
+        /* Mobilde yatay düzen + logo küçültme */
+        @media(max-width:768px){
+            .fab-container{
+                flex-direction:row;
+                bottom:20px;
+                right:50%;
+                transform:translateX(50%);
+                gap:15px;
+            }
+            .fab{width:60px;height:60px;font-size:28px;}
+            .logo{font-size:2rem;}
+        }
 
-/* Tooltip */
-.tooltip{
-    position:absolute;
-    right:110%;
-    background:rgba(0,0,0,0.8);
-    color:#fff;
-    padding:6px 12px;
-    border-radius:8px;
-    white-space:nowrap;
-    font-size:1rem;
-    opacity:0;
-    transform:translateX(-10px);
-    transition:all 0.3s;
-    pointer-events:none;
-}
-.fab-wrapper:hover .tooltip{opacity:1;transform:translateX(0);}
-
-/* Mobilde yatay düzen + logo küçültme */
-@media(max-width:768px){
-    .fab-container{
-        flex-direction:row;
-        bottom:20px;
-        right:50%;
-        transform:translateX(50%);
-        gap:15px;
-    }
-    .fab{width:60px;height:60px;font-size:28px;}
-    .tooltip{right:auto;top:-40px;left:50%;transform:translateX(-50%);}
-    .logo{font-size:2rem;padding:4px 12px;}
-    .logo i{font-size:2.2rem;}
-}
-</style>
+        /* Hero ve diğer bölümler sabit */
+        .hero{
+            height:100vh;min-height:750px;display:flex;align-items:center;
+            text-align:center;position:relative;z-index:2;
+        }
+        .hero-content{max-width:1000px;margin:auto;padding:0 20px;}
+        .hero h1{
+            font-family:'Playfair Display',serif;font-size:5.2rem;margin-bottom:1.2rem;
+            text-shadow:0 8px 30px rgba(0,0,0,0.7);
+        }
+        .hero p{font-size:1.5rem;margin-bottom:3.5rem;opacity:0.95;}
+        .btn{
+            display:inline-block;padding:22px 55px;margin:15px;
+            border-radius:60px;font-weight:700;font-size:1.2rem;
+            min-width:260px;transition:all 0.5s;
+            box-shadow:0 20px 50px rgba(0,0,0,0.4);
+        }
+        .btn-primary{background:var(--cyan);color:#fff;}
+        .btn-primary:hover{transform:translateY(-10px) scale(1.08);box-shadow:0 30px 70px rgba(6,182,212,0.6);}
+        .btn-gold{background:var(--gold);color:var(--navy);}
+        .btn-gold:hover{transform:translateY(-10px) scale(1.08);box-shadow:0 30px 70px rgba(251,191,36,0.6);}
+    </style>
 </head>
 <body>
 
-<div class="overlay"></div>
+    <div class="overlay"></div>
 
-<!-- Floating Buttons -->
-<div class="fab-container">
-    <div class="fab-wrapper">
+    <!-- Floating Buttons -->
+    <div class="fab-container">
         <a href="https://wa.me/905338388696" class="fab wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <span class="tooltip">WhatsApp'tan Yaz</span>
-    </div>
-    <div class="fab-wrapper">
         <a href="tel:+905338406218" class="fab phone"><i class="fas fa-phone"></i></a>
-        <span class="tooltip">Hemen Ara</span>
     </div>
-    <div class="fab-wrapper">
-        <div class="fab appointment" onclick="document.getElementById('randevuModal').classList.add('active')"><i class="fas fa-calendar-check"></i></div>
-        <span class="tooltip">Randevu Al</span>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">Pet<span>Town</span></div>
+                <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+                <div class="nav-links">
+                    <a href="#anasayfa">Ana Sayfa</a>
+                    <a href="#hizmetler">Hizmetler</a>
+                    <a href="#hakkimizda">Hakkımızda</a>
+                    <a href="#iletisim">İletişim</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobil Menü -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="close-menu" id="closeMenu"><i class="fas fa-times"></i></div>
+        <a href="#anasayfa">Ana Sayfa</a>
+        <a href="#hizmetler">Hizmetler</a>
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#iletisim">İletişim</a>
+        <a href="tel:+905338406218" class="btn btn-primary" style="margin-top:2rem;">0533 840 62 18</a>
     </div>
-</div>
 
-<!-- Randevu Modal -->
-<div class="modal" id="randevuModal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="document.getElementById('randevuModal').classList.remove('active')">&times;</span>
-        <h3>Randevu Al</h3>
-        <form action="https://formspree.io/f/mknyznnp" method="POST">
-            <div class="form-group"><label>Ad Soyad</label><input type="text" name="name" required></div>
-            <div class="form-group"><label>Telefon</label><input type="tel" name="phone" required></div>
-            <div class="form-group"><label>E-Posta</label><input type="email" name="email" required></div>
-            <div class="form-group"><label>Tarih</label><input type="date" name="date" required></div>
-            <div class="form-group"><label>Saat</label>
-                <select name="time" required>
-                    <option value="">Seçiniz</option>
-                    <option>09:00 - 10:00</option>
-                    <option>10:00 - 11:00</option>
-                    <option>14:00 - 15:00</option>
-                    <option>15:00 - 16:00</option>
-                    <option>16:00 - 17:00</option>
-                    <option>17:00 - 18:00</option>
-                </select>
-            </div>
-            <div class="form-group"><label>Not (isteğe bağlı)</label><textarea name="message"></textarea></div>
-            <button type="submit" class="btn-submit">Randevu Gönder</button>
-        </form>
-    </div>
-</div>
+    <!-- Hero -->
+    <section id="anasayfa" class="hero">
+        <div class="hero-content">
+            <h1>Pet Town Veteriner Kliniği</h1>
+            <p>Vadili / Kıbrıs • Sevgiyle, uzmanlıkla, 7/24 dostlarınızın yanındayız</p>
+            <a href="tel:+905338406218" class="btn btn-primary">Hemen Arayın</a>
+            <a href="https://wa.me/905338388696" class="btn btn-gold">WhatsApp'tan Yaz</a>
+        </div>
+    </section>
 
-<!-- Header -->
-<header id="header">
-    <div class="container">
-        <nav>
-            <a href="#" class="logo"><i class="fas fa-paw"></i> Pet<span>Town</span></a>
-            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
-            <div class="nav-links">
-                <a href="#anasayfa">Ana Sayfa</a>
-                <a href="#hizmetler">Hizmetler</a>
-                <a href="#hakkimizda">Hakkımızda</a>
-                <a href="#iletisim">İletişim</a>
-            </div>
-        </nav>
-    </div>
-</header>
+    <!-- Geri kalan Hizmetler, İletişim, Footer bölümleri aynı kalır -->
 
-<!-- Mobil Menü -->
-<div class="mobile-menu" id="mobileMenu">
-    <div class="close-menu" id="closeMenu"><i class="fas fa-times"></i></div>
-    <a href="#anasayfa"><i class="fas fa-home"></i> Ana Sayfa</a>
-    <a href="#hizmetler"><i class="fas fa-stethoscope"></i> Hizmetlerimiz</a>
-    <a href="#hakkimizda"><i class="fas fa-info-circle"></i> Hakkımızda</a>
-    <a href="#iletisim"><i class="fas fa-phone-alt"></i> İletişim</a>
-    <a href="tel:+905338406218"><i class="fas fa-phone-volume"></i> Hemen Ara: 0533 840 62 18</a>
-</div>
+    <script>
+        const header = document.getElementById('header');
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
 
-<!-- Geri kalan HTML (Hero, Hakkımızda, Hizmetler, İletişim, Footer) aynen korunur -->
-<!-- ... -->
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
 
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-AOS.init({duration: 1000, once: true});
-const header = document.getElementById('header');
-const mobileToggle = document.querySelector('.mobile-toggle');
-const mobileMenu = document.getElementById('mobileMenu');
-const closeMenu = document.getElementById('closeMenu');
-
-window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 50);
-});
-mobileToggle.addEventListener('click', () => mobileMenu.classList.add('active'));
-closeMenu.addEventListener('click', () => mobileMenu.classList.remove('active'));
-document.querySelectorAll('.mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => mobileMenu.classList.remove('active'));
-});
-</script>
+        mobileToggle.addEventListener('click', () => mobileMenu.classList.add('active'));
+        closeMenu.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        });
+    </script>
 </body>
 </html>
