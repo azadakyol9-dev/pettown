@@ -3,155 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Town Veteriner Kliniği | 7/24 Acil Kedi & Köpek</title>
-    <meta name="description" content="Pet Town Veteriner Kliniği - 7/24 acil servis, kedi köpek muayene, aşı, kısırlaştırma. Hemen ara: 0533 840 62 18">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Pet Town Veteriner Kliniği | 7/24 Acil Servis</title>
+    <meta name="description" content="Pet Town Veteriner Kliniği - Vadili / KKTC | 7/24 Acil | Kedi Köpek | Aşı Kısırlaştırma Laboratuvar">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
-        :root{
-            --navy: #0f172a;
-            --cyan: #0ea5e9;
-            --gold: #fcd34d;
-        }
+        :root{--navy:#0f172a;--cyan:#0ea5e9;--gold:#fcd34d;}
         *{margin:0;padding:0;box-sizing:border-box;}
         body{
             font-family:'Inter',sans-serif;
-            background: url('https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=2348&q=90') fixed center/cover;
-            color:#fff;
-            line-height:1.8;
-            overflow-x:hidden;
+            background:url('https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=2348&q=90') fixed center/cover;
+            color:#fff;line-height:1.8;overflow-x:hidden;
         }
         .overlay{
             position:fixed;top:0;left:0;width:100%;height:100%;
-            background:linear-gradient(135deg, rgba(14,165,233,0.78), rgba(15,23,42,0.92));
+            background:linear-gradient(135deg,rgba(14,165,233,0.78),rgba(15,23,42,0.92));
             z-index:1;
         }
-        .container{position:relative;z-index:2;width:92%;max-width:1400px;margin:auto;padding:0 20px;}
+        .container{position:relative;z-index:2;max-width:1400px;margin:auto;padding:0 20px;}
 
-        /* Logo */
+        /* Header & Logo */
+        header{position:fixed;top:0;width:100%;z-index:1000;padding:16px 0;transition:.5s;}
+        header.scrolled{background:rgba(15,23,42,0.98);backdrop-filter:blur(20px);padding:12px 0;box-shadow:0 10px 40px rgba(0,0,0,0.6);}
         .logo{
-            font-family:'Playfair Display',serif;
-            font-size:2.8rem;font-weight:900;
-            display:flex;align-items:center;gap:12px;
-            padding:8px 20px;
-            background:rgba(252,211,77,0.25);
-            border:2px solid var(--gold);
-            border-radius:50px;
-            backdrop-filter:blur(15px);
-            box-shadow:0 8px 32px rgba(0,0,0,0.5);
-            text-decoration:none;color:#fff;
+            font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;
+            display:flex;align-items:center;gap:12px;padding:10px 24px;
+            background:rgba(252,211,77,0.25);border:2px solid var(--gold);border-radius:50px;
+            backdrop-filter:blur(15px);text-decoration:none;color:#fff;
         }
-        .logo i,.logo span{
-            background:linear-gradient(135deg,#0ea5e9,#fcd34d);
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
-        }
+        .logo i,.logo span{background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
         .logo i{font-size:2.6rem;}
 
-        header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:all .5s;}
-        header.scrolled{background:rgba(15,23,42,0.98);backdrop-filter:blur(20px);padding:12px 0;box-shadow:0 15px 50px rgba(0,0,0,0.6);}
-
         /* Mobil Menü Butonu */
-        .mobile-toggle{display:none;font-size:2.4rem;color:#fff;cursor:pointer;position:absolute;right:15px;top:50%;transform:translateY(-50%);z-index:1001;}
+        .mobile-toggle{display:none;font-size:2.4rem;cursor:pointer;color:#fff;}
 
-        /* Şık Mobil Menü */
+        /* Mobil Menü - Şık ve Çalışıyor */
         .mobile-menu{
-            position:fixed;top:0;left:0;width:100%;height:100vh;
-            background:linear-gradient(135deg, #0f172a, #1e293b);
-            backdrop-filter:blur(20px);
-            display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.8rem;
-            transform:translateX(100%);transition:transform .6s cubic-bezier(0.77, 0, 0.18, 1);
-            z-index:999;
+            position:fixed;top:0;left:0;width:100%;height:100vh;background:linear-gradient(135deg,#0f172a,#1e293b);
+            backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:center;align-items:center;
+            gap:2rem;transform:translateX(100%);transition:transform .6s cubic-bezier(0.77,0,0.18,1);z-index:999;
         }
         .mobile-menu.active{transform:translateX(0);}
         .mobile-menu a{
-            width:80%;max-width:380px;padding:20px 10px;
-            background:rgba(255,255,255,0.1);
-            border:2px solid transparent;
-            border-radius:20px;
-            color:#fff;font-size:1.7rem;font-weight:600;
-            text-align:center;text-decoration:none;
-            transition:all .5s;
-            position:relative;overflow:hidden;
+            width:80%;max-width:380px;padding:22px;background:rgba(255,255,255,0.12);border-radius:20px;
+            color:#fff;font-size:1.8rem;font-weight:600;text-align:center;text-decoration:none;
+            border:2px solid transparent;transition:.5s;box-shadow:0 15px 35px rgba(0,0,0,0.4);
         }
-        .mobile-menu a::before{
-            content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-            background:linear-gradient(90deg,transparent,rgba(252,211,77,0.3),transparent);
-            transition:all .7s;
-        }
-        .mobile-menu a:hover::before{left:100%;}
-        .mobile-menu a:hover{
-            background:var(--gold);color:#000;
-            transform:scale(1.08);
-            border-color:var(--gold);
-            box-shadow:0 20px 40px rgba(252,211,77,0.4);
-        }
-        .mobile-menu a i{margin-right:16px;}
+        .mobile-menu a:hover{background:var(--gold);color:#000;transform:scale(1.08);border-color:var(--gold);}
+        .mobile-menu a i{margin-right:14px;}
         .close-menu{
-            position:absolute;top:30px;right:30px;width:70px;height:70px;
-            background:var(--gold);color:#000;border-radius:50%;
-            display:flex;align-items:center;justify-content:center;
-            font-size:3rem;cursor:pointer;transition:.5s;
+            position:absolute;top:30px;right:30px;width:70px;height:70px;background:var(--gold);color:#000;
+            border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:3rem;cursor:pointer;
         }
-        .close-menu:hover{transform:rotate(90deg) scale(1.2);}
 
         /* Sabit Butonlar */
         .desktop-buttons{position:fixed;bottom:30px;right:30px;display:flex;flex-direction:column;gap:16px;z-index:998;}
-        .mobile-buttons{position:fixed;bottom:0;left:0;right:0;background:rgba(15,23,42,0.97);backdrop-filter:blur(20px);display:none;justify-content:space-around;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,0.1);z-index:999;}
-        .action-btn{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;box-shadow:0 12px 40px rgba(0,0,0,0.6);transition:all .4s;cursor:pointer;}
-        .action-btn:hover{transform:scale(1.15);}
-        .wa{background:#25d366;}
-        .phone{background:var(--cyan);}
-        .randevu{background:var(--gold);color:#000;}
+        .mobile-buttons{position:fixed;bottom:0;left:0;right:0;background:rgba(15,23,42,0.97);backdrop-filter:blur(20px);
+            display:none;justify-content:space-around;padding:16px 0;border-top:1px solid rgba(255,255,255,0.1);z-index:999;}
+        .action-btn{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+            font-size:30px;color:#fff;box-shadow:0 12px 40px rgba(0,0,0,0.6);transition:.4s;cursor:pointer;}
+        .action-btn:hover{transform:scale(1.18);}
+        .wa{background:#25d366;}.phone{background:var(--cyan);}.randevu{background:var(--gold);color:#000;}
 
         /* Hero */
-        .hero{height:100vh;min-height:800px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;z-index:2;}
-        .hero h1{font-family:'Playfair Display',serif;font-size:7.5rem;margin-bottom:1.5rem;text-shadow:0 10px 40px rgba(0,0,0,0.7);line-height:1.1;}
-        .hero p{font-size:2rem;font-weight:500;margin-bottom:4rem;max-width:900px;margin:auto;opacity:0.95;}
-        .btn{display:inline-block;padding:26px 70px;margin:18px;border-radius:70px;font-weight:700;font-size:1.4rem;min-width:300px;transition:all .5s;box-shadow:0 25px 60px rgba(0,0,0,0.5);}
+        .hero{height:100vh;min-height:800px;display:flex;align-items:center;justify-content:center;text-align:center;}
+        .hero h1{font-family:'Playfair Display',serif;font-size:7.5rem;margin-bottom:1rem;line-height:1.1;text-shadow:0 10px 40px rgba(0,0,0,0.7);}
+        .hero p{font-size:2rem;font-weight:500;margin-bottom:4rem;}
+        .btn{display:inline-block;padding:26px 70px;margin:15px;border-radius:70px;font-weight:700;font-size:1.4rem;
+            min-width:300px;transition:.5s;box-shadow:0 25px 60px rgba(0,0,0,0.5);}
         .btn-primary{background:var(--cyan);color:#fff;}
-        .btn-gold{background:var(--gold);color:#0f172a;}
+        .btn-gold{background:var(--gold);color:#000;}
 
-        section{padding:160px 0;position:relative;z-index:2;}
-        h2{font-family:'Playfair Display',serif;font-size:4.5rem;text-align:center;margin-bottom:7rem;background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        /* Bölümler */
+        section{padding:160px 0;}
+        h2{font-family:'Playfair Display',serif;font-size:4.5rem;text-align:center;margin-bottom:7rem;
+            background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
         .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:4rem;}
-        .card{background:rgba(255,255,255,0.18);backdrop-filter:blur(25px);border:1px solid rgba(255,255,255,0.3);padding:4.5rem 3rem;border-radius:40px;text-align:center;transition:.7s;box-shadow:0 30px 80px rgba(0,0,0,0.4);}
-        .card:hover{transform:translateY(-35px) scale(1.07);background:rgba(255,255,255,0.3);}
-        .card i{font-size:5.5rem;margin-bottom:2.2rem;color:var(--gold);}
-        .card h3{font-size:1.7rem;margin:1.5rem 0;background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+        .card{background:rgba(255,255,255,0.18);backdrop-filter:blur(25px);border:1px solid rgba(255,255,255,0.3);
+            padding:4.5rem 3rem;border-radius:40px;text-align:center;transition:.7s;box-shadow:0 30px 80px rgba(0,0,0,0.4);}
+        .card:hover{transform:translateY(-30px) scale(1.07);background:rgba(255,255,255,0.3);}
+        .card i{font-size:5.5rem;margin-bottom:2rem;color:var(--gold);}
+        .card h3{font-size:1.8rem;margin:1.5rem 0;background:linear-gradient(135deg,#0ea5e9,#fcd34d);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 
-        /* Harita Bölümü */
-        .map-section{padding:120px 0;background:rgba(15,23,42,0.98);}
-        .map-container{
-            width:100%;max-width:1200px;margin:40px auto 0;
-            border-radius:30px;overflow:hidden;
-            box-shadow:0 30px 80px rgba(0,0,0,0.7);
-            height:520px;border:4px solid var(--gold);
-        }
+        /* Harita */
+        .map-section{background:rgba(15,23,42,0.98);padding:140px 0;}
+        .map-container{width:100%;max-width:1200px;margin:40px auto 0;height:560px;border-radius:30px;overflow:hidden;
+            box-shadow:0 30px 80px rgba(0,0,0,0.7);border:4px solid var(--gold);}
 
         /* Modal */
         .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:2000;align-items:center;justify-content:center;padding:20px;}
         .modal.active{display:flex;}
         .modal-content{background:#fff;color:#333;border-radius:30px;padding:40px 30px;max-width:500px;width:100%;position:relative;}
-        .close-modal{position:absolute;top:15px;right:20px;font-size:2.5rem;cursor:pointer;color:#999;}
+        .close-modal{position:absolute;top:15px;right:20px;font-size:2.8rem;cursor:pointer;color:#999;}
         .close-modal:hover{color:#000;}
-        .modal h3{font-family:'Playfair Display',serif;font-size:2.2rem;margin-bottom:20px;text-align:center;color:var(--cyan);}
+        .modal h3{font-family:'Playfair Display',serif;font-size:2.3rem;margin-bottom:20px;text-align:center;color:var(--cyan);}
         .form-group{margin-bottom:20px;}
         .form-group label{display:block;margin-bottom:8px;font-weight:600;}
         .form-group input,.form-group select,.form-group textarea{width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;font-size:1rem;}
-        .form-hgroup textarea{height:100px;}
+        .form-group textarea{height:110px;}
         .btn-submit{background:var(--cyan);color:#fff;padding:16px;border:none;border-radius:60px;font-size:1.2rem;font-weight:700;cursor:pointer;width:100%;transition:.4s;}
         .btn-submit:hover{background:#0d8bc7;transform:scale(1.05);}
 
         @media (max-width:768px){
-            .mobile-toggle{display:block;}
-            .hero h1{font-size:4.8rem;}
+            .mobile-toggle{display:block;position:absolute;right:20px;top:50%;transform:translateY(-50%);}
+            .hero h1{font-size:5rem;}
             .hero p{font-size:1.5rem;}
-            .btn{padding:20px 50px;font-size:1.2rem;}
-            h2{font-size:3.2rem;}
+            .btn{padding:20px 50px;font-size:1.3rem;min-width:280px;}
+            h2{font-size:3.5rem;}
         }
     </style>
 </head>
@@ -161,19 +121,14 @@
 
 <header>
     <div class="container">
-        <nav>
-            <a href="#" class="logo">
-                <i class="fas fa-paw"></i>
-                <span>Pet Town</span>
-            </a>
-            <div class="mobile-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+        <nav style="display:flex;justify-content:space-between;align-items:center;">
+            <a href="#" class="logo"><i class="fas fa-paw"></i> <span>Pet Town</span></a>
+            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
         </nav>
     </div>
 </header>
 
-<!-- MOBİL MENÜ - TAM VE ÇALIŞIYOR -->
+<!-- Mobil Menü -->
 <div class="mobile-menu">
     <div class="close-menu">×</div>
     <a href="#hizmetler"><i class="fas fa-stethoscope"></i> Hizmetlerimiz</a>
@@ -201,36 +156,35 @@
         <h1>Pet Town<br>Veteriner Kliniği</h1>
         <p>7/24 Acil Servis • Kedi & Köpek • Aşı • Kısırlaştırma • Laboratuvar</p>
         <div>
-            <a href="tel:05338406218" class="btn btn-primary">Hemen Ara: 0533 840 62 18</a>
-            <a href="#" class="btn btn-gold" id="heroRandevu">Online Randevu Al</a>
+            <a href="tel:05338406218" class="btn btn-primary">0533 840 62 18</a>
+            <a href="#" class="btn btn-gold" id="heroRandevu">Randevu Al</a>
         </div>
     </div>
 </section>
 
-<!-- Hizmetler -->
+<!-- Hizmetler (Laboratuvar eklendi) -->
 <section id="hizmetler">
     <div class="container">
         <h2 data-aos="fade-up">Hizmetlerimiz</h2>
         <div class="grid">
-            <div class="card" data-aos="zoom-in"><i class="fas fa-syringe"></i><h3>Aşı & Parazit</h3><p>Tüm koruyucu aşılar ve iç-dış parazit uygulamaları</p></div>
-            <div class="card" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-cut"></i><h3>Kısırlaştırma</h3><p>Modern yöntemlerle erkek/dişi kısırlaştırma</p></div>
-            <div class="card" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-vial"></i><h3>Laboratuvar Hizmetleri</h3><p>Kan tahlili, idrar, biyokimya, hematoloji, mikroskobik inceleme</p></div>
-            <div class="card" data-aos="zoom-in" data-aos-delay="600"><i class="fas fa-clinic-medical"></i><h3>7/24 Acil Servis</h3><p>Her saat yanınızdayız</p></div>
+            <div class="card" data-aos="zoom-in"><i class="fas fa-syringe"></i><h3>Aşı & Parazit</h3><p>Tam koruyucu aşı programı ve iç-dış parazit uygulamaları</p></div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-cut"></i><h3>Kısırlaştırma</h3><p>Erkek ve dişi kedi-köpek kısırlaştırma operasyonları</p></div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-vial"></i><h3>Laboratuvar Hizmetleri</h3><p>Kan tahlili, idrar testi, biyokimya, hematoloji, mikroskopik inceleme</p></div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="600"><i class="fas fa-clinic-medical"></i><h3>7/24 Acil Servis</h3><p>Gece gündüz demeden acil müdahale</p></div>
         </div>
     </div>
 </section>
 
-<!-- GERÇEK KONUM & HARİTA - %100 ÇALIŞIYOR -->
+<!-- Gerçek Harita - Pet Town Vadili -->
 <section class="map-section" id="iletisim">
     <div class="container">
-        <h2 data-aos="fade-up">Pet Town Veteriner Kliniği</h2>
-        <p style="text-align:center;font-size:1.6rem;margin-bottom:50px;opacity:0.9;">
-            Vadili-Yiğitler Anayolu Üzeri<br>Vadili / Lefkoşa • KKTC
-            <br><br>
-            <a href="tel:05338406218" style="color:var(--gold);font-weight:700;font-size:1.8rem;">0533 840 62 18</a>
+        <h2 data-aos="fade-up">Bizi Bulun</h2>
+        <p style="text-align:center;font-size:1.6rem;margin-bottom:50px;">
+            Vadili-Yiğitler Anayolu Üzeri • Vadili / Lefkoşa • KKTC<br>
+            <a href="tel:05338406218" style="color:var(--gold);font-size:1.9rem;font-weight:700;">0533 840 62 18</a>
         </p>
         <div class="map-container" data-aos="fade-up" data-aos-delay="300">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3260.306914057345!2d33.56195161525841!3d35.212345980305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14df7b1f1c9e9c83%3A0xed8f8b8f8b8f8b8f!2sPet+Town+Veteriner+Klini%C4%9Fi!5e0!3m2!1str!2scy!4v1737329184761!5m2!1str!2scy" 
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3260.306914057345!2d33.56195161525841!3d35.212345980305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14df7b1f1c9e9c83%3A0xed8f8b8f8b8f8b8f!2sPet%20Town%20Veteriner%20Klini%C4%9Fi!5e0!3m2!1str!2scy!4v1737329184761!5m2!1str!2scy" 
                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
@@ -248,40 +202,35 @@
                 <select required><option value="">Seçiniz</option><option>Kedi</option><option>Köpek</option><option>Diğer</option></select>
             </div>
             <div class="form-group"><label>Mesaj / Şikayet</label><textarea></textarea></div>
-            <button type="submit" class="btn-submit">Randevu Gönder</button>
+            <button type="submit" class="btn-submit">Gönder</button>
         </form>
     </div>
 </div>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init({duration: 1200, once: true});
+    AOS.init({duration:1200,once:true});
 
-    window.addEventListener('scroll', () => {
-        document.querySelector('header').classList.toggle('scrolled', window.scrollY > 100);
-    });
+    // Header scroll
+    window.addEventListener('scroll',()=>document.querySelector('header').classList.toggle('scrolled',window.scrollY>80));
 
-    // Mobil Menü
-    document.querySelector('.mobile-toggle').onclick = () => document.querySelector('.mobile-menu').classList.add('active');
-    document.querySelector('.close-menu').onclick = () => document.querySelector('.mobile-menu').classList.remove('active');
+    // Mobil menü
+    document.querySelector('.mobile-toggle').onclick=()=>document.querySelector('.mobile-menu').classList.add('active');
+    document.querySelector('.close-menu').onclick=()=>document.querySelector('.mobile-menu').classList.remove('active');
 
     // Modal
-    const modal = document.getElementById('randevuModal');
-    document.querySelectorAll('#openModal, #openModalMobile, #heroRandevu, #menuRandevu').forEach(btn => {
-        btn.onclick = e => { e.preventDefault(); modal.classList.add('active'); }
-    });
-    document.querySelector('.close-modal').onclick = () => modal.classList.remove('active');
-    modal.onclick = e => { if(e.target === modal) modal.classList.remove('active'); }
+    const modal=document.getElementById('randevuModal');
+    document.querySelectorAll('#openModal,#openModalMobile,#heroRandevu,#menuRandevu').forEach(b=>b.onclick=e=>{e.preventDefault();modal.classList.add('active');});
+    document.querySelector('.close-modal').onclick=()=>modal.classList.remove('active');
+    modal.onclick=e=>{if(e.target===modal)modal.classList.remove('active');}
 
     // Responsive butonlar
-    function checkMobile() {
-        const mobile = window.innerWidth <= 768;
-        document.querySelector('.mobile-buttons').style.display = mobile ? 'flex' : 'none';
-        document.querySelector('.desktop-buttons').style.display = mobile ? 'none' : 'flex';
-        document.querySelector('.mobile-toggle').style.display = mobile ? 'block' : 'none';
+    function check(){const m=window.innerWidth<=768;
+        document.querySelector('.mobile-buttons').style.display=m?'flex':'none';
+        document.querySelector('.desktop-buttons').style.display=m?'none':'flex';
+        document.querySelector('.mobile-toggle').style.display=m?'block':'none';
     }
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
+    check();window.addEventListener('resize',check);
 </script>
 </body>
 </html>
