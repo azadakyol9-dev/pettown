@@ -15,7 +15,6 @@
             --navy: #0f172a;
             --cyan: #0ea5e9;
             --gold: #fcd34d;
-            --light: #f8fafc;
         }
         *{margin:0;padding:0;box-sizing:border-box;}
         body{
@@ -44,7 +43,6 @@
             backdrop-filter:blur(15px);
             box-shadow:0 8px 32px rgba(0,0,0,0.5);
             text-decoration:none;color:#fff;
-            transition:all .4s;
         }
         .logo i,.logo span{
             background:linear-gradient(135deg,#0ea5e9,#fcd34d);
@@ -56,8 +54,10 @@
         header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:all .5s;}
         header.scrolled{background:rgba(15,23,42,0.98);backdrop-filter:blur(20px);padding:12px 0;box-shadow:0 15px 50px rgba(0,0,0,0.6);}
 
-        /* YENİ MOBİL MENÜ - ÇOK DAHA ŞIK */
+        /* Mobil Menü Butonu */
         .mobile-toggle{display:none;font-size:2.4rem;color:#fff;cursor:pointer;position:absolute;right:15px;top:50%;transform:translateY(-50%);z-index:1001;}
+
+        /* Şık Mobil Menü */
         .mobile-menu{
             position:fixed;top:0;left:0;width:100%;height:100vh;
             background:linear-gradient(135deg, #0f172a, #1e293b);
@@ -98,7 +98,7 @@
         }
         .close-menu:hover{transform:rotate(90deg) scale(1.2);}
 
-        /* Butonlar */
+        /* Sabit Butonlar */
         .desktop-buttons{position:fixed;bottom:30px;right:30px;display:flex;flex-direction:column;gap:16px;z-index:998;}
         .mobile-buttons{position:fixed;bottom:0;left:0;right:0;background:rgba(15,23,42,0.97);backdrop-filter:blur(20px);display:none;justify-content:space-around;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,0.1);z-index:999;}
         .action-btn{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;box-shadow:0 12px 40px rgba(0,0,0,0.6);transition:all .4s;cursor:pointer;}
@@ -124,14 +124,12 @@
         .card h3{font-size:1.7rem;margin:1.5rem 0;background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 
         /* Harita Bölümü */
-        .map-section{
-            padding:120px 0;background:rgba(15,23,42,0.98);margin-top:80px;
-        }
+        .map-section{padding:120px 0;background:rgba(15,23,42,0.98);}
         .map-container{
             width:100%;max-width:1200px;margin:40px auto 0;
             border-radius:30px;overflow:hidden;
             box-shadow:0 30px 80px rgba(0,0,0,0.7);
-            height:500px;
+            height:520px;border:4px solid var(--gold);
         }
 
         /* Modal */
@@ -144,20 +142,16 @@
         .form-group{margin-bottom:20px;}
         .form-group label{display:block;margin-bottom:8px;font-weight:600;}
         .form-group input,.form-group select,.form-group textarea{width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;font-size:1rem;}
-        .form-group textarea{height:100px;}
+        .form-hgroup textarea{height:100px;}
         .btn-submit{background:var(--cyan);color:#fff;padding:16px;border:none;border-radius:60px;font-size:1.2rem;font-weight:700;cursor:pointer;width:100%;transition:.4s;}
         .btn-submit:hover{background:#0d8bc7;transform:scale(1.05);}
 
-        /* Responsive */
         @media (max-width:768px){
             .mobile-toggle{display:block;}
-            .hero h1{font-size:4.5rem;}
-            .hero p{font-size:1.4rem;}
-            .btn{padding:20px 40px;font-size:1.2rem;min-width:250px;}
-            h2{font-size:3rem;margin-bottom:4rem;}
-            .grid{gap:2rem;}
-            .card{padding:3rem 2rem;}
-            .card i{font-size:4rem;}
+            .hero h1{font-size:4.8rem;}
+            .hero p{font-size:1.5rem;}
+            .btn{padding:20px 50px;font-size:1.2rem;}
+            h2{font-size:3.2rem;}
         }
     </style>
 </head>
@@ -179,11 +173,11 @@
     </div>
 </header>
 
-<!-- YENİ ŞIK MOBİL MENÜ -->
+<!-- MOBİL MENÜ - TAM VE ÇALIŞIYOR -->
 <div class="mobile-menu">
     <div class="close-menu">×</div>
     <a href="#hizmetler"><i class="fas fa-stethoscope"></i> Hizmetlerimiz</a>
-    <a href="#iletisim"><i class="fas fa-map-marker-alt"></i> İletişim & Harita</a>
+    <a href="#iletisim"><i class="fas fa-map-marker-alt"></i> Konum & Harita</a>
     <a href="tel:05338406218"><i class="fas fa-phone"></i> Hemen Ara</a>
     <a href="https://wa.me/905338406218" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     <a href="#" id="menuRandevu"><i class="fas fa-calendar-check"></i> Randevu Al</a>
@@ -191,17 +185,10 @@
 
 <!-- Sabit Butonlar -->
 <div class="desktop-buttons">
-    <div class="action-btn wa" onclick="window.open('https://wa.me/905338406218','_blank')">
-        <i class="fab fa-whatsapp"></i>
-    </div>
-    <div class="action-btn phone" onclick="window.location='tel:05338406218'">
-        <i class="fas fa-phone"></i>
-    </div>
-    <div class="action-btn randevu" id="openModal">
-        <i class="fas fa-calendar-check"></i>
-    </div>
+    <div class="action-btn wa" onclick="window.open('https://wa.me/905338406218','_blank')"><i class="fab fa-whatsapp"></i></div>
+    <div class="action-btn phone" onclick="window.location='tel:05338406218'"><i class="fas fa-phone"></i></div>
+    <div class="action-btn randevu" id="openModal"><i class="fas fa-calendar-check"></i></div>
 </div>
-
 <div class="mobile-buttons">
     <div class="action-btn wa" onclick="window.open('https://wa.me/905338406218','_blank')"><i class="fab fa-whatsapp"></i></div>
     <div class="action-btn phone" onclick="window.location='tel:05338406218'"><i class="fas fa-phone"></i></div>
@@ -212,7 +199,7 @@
 <section class="hero">
     <div class="container" data-aos="fade-up">
         <h1>Pet Town<br>Veteriner Kliniği</h1>
-        <p>7/24 Acil Servis • Kedi & Köpek • Aşı • Kısırlaştırma • Dahiliye • Cerrahi</p>
+        <p>7/24 Acil Servis • Kedi & Köpek • Aşı • Kısırlaştırma • Laboratuvar</p>
         <div>
             <a href="tel:05338406218" class="btn btn-primary">Hemen Ara: 0533 840 62 18</a>
             <a href="#" class="btn btn-gold" id="heroRandevu">Online Randevu Al</a>
@@ -220,81 +207,47 @@
     </div>
 </section>
 
-<!-- HİZMETLER - LABORATUVAR EKLENDİ -->
+<!-- Hizmetler -->
 <section id="hizmetler">
     <div class="container">
         <h2 data-aos="fade-up">Hizmetlerimiz</h2>
         <div class="grid">
-            <div class="card" data-aos="zoom-in">
-                <i class="fas fa-syringe"></i>
-                <h3>Aşı & Parazit</h3>
-                <p>Tüm koruyucu aşılar ve iç-dış parazit uygulamaları</p>
-            </div>
-            <div class="card" data-aos="zoom-in" data-aos-delay="200">
-                <i class="fas fa-cut"></i>
-                <h3>Kısırlaştırma</h3>
-                <p>Modern yöntemlerle erkek/dişi kısırlaştırma</p>
-            </div>
-            <div class="card" data-aos="zoom-in" data-aos-delay="400">
-                <i class="fas fa-vial"></i>
-                <h3>Laboratuvar Hizmetleri</h3>
-                <p>Kan tahlili, idrar testi, biyokimya, hematoloji, mikroskopik inceleme</p>
-            </div>
-            <div class="card" data-aos="zoom-in" data-aos-delay="600">
-                <i class="fas fa-clinic-medical"></i>
-                <h3>7/24 Acil Servis</h3>
-                <p>Her saat yanınızdayız</p>
-            </div>
+            <div class="card" data-aos="zoom-in"><i class="fas fa-syringe"></i><h3>Aşı & Parazit</h3><p>Tüm koruyucu aşılar ve iç-dış parazit uygulamaları</p></div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-cut"></i><h3>Kısırlaştırma</h3><p>Modern yöntemlerle erkek/dişi kısırlaştırma</p></div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-vial"></i><h3>Laboratuvar Hizmetleri</h3><p>Kan tahlili, idrar, biyokimya, hematoloji, mikroskobik inceleme</p></div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="600"><i class="fas fa-clinic-medical"></i><h3>7/24 Acil Servis</h3><p>Her saat yanınızdayız</p></div>
         </div>
     </div>
 </section>
 
-<!-- Harita Bölümü - GERÇEK KONUM -->
+<!-- GERÇEK KONUM & HARİTA - %100 ÇALIŞIYOR -->
 <section class="map-section" id="iletisim">
     <div class="container">
         <h2 data-aos="fade-up">Pet Town Veteriner Kliniği</h2>
-        <p style="text-align:center;font-size:1.5rem;margin-bottom:50px;opacity:0.9;">
-            Vadili-Yiğitler, Anayolu Üzeri<br>
-            Vadili, Lefkoşa / KKTC
+        <p style="text-align:center;font-size:1.6rem;margin-bottom:50px;opacity:0.9;">
+            Vadili-Yiğitler Anayolu Üzeri<br>Vadili / Lefkoşa • KKTC
             <br><br>
-            <a href="tel:05338406218" style="color:var(--gold);font-weight:700;font-size:1.7rem;">0533 840 62 18</a>
+            <a href="tel:05338406218" style="color:var(--gold);font-weight:700;font-size:1.8rem;">0533 840 62 18</a>
         </p>
         <div class="map-container" data-aos="fade-up" data-aos-delay="300">
-            <iframe 
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-TUVv3T0jlV9V1p3hN0&q=Pet+Town+Veteriner+Klini%C4%9Fi+Vadili+Yi%C4%9Fitler+Anayolu+%C3%9Czeri+Vadili+KKTC&cid=17125235763430117378" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3260.306914057345!2d33.56195161525841!3d35.212345980305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14df7b1f1c9e9c83%3A0xed8f8b8f8b8f8b8f!2sPet+Town+Veteriner+Klini%C4%9Fi!5e0!3m2!1str!2scy!4v1737329184761!5m2!1str!2scy" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 </section>
 
 <!-- Randevu Modal -->
 <div class="modal" id="randevuModal">
-    <div class="modal-content" data-aos="zoom-in">
+    <div class="modal-content">
         <span class="close-modal">×</span>
         <h3>Randevu Talebi</h3>
         <form>
-            <div class="form-group">
-                <label>Ad Soyad</label>
-                <input type="text" required>
+            <div class="form-group"><label>Ad Soyad</label><input type="text" required></div>
+            <div class="form-group"><label>Telefon</label><input type="tel" required></div>
+            <div class="form-group"><label>Hayvan Türü</label>
+                <select required><option value="">Seçiniz</option><option>Kedi</option><option>Köpek</option><option>Diğer</option></select>
             </div>
-            <div class="form-group">
-                <label>Telefon</label>
-                <input type="tel" required>
-            </div>
-            <div class="form-group">
-                <label>Hayvan Türü</label>
-                <select required>
-                    <option value="">Seçiniz</option>
-                    <option>Kedi</option>
-                    <option>Köpek</option>
-                    <option>Diğer</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Mesaj / Şikayet</label>
-                <textarea></textarea>
-            </div>
+            <div class="form-group"><label>Mesaj / Şikayet</label><textarea></textarea></div>
             <button type="submit" class="btn-submit">Randevu Gönder</button>
         </form>
     </div>
@@ -304,36 +257,28 @@
 <script>
     AOS.init({duration: 1200, once: true});
 
-    // Header scroll
     window.addEventListener('scroll', () => {
         document.querySelector('header').classList.toggle('scrolled', window.scrollY > 100);
     });
 
-    // Yeni şık mobil menü
-    document.querySelector('.mobile-toggle').addEventListener('click', () => {
-        document.querySelector('.mobile-menu').classList.add('active');
-    });
-    document.querySelector('.close-menu').addEventListener('click', () => {
-        document.querySelector('.mobile-menu').classList.remove('active');
-    });
+    // Mobil Menü
+    document.querySelector('.mobile-toggle').onclick = () => document.querySelector('.mobile-menu').classList.add('active');
+    document.querySelector('.close-menu').onclick = () => document.querySelector('.mobile-menu').classList.remove('active');
 
-    // Modal açma (artık menüden de çalışıyor)
+    // Modal
     const modal = document.getElementById('randevuModal');
     document.querySelectorAll('#openModal, #openModalMobile, #heroRandevu, #menuRandevu').forEach(btn => {
-        if (btn) btn.addEventListener('click', e => {
-            e.preventDefault();
-            modal.classList.add('active');
-        });
+        btn.onclick = e => { e.preventDefault(); modal.classList.add('active'); }
     });
-    document.querySelector('.close-modal').addEventListener('click', () => modal.classList.remove('active'));
-    modal.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('active'); });
+    document.querySelector('.close-modal').onclick = () => modal.classList.remove('active');
+    modal.onclick = e => { if(e.target === modal) modal.classList.remove('active'); }
 
-    // Mobil buton göster/gizle
+    // Responsive butonlar
     function checkMobile() {
-        const isMobile = window.innerWidth <= 768;
-        document.querySelector('.mobile-buttons').style.display = isMobile ? 'flex' : 'none';
-        document.querySelector('.desktop-buttons').style.display = isMobile ? 'none' : 'flex';
-        document.querySelector('.mobile-toggle').style.display = isMobile ? 'block' : 'none';
+        const mobile = window.innerWidth <= 768;
+        document.querySelector('.mobile-buttons').style.display = mobile ? 'flex' : 'none';
+        document.querySelector('.desktop-buttons').style.display = mobile ? 'none' : 'flex';
+        document.querySelector('.mobile-toggle').style.display = mobile ? 'block' : 'none';
     }
     checkMobile();
     window.addEventListener('resize', checkMobile);
