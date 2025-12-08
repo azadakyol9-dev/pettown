@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Town Veteriner Kliniği | 7/24 Acil Servis - Vadili / KKTC</title>
-    <meta name="description" content="Pet Town Veteriner Kliniği - 7/24 Acil Servis, Kedi Köpek, Aşı, Kısırlaştırma, Laboratuvar, Vadili / KKTC">
+    <meta name="description" content="Pet Town Veteriner Kliniği - 7/24 Acil Servis, Kedi Köpek, Aşı, Kısırlaştırma, Laboratuvar - Vadili / KKTC">
     
-    <!-- Fonts -->
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -16,13 +16,13 @@
             --navy: #0f172a;
             --cyan: #0ea5e9;
             --gold: #fcd34d;
-            --dark-glass: rgba(15, 23, 42, 0.92);
-            --light-glass: rgba(255, 255, 255, 0.15);
+            --glass: rgba(255,255,255,0.12);
+            --dark-glass: rgba(15,23,42,0.95);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
-            background: url('https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=2348&q=90') fixed center/cover;
+            background: url('https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=90') fixed center/cover;
             color: #fff;
             line-height: 1.8;
             overflow-x: hidden;
@@ -30,7 +30,7 @@
         .overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(14,165,233,0.80), rgba(15,23,42,0.94));
+            background: linear-gradient(135deg, rgba(14,165,233,0.82), rgba(15,23,42,0.94));
             z-index: 1;
         }
         .container {
@@ -38,10 +38,10 @@
             z-index: 2;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Header & Logo */
+        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -51,26 +51,30 @@
             transition: all 0.5s;
         }
         header.scrolled {
-            background: rgba(15, 23, 42, 0.98);
+            background: rgba(15,23,42,0.98);
             backdrop-filter: blur(20px);
-            padding: 12px 0;
+            padding: 14px 0;
             box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 2.9rem;
             font-weight: 900;
             display: flex;
             align-items: center;
             gap: 14px;
-            padding: 12px 28px;
-            background: rgba(252, 211, 77, 0.25);
+            padding: 12px 30px;
+            background: rgba(252,211,77,0.25);
             border: 3px solid var(--gold);
             border-radius: 60px;
             text-decoration: none;
             color: #fff;
             backdrop-filter: blur(15px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
         .logo i, .logo span {
             background: linear-gradient(135deg, #0ea5e9, #fcd34d);
@@ -79,58 +83,81 @@
         }
         .logo i { font-size: 2.8rem; }
 
+        /* MASAÜSTÜ MENÜ */
+        .desktop-menu {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .desktop-menu a {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 12px 26px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.4s;
+        }
+        .desktop-menu a:hover {
+            background: var(--glass);
+            transform: translateY(-4px);
+        }
+        .desktop-menu a i { margin-right: 8px; }
+
         /* Mobil Menü Butonu */
         .mobile-toggle {
             display: none;
             font-size: 2.6rem;
             color: #fff;
             cursor: pointer;
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1001;
         }
 
-        /* Premium Mobil Menü */
+        /* MOBİL MENÜ - ULTRA ŞIK */
         .mobile-menu {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100vh;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            backdrop-filter: blur(20px);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            backdrop-filter: blur(25px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 2.5rem;
-            transform: translateX(100%);
+            gap: 28px;
+            transform: translateY(-100%);
             transition: transform 0.7s cubic-bezier(0.77, 0, 0.18, 1);
             z-index: 999;
         }
-        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu.active { transform: translateY(0); }
         .mobile-menu a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             width: 88%;
             max-width: 420px;
-            padding: 24px;
-            background: rgba(255,255,255,0.12);
-            border: 2px solid transparent;
-            border-radius: 28px;
+            padding: 34px 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
+            border: 2px solid rgba(252,211,77,0.4);
+            border-radius: 34px;
             color: #fff;
             font-size: 1.9rem;
-            font-weight: 600;
-            text-align: center;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.5s;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            transition: all 0.6s;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+        }
+        .mobile-menu a i {
+            font-size: 3.8rem;
+            margin-bottom: 16px;
+            color: var(--gold);
         }
         .mobile-menu a:hover {
             background: var(--gold);
             color: #000;
-            transform: scale(1.1);
+            transform: scale(1.08);
             border-color: var(--gold);
         }
-        .mobile-menu a i { margin-right: 16px; }
         .close-menu {
             position: absolute;
             top: 30px;
@@ -143,11 +170,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             cursor: pointer;
             transition: 0.5s;
         }
-        .close-menu:hover { transform: rotate(90deg) scale(1.2); }
+        .close-menu:hover { transform: rotate(90deg) scale(1.25); }
 
         /* Sabit Butonlar */
         .desktop-buttons {
@@ -164,17 +191,17 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(15, 23, 42, 0.97);
+            background: rgba(15,23,42,0.97);
             backdrop-filter: blur(20px);
             display: none;
             justify-content: space-around;
-            padding: 16px 0;
+            padding: 18px 0;
             border-top: 1px solid rgba(255,255,255,0.1);
             z-index: 999;
         }
         .action-btn {
-            width: 70px;
-            height: 70px;
+            width: 68px;
+            height: 68px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -185,7 +212,7 @@
             transition: all 0.4s;
             cursor: pointer;
         }
-        .action-btn:hover { transform: scale(1.2); }
+        .action-btn:hover { transform: scale(1.22); }
         .wa { background: #25d366; }
         .phone { background: var(--cyan); }
         .randevu { background: var(--gold); color: #000; }
@@ -198,42 +225,38 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
-            z-index: 2;
         }
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 8rem;
+            font-size: 8.5rem;
             margin-bottom: 1.5rem;
             line-height: 1.1;
             text-shadow: 0 15px 50px rgba(0,0,0,0.7);
         }
         .hero p {
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             font-weight: 500;
-            margin-bottom: 4rem;
-            opacity: 0.95;
+            margin-bottom: 4.5rem;
         }
         .btn {
             display: inline-block;
-            padding: 28px 80px;
+            padding: 28px 90px;
             margin: 20px;
             border-radius: 80px;
             font-weight: 700;
             font-size: 1.5rem;
-            min-width: 320px;
+            min-width: 340px;
             transition: all 0.5s;
             box-shadow: 0 30px 70px rgba(0,0,0,0.5);
         }
         .btn-primary { background: var(--cyan); color: #fff; }
         .btn-gold { background: var(--gold); color: #000; }
-        .btn:hover { transform: translateY(-8px) scale(1.05); }
+        .btn:hover { transform: translateY(-10px) scale(1.05); }
 
-        /* Bölümler */
-        section { padding: 180px 0; position: relative; z-index: 2; }
+        section { padding: 180px 0; }
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 5rem;
+            font-size: 5.2rem;
             text-align: center;
             margin-bottom: 8rem;
             background: linear-gradient(135deg, #0ea5e9, #fcd34d);
@@ -242,53 +265,51 @@
         }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 4.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 5rem;
         }
         .card {
-            background: var(--light-glass);
-            backdrop-filter: blur(25px);
+            background: var(--glass);
+            backdrop-filter: blur(28px);
             border: 1px solid rgba(255,255,255,0.3);
-            padding: 5rem 3.5rem;
+            padding: 5.5rem 4rem;
             border-radius: 50px;
             text-align: center;
             transition: all 0.8s;
-            box-shadow: 0 35px 90px rgba(0,0,0,0.4);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.4);
         }
         .card:hover {
-            transform: translateY(-40px) scale(1.08);
-            background: rgba(255,255,255,0.3);
+            transform: translateY(-45px) scale(1.09);
+            background: rgba(255,255,255,0.32);
         }
         .card i {
-            font-size: 6rem;
+            font-size: 6.5rem;
             margin-bottom: 2.5rem;
             color: var(--gold);
         }
         .card h3 {
-            font-size: 2rem;
-            margin: 1.8rem 0;
+            font-size: 2.1rem;
+            margin: 2rem 0;
             background: linear-gradient(135deg, #0ea5e9, #fcd34d);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Harita */
         .map-section {
-            background: rgba(15, 23, 42, 0.98);
+            background: rgba(15,23,42,0.98);
             padding: 160px 0;
         }
         .map-container {
             width: 100%;
             max-width: 1300px;
-            margin: 50px auto 0;
-            height: 600px;
+            margin: 60px auto 0;
+            height: 620px;
             border-radius: 40px;
             overflow: hidden;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.7);
-            border: 5px solid var(--gold);
+            box-shadow: 0 50px 120px rgba(0,0,0,0.7);
+            border: 6px solid var(--gold);
         }
 
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -305,7 +326,7 @@
             color: #333;
             border-radius: 40px;
             padding: 50px 40px;
-            max-width: 520px;
+            max-width: 540px;
             width: 100%;
             position: relative;
         }
@@ -320,25 +341,25 @@
         .close-modal:hover { color: #000; }
         .modal h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 25px;
+            font-size: 2.6rem;
+            margin-bottom: 30px;
             text-align: center;
             color: var(--cyan);
         }
-        .form-group { margin-bottom: 25px; }
+        .form-group { margin-bottom: 28px; }
         .form-group label { display: block; margin-bottom: 10px; font-weight: 600; }
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            padding: 16px;
+            padding: 18px;
             border-radius: 16px;
             border: 1px solid #ddd;
             font-size: 1.1rem;
         }
-        .form-group textarea { height: 120px; resize: none; }
+        .form-group textarea { height: 130px; resize: none; }
         .btn-submit {
             background: var(--cyan);
             color: #fff;
-            padding: 18px;
+            padding: 20px;
             border: none;
             border-radius: 80px;
             font-size: 1.3rem;
@@ -352,17 +373,20 @@
             transform: scale(1.05);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .mobile-toggle { display: block; }
-            .hero h1 { font-size: 5rem; }
-            .hero p { font-size: 1.6rem; }
-            .btn { padding: 22px 60px; font-size: 1.3rem; min-width: 280px; }
-            h2 { font-size: 3.8rem; margin-bottom: 5rem; }
-            .card { padding: 3.5rem 2.5rem; }
-            .card i { font-size: 4.5rem; }
+        @media (max-width: 992px) {
+            .desktop-menu { display: none; }
+            .mobile-toggle { display: block; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); }
+            .hero h1 { font-size: 5.8rem; }
+            .hero p { font-size: 1.7rem; }
+            .btn { padding: 24px 70px; font-size: 1.4rem; min-width: 300px; }
+            h2 { font-size: 4rem; }
             .mobile-buttons { display: flex; }
             .desktop-buttons { display: none; }
+        }
+        @media (max-width: 576px) {
+            .hero h1 { font-size: 4.8rem; }
+            .hero p { font-size: 1.5rem; }
+            .btn { padding: 20px 50px; font-size: 1.3rem; min-width: 260px; }
         }
     </style>
 </head>
@@ -371,27 +395,36 @@
 <div class="overlay"></div>
 
 <header>
-    <div class="container">
-        <nav style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="#" class="logo">
-                <i class="fas fa-paw"></i>
-                <span>Pet Town</span>
+    <div class="container nav-container">
+        <a href="#" class="logo">
+            <i class="fas fa-paw"></i>
+            <span>Pet Town</span>
+        </a>
+
+        <!-- MASAÜSTÜ MENÜ -->
+        <div class="desktop-menu">
+            <a href="#hizmetler">Hizmetlerimiz</a>
+            <a href="#iletisim">İletişim & Harita</a>
+            <a href="tel:05338406218"><i class="fas fa-phone"></i> Hemen Ara</a>
+            <a href="https://wa.me/905338406218" target="_blank" style="background:#25d366;color:#fff;padding:12px 28px;border-radius:50px;">
+                <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
-            <div class="mobile-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
+        </div>
+
+        <div class="mobile-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
     </div>
 </header>
 
-<!-- Mobil Menü -->
+<!-- MOBİL MENÜ -->
 <div class="mobile-menu">
     <div class="close-menu">×</div>
-    <a href="#hizmetler"><i class="fas fa-stethoscope"></i> Hizmetlerimiz</a>
-    <a href="#iletisim"><i class="fas fa-map-marker-alt"></i> Konum & Harita</a>
-    <a href="tel:05338406218"><i class="fas fa-phone"></i> Hemen Ara</a>
-    <a href="https://wa.me/905338406218" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-    <a href="#" id="menuRandevu"><i class="fas fa-calendar-check"></i> Randevu Al</a>
+    <a href="#hizmetler"><i class="fas fa-stethoscope"></i><span>Hizmetlerimiz</span></a>
+    <a href="#iletisim"><i class="fas fa-map-marker-alt"></i><span>Konum & Harita</span></a>
+    <a href="tel:05338406218"><i class="fas fa-phone"></i><span>Hemen Ara</span></a>
+    <a href="https://wa.me/905338406218" target="_blank"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+    <a href="#" id="menuRandevu"><i class="fas fa-calendar-check"></i><span>Randevu Al</span></a>
 </div>
 
 <!-- Sabit Butonlar -->
@@ -427,35 +460,34 @@
             <div class="card" data-aos="zoom-in">
                 <i class="fas fa-syringe"></i>
                 <h3>Aşı & Parazit</h3>
-                <p>Kapsamlı aşı takvimi ve iç-dış parazit uygulamaları</p>
+                <p>Kapsamlı aşı takvimi ve parazit koruması</p>
             </div>
             <div class="card" data-aos="zoom-in" data-aos-delay="200">
                 <i class="fas fa-cut"></i>
                 <h3>Kısırlaştırma</h3>
-                <p>Güvenli ve modern yöntemlerle kısırlaştırma operasyonları</p>
+                <p>Güvenli ve modern operasyonlar</p>
             </div>
             <div class="card" data-aos="zoom-in" data-aos-delay="400">
                 <i class="fas fa-vial"></i>
-                <h3>Laboratuvar Hizmetleri</h3>
-                <p>Kan tahlili, idrar testi, biyokimya, hematoloji, mikroskobik inceleme</p>
+                <h3>Laboratuvar</h3>
+                <p>Kan, idrar, biyokimya, mikroskobik inceleme</p>
             </div>
             <div class="card" data-aos="zoom-in" data-aos-delay="600">
                 <i class="fas fa-clinic-medical"></i>
-                <h3>7/24 Acil Servis</h3>
-                <p>Her an yanınızdayız – gece gündüz acil müdahale</p>
+                <h3>7/24 Acil</h3>
+                <p>Gece gündüz yanınızdayız</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Harita & İletişim -->
+<!-- Harita -->
 <section class="map-section" id="iletisim">
     <div class="container">
         <h2 data-aos="fade-up">Bizi Bulun</h2>
-        <p style="text-align:center; font-size:1.7rem; margin-bottom:60px;">
-            Vadili-Yiğitler Anayolu Üzeri<br>
-            Vadili / Lefkoşa • KKTC<br><br>
-            <a href="tel:05338406218" style="color:var(--gold); font-size:2rem; font-weight:700;">0533 840 62 18</a>
+        <p style="text-align:center;font-size:1.8rem;margin-bottom:60px;">
+            Vadili-Yiğitler Anayolu Üzeri • Vadili / Lefkoşa • KKTC<br><br>
+            <a href="tel:05338406218" style="color:var(--gold);font-size:2.1rem;font-weight:700;">0533 840 62 18</a>
         </p>
         <div class="map-container" data-aos="fade-up" data-aos-delay="300">
             <iframe 
@@ -471,34 +503,23 @@
     </div>
 </section>
 
-<!-- Randevu Modal -->
+<!-- Modal -->
 <div class="modal" id="randevuModal">
-    <div class="modal-content" data-aos="zoom-in">
+    <div class="modal-content">
         <span class="close-modal">×</span>
         <h3>Randevu Talebi</h3>
         <form id="randevuForm">
-            <div class="form-group">
-                <label>Ad Soyad</label>
-                <input type="text" required>
-            </div>
-            <div class="form-group">
-                <label>Telefon</label>
-                <input type="tel" required>
-            </div>
-            <div class="form-group">
-                <label>Hayvan Türü</label>
+            <div class="form-group"><label>Ad Soyad</label><input type="text" required></div>
+            <div class="form-group"><label>Telefon</label><input type="tel" required></div>
+            <div class="form-group"><label>Hayvan Türü</label>
                 <select required>
                     <option value="">Seçiniz</option>
                     <option>Kedi</option>
                     <option>Köpek</option>
-                    <option>Kuş</option>
                     <option>Diğer</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label>Mesaj / Şikayet</label>
-                <textarea placeholder="Lütfen durumunu kısaca anlatın..."></textarea>
-            </div>
+            <div class="form-group"><label>Mesaj / Şikayet</label><textarea placeholder="Durumu kısaca anlatın..."></textarea></div>
             <button type="submit" class="btn-submit">Randevu Gönder</button>
         </form>
     </div>
@@ -506,9 +527,8 @@
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 1200, once: true });
+    AOS.init({duration:1200,once:true});
 
-    // Header scroll efekti
     window.addEventListener('scroll', () => {
         document.querySelector('header').classList.toggle('scrolled', window.scrollY > 100);
     });
@@ -521,7 +541,7 @@
         document.querySelector('.mobile-menu').classList.remove('active');
     };
 
-    // Modal aç/kapat
+    // Modal
     const modal = document.getElementById('randevuModal');
     document.querySelectorAll('#openModal, #openModalMobile, #heroRandevu, #menuRandevu').forEach(btn => {
         btn.onclick = (e) => {
@@ -532,23 +552,13 @@
     document.querySelector('.close-modal').onclick = () => modal.classList.remove('active');
     modal.onclick = (e) => { if (e.target === modal) modal.classList.remove('active'); };
 
-    // Form gönderim (şimdilik alert, istersen WhatsApp/mail bağlarım)
+    // Form
     document.getElementById('randevuForm').onsubmit = (e) => {
         e.preventDefault();
         alert('Randevu talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz.');
         modal.classList.remove('active');
         e.target.reset();
     };
-
-    // Responsive kontrol
-    function checkResponsive() {
-        const isMobile = window.innerWidth <= 768;
-        document.querySelector('.mobile-buttons').style.display = isMobile ? 'flex' : 'none';
-        document.querySelector('.desktop-buttons').style.display = isMobile ? 'none' : 'flex';
-        document.querySelector('.mobile-toggle').style.display = isMobile ? 'block' : 'none';
-    }
-    checkResponsive();
-    window.addEventListener('resize', checkResponsive);
 </script>
 </body>
 </html>
