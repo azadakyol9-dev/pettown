@@ -9,10 +9,10 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     
     <!-- Animations -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -465,35 +465,35 @@
     </div>
 </section>
 
-<!-- FORMSUBMIT.CO - HEM MAİL HEM WHATSAPP -->
+<!-- MODAL - HESAPSIZ, HEM MAİL HEM WHATSAPP -->
 <div class="modal" id="randevuModal">
     <div class="modal-content">
         <span class="close-modal">×</span>
         <h3>Randevu Talebi</h3>
-        <form action="https://formsubmit.co/ajax/info@pettownveteriner.com" method="POST" id="randevuForm">
+        <form action="https://formsubmit.co/pettowncyprus@gmail.com" method="POST">
             <div class="form-group">
                 <label>Ad Soyad *</label>
-                <input type="text" name="name" placeholder="Ahmet Yılmaz" required>
+                <input type="text" name="Ad Soyad" placeholder="Ahmet Yılmaz" required>
             </div>
             <div class="form-group">
                 <label>Telefon *</label>
-                <input type="tel" name="phone" placeholder="0533 840 62 18" required>
+                <input type="tel" name="Telefon" placeholder="0533 838 86 96" required>
             </div>
             <div class="form-group">
                 <label>Hayvan Türü</label>
-                <select name="hayvan">
+                <select name="Hayvan Türü">
                     <option value="Kedi">Kedi</option>
                     <option value="Köpek">Köpek</option>
                     <option value="Diğer">Diğer</option>
                 </select>
             </div>
             <div class="form-group">
-                <label>Mesaj / Şikayet</label>
-                <textarea name="message" placeholder="Durumu anlatın..."></textarea>
+                <label>Mesaj</label>
+                <textarea name="Mesaj" placeholder="Durumu anlatın..."></textarea>
             </div>
             <input type="text" name="_honey" style="display:none">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://wa.me/905338406218?text=YENİ%20RANDEVU!%0Aİsim%3A%20[name]%0ATelefon%3A%20[phone]%0AHayvan%3A%20[hayvan]%0AMesaj%3A%20[message]">
+            <input type="hidden" name="_next" value="https://wa.me/905338388696?text=*YENİ RANDEVU TALEBİ*%0A%0A👤%20Ad%20Soyad%3A%20[Ad%20Soyad]%0A📞%20Telefon%3A%20[Telefon]%0A🐾%20Hayvan%3A%20[Hayvan%20Türü]%0A💬%20Mesaj%3A%20[Mesaj]">
             <input type="hidden" name="_subject" value="YENİ RANDEVU - Pet Town">
             <button type="submit" class="btn-submit">Randevu Gönder</button>
         </form>
