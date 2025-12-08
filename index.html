@@ -3,128 +3,552 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Pet Town Veteriner Kliniği 7/24 Acil Kedi Köpek</title>
-    <meta name="description" content="Pet Town Veteriner Kliniği - 7/24 acil servis, kedi köpek muayene, aşı, kısırlaştırma. Hemen ara: 0533 840 62 18">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Pet Town Veteriner Kliniği | 7/24 Acil Servis - Vadili / KKTC</title>
+    <meta name="description" content="Pet Town Veteriner Kliniği - 7/24 Acil Servis, Kedi Köpek, Aşı, Kısırlaştırma, Laboratuvar, Vadili / KKTC">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
     <style>
-        :root{
+        :root {
             --navy: #0f172a;
             --cyan: #0ea5e9;
             --gold: #fcd34d;
+            --dark-glass: rgba(15, 23, 42, 0.92);
+            --light-glass: rgba(255, 255, 255, 0.15);
         }
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{
-            font-family:'Inter',sans-serif;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
             background: url('https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=2348&q=90') fixed center/cover;
-            color:#fff;
-            line-height:1.8;
-            min-height:100vh;
-            overflow-x:hidden;
+            color: #fff;
+            line-height: 1.8;
+            overflow-x: hidden;
         }
-        .overlay{
-            position:fixed;top:0;left:0;width:100%;height:100%;
-            background:linear-gradient(135deg, rgba(14,165,233,0.74), rgba(15,23,42,0.90));
-            z-index:1;
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(14,165,233,0.80), rgba(15,23,42,0.94));
+            z-index: 1;
         }
-        .container{position:relative;z-index:2;width:92%;max-width:1400px;margin:auto;padding:0 20px;}
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    /* LOGO - MOBİLDE KÜÇÜK */
-    .logo{
-        font-family:'Playfair Display',serif;
-        font-size:2.8rem;font-weight:900;
-        display:flex;align-items:center;gap:10px;
-        padding:6px 16px;
-        background:rgba(252,211,77,0.2);
-        border:2px solid var(--gold);
-        border-radius:50px;
-        backdrop-filter:blur(12px);
-        box-shadow:0 6px 25px rgba(0,0,0,0.5);
-        text-decoration:none;color:#fff;
+        /* Header & Logo */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.5s;
+        }
+        header.scrolled {
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 12px 0;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 28px;
+            background: rgba(252, 211, 77, 0.25);
+            border: 3px solid var(--gold);
+            border-radius: 60px;
+            text-decoration: none;
+            color: #fff;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .logo i, .logo span {
+            background: linear-gradient(135deg, #0ea5e9, #fcd34d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo i { font-size: 2.8rem; }
+
+        /* Mobil Menü Butonu */
+        .mobile-toggle {
+            display: none;
+            font-size: 2.6rem;
+            color: #fff;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001;
+        }
+
+        /* Premium Mobil Menü */
+        .mobile-menu {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            transform: translateX(100%);
+            transition: transform 0.7s cubic-bezier(0.77, 0, 0.18, 1);
+            z-index: 999;
+        }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu a {
+            width: 88%;
+            max-width: 420px;
+            padding: 24px;
+            background: rgba(255,255,255,0.12);
+            border: 2px solid transparent;
+            border-radius: 28px;
+            color: #fff;
+            font-size: 1.9rem;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.5s;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+        .mobile-menu a:hover {
+            background: var(--gold);
+            color: #000;
+            transform: scale(1.1);
+            border-color: var(--gold);
+        }
+        .mobile-menu a i { margin-right: 16px; }
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 80px;
+            height: 80px;
+            background: var(--gold);
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .close-menu:hover { transform: rotate(90deg) scale(1.2); }
+
+        /* Sabit Butonlar */
+        .desktop-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            z-index: 998;
+        }
+        .mobile-buttons {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.97);
+            backdrop-filter: blur(20px);
+            display: none;
+            justify-content: space-around;
+            padding: 16px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            z-index: 999;
+        }
+        .action-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #fff;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.6);
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+        .action-btn:hover { transform: scale(1.2); }
+        .wa { background: #25d366; }
+        .phone { background: var(--cyan); }
+        .randevu { background: var(--gold); color: #000; }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 15px 50px rgba(0,0,0,0.7);
+        }
+        .hero p {
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: 4rem;
+            opacity: 0.95;
+        }
+        .btn {
+            display: inline-block;
+            padding: 28px 80px;
+            margin: 20px;
+            border-radius: 80px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            min-width: 320px;
+            transition: all 0.5s;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+        }
+        .btn-primary { background: var(--cyan); color: #fff; }
+        .btn-gold { background: var(--gold); color: #000; }
+        .btn:hover { transform: translateY(-8px) scale(1.05); }
+
+        /* Bölümler */
+        section { padding: 180px 0; position: relative; z-index: 2; }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            text-align: center;
+            margin-bottom: 8rem;
+            background: linear-gradient(135deg, #0ea5e9, #fcd34d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 4.5rem;
+        }
+        .card {
+            background: var(--light-glass);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 5rem 3.5rem;
+            border-radius: 50px;
+            text-align: center;
+            transition: all 0.8s;
+            box-shadow: 0 35px 90px rgba(0,0,0,0.4);
+        }
+        .card:hover {
+            transform: translateY(-40px) scale(1.08);
+            background: rgba(255,255,255,0.3);
+        }
+        .card i {
+            font-size: 6rem;
+            margin-bottom: 2.5rem;
+            color: var(--gold);
+        }
+        .card h3 {
+            font-size: 2rem;
+            margin: 1.8rem 0;
+            background: linear-gradient(135deg, #0ea5e9, #fcd34d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Harita */
+        .map-section {
+            background: rgba(15, 23, 42, 0.98);
+            padding: 160px 0;
+        }
+        .map-container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 50px auto 0;
+            height: 600px;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+            border: 5px solid var(--gold);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: #fff;
+            color: #333;
+            border-radius: 40px;
+            padding: 50px 40px;
+            max-width: 520px;
+            width: 100%;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 3rem;
+            cursor: pointer;
+            color: #999;
+        }
+        .close-modal:hover { color: #000; }
+        .modal h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            text-align: center;
+            color: var(--cyan);
+        }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 10px; font-weight: 600; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 16px;
+            border-radius: 16px;
+            border: 1px solid #ddd;
+            font-size: 1.1rem;
+        }
+        .form-group textarea { height: 120px; resize: none; }
+        .btn-submit {
+            background: var(--cyan);
+            color: #fff;
+            padding: 18px;
+            border: none;
+            border-radius: 80px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.4s;
+        }
+        .btn-submit:hover {
+            background: #0d8bc7;
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-toggle { display: block; }
+            .hero h1 { font-size: 5rem; }
+            .hero p { font-size: 1.6rem; }
+            .btn { padding: 22px 60px; font-size: 1.3rem; min-width: 280px; }
+            h2 { font-size: 3.8rem; margin-bottom: 5rem; }
+            .card { padding: 3.5rem 2.5rem; }
+            .card i { font-size: 4.5rem; }
+            .mobile-buttons { display: flex; }
+            .desktop-buttons { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<header>
+    <div class="container">
+        <nav style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="#" class="logo">
+                <i class="fas fa-paw"></i>
+                <span>Pet Town</span>
+            </a>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- Mobil Menü -->
+<div class="mobile-menu">
+    <div class="close-menu">×</div>
+    <a href="#hizmetler"><i class="fas fa-stethoscope"></i> Hizmetlerimiz</a>
+    <a href="#iletisim"><i class="fas fa-map-marker-alt"></i> Konum & Harita</a>
+    <a href="tel:05338406218"><i class="fas fa-phone"></i> Hemen Ara</a>
+    <a href="https://wa.me/905338406218" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="#" id="menuRandevu"><i class="fas fa-calendar-check"></i> Randevu Al</a>
+</div>
+
+<!-- Sabit Butonlar -->
+<div class="desktop-buttons">
+    <div class="action-btn wa" onclick="window.open('https://wa.me/905338406218','_blank')"><i class="fab fa-whatsapp"></i></div>
+    <div class="action-btn phone" onclick="window.location='tel:05338406218'"><i class="fas fa-phone"></i></div>
+    <div class="action-btn randevu" id="openModal"><i class="fas fa-calendar-check"></i></div>
+</div>
+
+<div class="mobile-buttons">
+    <div class="action-btn wa" onclick="window.open('https://wa.me/905338406218','_blank')"><i class="fab fa-whatsapp"></i></div>
+    <div class="action-btn phone" onclick="window.location='tel:05338406218'"><i class="fas fa-phone"></i></div>
+    <div class="action-btn randevu" id="openModalMobile"><i class="fas fa-calendar-check"></i></div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container" data-aos="fade-up">
+        <h1>Pet Town<br>Veteriner Kliniği</h1>
+        <p>7/24 Acil Servis • Kedi & Köpek • Aşı • Kısırlaştırma • Laboratuvar</p>
+        <div>
+            <a href="tel:05338406218" class="btn btn-primary">0533 840 62 18</a>
+            <a href="#" class="btn btn-gold" id="heroRandevu">Randevu Al</a>
+        </div>
+    </div>
+</section>
+
+<!-- Hizmetler -->
+<section id="hizmetler">
+    <div class="container">
+        <h2 data-aos="fade-up">Hizmetlerimiz</h2>
+        <div class="grid">
+            <div class="card" data-aos="zoom-in">
+                <i class="fas fa-syringe"></i>
+                <h3>Aşı & Parazit</h3>
+                <p>Kapsamlı aşı takvimi ve iç-dış parazit uygulamaları</p>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fas fa-cut"></i>
+                <h3>Kısırlaştırma</h3>
+                <p>Güvenli ve modern yöntemlerle kısırlaştırma operasyonları</p>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="400">
+                <i class="fas fa-vial"></i>
+                <h3>Laboratuvar Hizmetleri</h3>
+                <p>Kan tahlili, idrar testi, biyokimya, hematoloji, mikroskobik inceleme</p>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="600">
+                <i class="fas fa-clinic-medical"></i>
+                <h3>7/24 Acil Servis</h3>
+                <p>Her an yanınızdayız – gece gündüz acil müdahale</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Harita & İletişim -->
+<section class="map-section" id="iletisim">
+    <div class="container">
+        <h2 data-aos="fade-up">Bizi Bulun</h2>
+        <p style="text-align:center; font-size:1.7rem; margin-bottom:60px;">
+            Vadili-Yiğitler Anayolu Üzeri<br>
+            Vadili / Lefkoşa • KKTC<br><br>
+            <a href="tel:05338406218" style="color:var(--gold); font-size:2rem; font-weight:700;">0533 840 62 18</a>
+        </p>
+        <div class="map-container" data-aos="fade-up" data-aos-delay="300">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3260.306914057345!2d33.56195161525841!3d35.212345980305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14df7b1f1c9e9c83%3A0xed8f8b8f8b8f8b8f!2sPet%20Town%20Veteriner%20Klini%C4%9Fi!5e0!3m2!1str!2scy!4v1737329184761!5m2!1str!2scy"
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Randevu Modal -->
+<div class="modal" id="randevuModal">
+    <div class="modal-content" data-aos="zoom-in">
+        <span class="close-modal">×</span>
+        <h3>Randevu Talebi</h3>
+        <form id="randevuForm">
+            <div class="form-group">
+                <label>Ad Soyad</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Telefon</label>
+                <input type="tel" required>
+            </div>
+            <div class="form-group">
+                <label>Hayvan Türü</label>
+                <select required>
+                    <option value="">Seçiniz</option>
+                    <option>Kedi</option>
+                    <option>Köpek</option>
+                    <option>Kuş</option>
+                    <option>Diğer</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Mesaj / Şikayet</label>
+                <textarea placeholder="Lütfen durumunu kısaca anlatın..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Randevu Gönder</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1200, once: true });
+
+    // Header scroll efekti
+    window.addEventListener('scroll', () => {
+        document.querySelector('header').classList.toggle('scrolled', window.scrollY > 100);
+    });
+
+    // Mobil menü
+    document.querySelector('.mobile-toggle').onclick = () => {
+        document.querySelector('.mobile-menu').classList.add('active');
+    };
+    document.querySelector('.close-menu').onclick = () => {
+        document.querySelector('.mobile-menu').classList.remove('active');
+    };
+
+    // Modal aç/kapat
+    const modal = document.getElementById('randevuModal');
+    document.querySelectorAll('#openModal, #openModalMobile, #heroRandevu, #menuRandevu').forEach(btn => {
+        btn.onclick = (e) => {
+            e.preventDefault();
+            modal.classList.add('active');
+        };
+    });
+    document.querySelector('.close-modal').onclick = () => modal.classList.remove('active');
+    modal.onclick = (e) => { if (e.target === modal) modal.classList.remove('active'); };
+
+    // Form gönderim (şimdilik alert, istersen WhatsApp/mail bağlarım)
+    document.getElementById('randevuForm').onsubmit = (e) => {
+        e.preventDefault();
+        alert('Randevu talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz.');
+        modal.classList.remove('active');
+        e.target.reset();
+    };
+
+    // Responsive kontrol
+    function checkResponsive() {
+        const isMobile = window.innerWidth <= 768;
+        document.querySelector('.mobile-buttons').style.display = isMobile ? 'flex' : 'none';
+        document.querySelector('.desktop-buttons').style.display = isMobile ? 'none' : 'flex';
+        document.querySelector('.mobile-toggle').style.display = isMobile ? 'block' : 'none';
     }
-    .logo i,.logo span{
-        background:linear-gradient(135deg,#0ea5e9,#fcd34d);
-        -webkit-background-clip:text;
-        -webkit-text-fill-color:transparent;
-    }
-    .logo i{font-size:2.6rem;}
-
-    header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:all .5s;}
-    header.scrolled{background:rgba(15,23,42,0.98);backdrop-filter:blur(20px);padding:12px 0;box-shadow:0 15px 50px rgba(0,0,0,0.6);}
-    nav{display:flex;justify-content:space-between;align-items:center;position:relative;}
-    .mobile-toggle{display:none;font-size:2.4rem;color:#fff;cursor:pointer;position:absolute;right:15px;top:50%;transform:translateY(-50%);z-index:1001;}
-
-    /* BUTONLAR */
-    .desktop-buttons{position:fixed;bottom:30px;right:30px;display:flex;flex-direction:column;gap:16px;z-index:998;}
-    .mobile-buttons{position:fixed;bottom:0;left:0;right:0;background:rgba(15,23,42,0.97);backdrop-filter:blur(20px);display:none;justify-content:space-around;align-items:center;padding:14px 0;border-top:1px solid rgba(255,255,255,0.1);z-index:999;}
-    .action-btn{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;box-shadow:0 12px 40px rgba(0,0,0,0.6);transition:all .4s;cursor:pointer;}
-    .action-btn:hover{transform:scale(1.15);}
-    .wa{background:#25d366;}
-    .phone{background:var(--cyan);}
-    .randevu{background:var(--gold);color:#000;}
-
-    /* RANDEVU MODAL */
-    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:2000;align-items:center;justify-content:center;padding:20px;}
-    .modal.active{display:flex;}
-    .modal-content{background:#fff;color:#333;border-radius:30px;padding:40px 30px;max-width:500px;width:100%;position:relative;}
-    .close-modal{position:absolute;top:15px;right:20px;font-size:2.5rem;cursor:pointer;color:#999;}
-    .close-modal:hover{color:#000;}
-    .modal h3{font-family:'Playfair Display',serif;font-size:2.2rem;margin-bottom:20px;text-align:center;color:var(--cyan);}
-    .form-group{margin-bottom:20px;}
-    .form-group label{display:block;margin-bottom:8px;font-weight:600;}
-    .form-group input,.form-group select,.form-group textarea{width:100%;padding:14px;border-radius:12px;border:1px solid #ddd;font-size:1rem;}
-    .form-group textarea{height:100px;}
-    .btn-submit{background:var(--cyan);color:#fff;padding:16px;border:none;border-radius:60px;font-size:1.2rem;font-weight:700;cursor:pointer;width:100%;transition:.4s;}
-    .btn-submit:hover{background:#0d8bc7;transform:scale(1.05);}
-
-    /* MOBİL MENÜ */
-    .mobile-menu{position:fixed;top:0;left:0;width:100%;height:100vh;background:linear-gradient(135deg,#0f172a,#0ea5e9);backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;transform:translateY(-100%);transition:.7s ease;z-index:1000;}
-    .mobile-menu.active{transform:translateY(0);}
-    .mobile-menu a{display:block;width:88%;max-width:420px;padding:1.8rem;background:rgba(255,255,255,0.15);border:2px solid rgba(252,211,77,0.5);border-radius:28px;color:#fff;font-size:1.8rem;font-weight:600;text-align:center;text-decoration:none;transition:.5s;box-shadow:0 15px 40px rgba(0,0,0,0.4);}
-    .mobile-menu a:hover{background:var(--gold);color:#0f172a;transform:scale(1.08);}
-    .mobile-menu a i{margin-right:16px;}
-    .close-menu{position:absolute;top:30px;right:30px;width:75px;height:75px;background:var(--gold);color:#0f172a;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:3rem;cursor:pointer;transition:.5s;}
-    .close-menu:hover{transform:rotate(90deg) scale(1.2);}
-
-    .hero{height:100vh;min-height:800px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;z-index:2;}
-    .hero h1{font-family:'Playfair Display',serif;font-size:7.5rem;margin-bottom:1.5rem;text-shadow:0 10px 40px rgba(0,0,0,0.7);line-height:1.1;}
-    .hero p{font-size:2rem;font-weight:500;margin-bottom:4rem;max-width:900px;margin:auto;opacity:0.95;}
-    .btn{display:inline-block;padding:26px 70px;margin:18px;border-radius:70px;font-weight:700;font-size:1.4rem;min-width:300px;transition:all .5s;box-shadow:0 25px 60px rgba(0,0,0,0.5);}
-    .btn-primary{background:var(--cyan);color:#fff;}
-    .btn-gold{background:var(--gold);color:#0f172a;}
-
-    section{padding:160px 0;position:relative;z-index:2;}
-    h2{font-family:'Playfair Display',serif;font-size:4.5rem;text-align:center;margin-bottom:7rem;background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:4rem;}
-    .card{background:rgba(255,255,255,0.18);backdrop-filter:blur(25px);border:1px solid rgba(255,255,255,0.3);padding:4.5rem 3rem;border-radius:40px;text-align:center;transition:.7s;box-shadow:0 30px 80px rgba(0,0,0,0.4);}
-    .card:hover{transform:translateY(-35px) scale(1.07);background:rgba(255,255,255,0.3);}
-    .card i{font-size:5.5rem;margin-bottom:2.2rem;color:var(--gold);}
-    .card h3{font-size:1.7rem;margin:1.5rem 0;background:linear-gradient(135deg,#0ea5e9,#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-
-    /* YENİ İLETİŞİM BÖLÜMÜ - ULTRA PREMİUM */
-    .contact-new{
-        background:linear-gradient(135deg, rgba(15,23,42,0.98), rgba(6,182,212,0.2));
-        backdrop-filter:blur(20px);
-        border-radius:60px;
-        margin:100px 20px;
-        padding:100px 40px;
-        box-shadow:0 40px 100px rgba(0,0,0,0.7);
-        overflow:hidden;
-    }
-    .contact-grid-new{
-        display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:3rem;
-    }
-    .contact-card{
-        background:rgba(255,255,255,0.12);
-        backdrop-filter:blur(20px);
-        padding:3rem 2.5rem;
-        border-radius:32px;
-        text-align:center;
-        border:2px solid rgba(252,211,77,0.3);
-        transition:all .6s;
-        box-shadow:0 20px 60px rgba(0,0,0,0.4);
-    }
-
+    checkResponsive();
+    window.addEventListener('resize', checkResponsive);
+</script>
+</body>
+</html>
