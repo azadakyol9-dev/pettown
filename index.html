@@ -25,11 +25,7 @@
             --glass: rgba(255, 255, 255, 0.15);
             --dark: rgba(15, 23, 42, 0.95);
         }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
             background: url('https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=90') fixed center/cover;
@@ -402,7 +398,7 @@
 
 <!-- MOBİL MENÜ -->
 <div class="mobile-menu">
-    <div class="close-menu">×</div>
+    <div class="close-menu">X</div>
     <a href="#hizmetler"><i class="fas fa-stethoscope"></i><span>Hizmetlerimiz</span></a>
     <a href="#iletisim"><i class="fas fa-map-marker-alt"></i><span>Konum & Harita</span></a>
     <a href="tel:05338406218"><i class="fas fa-phone"></i><span>Hemen Ara</span></a>
@@ -462,17 +458,36 @@
     </div>
 </section>
 
-<!-- MODAL -->
+<!-- MODAL - FORMSPREE BAĞLI GERÇEK ÇALIŞAN FORM -->
 <div class="modal" id="randevuModal">
     <div class="modal-content">
-        <span class="close-modal">×</span>
+        <span class="close-modal">X</span>
         <h3>Randevu Talebi</h3>
-        <form id="randevuForm">
-            <div class="form-group"><label>Ad Soyad</label><input type="text" required></div>
-            <div class="form-group"><label>Telefon</label><input type="tel" required></div>
-            <div class="form-group"><label>Hayvan Türü</label><select required><option value="">Seçiniz</option><option>Kedi</option><option>Köpek</option><option>Diğer</option></select></div>
-            <div class="form-group"><label>Mesaj</label><textarea placeholder="Durumu anlatın..."></textarea></div>
-            <button type="submit" class="btn-submit">Gönder</button>
+        
+        <form action="https://formspree.io/f/xnnebbjp" method="POST" id="randevuForm">
+            <div class="form-group">
+                <label>Ad Soyad *</label>
+                <input type="text" name="ad_soyad" required>
+            </div>
+            <div class="form-group">
+                <label>Telefon *</label>
+                <input type="tel" name="telefon" required>
+            </div>
+            <div class="form-group">
+                <label>Hayvan Türü</label>
+                <select name="hayvan_turu">
+                    <option value="Kedi">Kedi</option>
+                    <option value="Köpek">Köpek</option>
+                    <option value="Kuş">Kuş</option>
+                    <option value="Diğer">Diğer</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Mesaj / Şikayet</label>
+                <textarea name="mesaj" placeholder="Hayvanınızın durumu hakkında bilgi verin..."></textarea>
+            </div>
+            <input type="text" name="_gotcha" style="display:none">
+            <button type="submit" class="btn-submit">Randevu Gönder</button>
         </form>
     </div>
 </div>
@@ -480,6 +495,7 @@
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
     AOS.init({duration: 1200, once: true});
+    
     window.addEventListener('scroll', () => {
         document.querySelector('header').classList.toggle('scrolled', window.scrollY > 80);
     });
@@ -498,12 +514,15 @@
     document.querySelector('.close-modal').onclick = () => modal.classList.remove('active');
     modal.onclick = e => { if (e.target === modal) modal.classList.remove('active'); };
 
-    document.getElementById('randevuForm').onsubmit = e => {
-        e.preventDefault();
-        alert('Randevu talebiniz alındı! En kısa sürede arayacağız.');
-        modal.classList.remove('active');
-        e.target.reset();
-    };
+    // Formspree gönderim sonrası teşekkür mesajı
+    const form = document.getElementById('randevuForm');
+    form.addEventListener('submit', function() {
+        setTimeout(() => {
+            alert('Randevu talebiniz başarıyla alındı! En kısa sürede sizinle iletişime geçeceğiz.');
+            modal.classList.remove('active');
+            form.reset();
+        }, 800);
+    });
 </script>
 </body>
 </html>
