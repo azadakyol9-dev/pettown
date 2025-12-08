@@ -9,10 +9,10 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
     
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- Animations -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -25,18 +25,26 @@
             --glass: rgba(255, 255, 255, 0.15);
             --dark: rgba(15, 23, 42, 0.95);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Inter', sans-serif;
             background: url('https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=90') fixed center/cover;
-            color: #fff;
+            color: #ffffff;
             line-height: 1.8;
             overflow-x: hidden;
+            min-height: 100vh;
         }
         .overlay {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(14,165,233,0.84), rgba(15,23,42,0.94));
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.84), rgba(15, 23, 42, 0.94));
             z-index: 1;
         }
         .container {
@@ -51,15 +59,16 @@
         header {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
             z-index: 1000;
             padding: 16px 0;
-            transition: all 0.5s;
+            transition: all 0.5s ease;
         }
         header.scrolled {
             background: rgba(15, 23, 42, 0.98);
             backdrop-filter: blur(20px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
         .nav-container {
             display: flex;
@@ -85,7 +94,9 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .logo i { font-size: 2.2rem; }
+        .logo i {
+            font-size: 2.2rem;
+        }
 
         .mobile-toggle {
             display: none;
@@ -192,7 +203,9 @@
             transition: all 0.4s;
             cursor: pointer;
         }
-        .action-btn:hover { transform: scale(1.2); }
+        .action-btn:hover {
+            transform: scale(1.2);
+        }
         .wa { background: #25d366; }
         .phone { background: var(--cyan); }
         .randevu { background: var(--gold); color: #000; }
@@ -358,7 +371,6 @@
             transform: scale(1.05);
         }
 
-        /* RESPONSIVE */
         @media (max-width: 768px) {
             .mobile-toggle { display: block; }
             .logo { font-size: 2rem; padding: 8px 14px; }
@@ -396,9 +408,8 @@
     </div>
 </header>
 
-<!-- MOBİL MENÜ -->
 <div class="mobile-menu">
-    <div class="close-menu">X</div>
+    <div class="close-menu">×</div>
     <a href="#hizmetler"><i class="fas fa-stethoscope"></i><span>Hizmetlerimiz</span></a>
     <a href="#iletisim"><i class="fas fa-map-marker-alt"></i><span>Konum & Harita</span></a>
     <a href="tel:05338406218"><i class="fas fa-phone"></i><span>Hemen Ara</span></a>
@@ -406,7 +417,6 @@
     <a href="#" id="menuRandevu"><i class="fas fa-calendar-check"></i><span>Randevu Al</span></a>
 </div>
 
-<!-- SABİT BUTONLAR -->
 <div class="desktop-buttons">
     <div class="action-btn wa" onclick="window.open('https://wa.me/905338406218','_blank')"><i class="fab fa-whatsapp"></i></div>
     <div class="action-btn phone" onclick="window.location='tel:05338406218'"><i class="fas fa-phone"></i></div>
@@ -419,7 +429,6 @@
     <div class="action-btn randevu" id="openModalMobile"><i class="fas fa-calendar-check"></i></div>
 </div>
 
-<!-- HERO -->
 <section class="hero">
     <div class="container" data-aos="fade-up">
         <h1>Pet Town<br>Veteriner Kliniği</h1>
@@ -431,7 +440,6 @@
     </div>
 </section>
 
-<!-- HİZMETLER -->
 <section id="hizmetler">
     <div class="container">
         <h2 data-aos="fade-up">Hizmetlerimiz</h2>
@@ -444,7 +452,6 @@
     </div>
 </section>
 
-<!-- HARİTA -->
 <section class="map-section" id="iletisim">
     <div class="container">
         <h2 data-aos="fade-up">Bizi Bulun</h2>
@@ -458,35 +465,36 @@
     </div>
 </section>
 
-<!-- MODAL - FORMSPREE BAĞLI GERÇEK ÇALIŞAN FORM -->
+<!-- FORMSUBMIT.CO - HEM MAİL HEM WHATSAPP -->
 <div class="modal" id="randevuModal">
     <div class="modal-content">
-        <span class="close-modal">X</span>
+        <span class="close-modal">×</span>
         <h3>Randevu Talebi</h3>
-        
-        <form action="https://formspree.io/f/xnnebbjp" method="POST" id="randevuForm">
+        <form action="https://formsubmit.co/ajax/info@pettownveteriner.com" method="POST" id="randevuForm">
             <div class="form-group">
                 <label>Ad Soyad *</label>
-                <input type="text" name="ad_soyad" required>
+                <input type="text" name="name" placeholder="Ahmet Yılmaz" required>
             </div>
             <div class="form-group">
                 <label>Telefon *</label>
-                <input type="tel" name="telefon" required>
+                <input type="tel" name="phone" placeholder="0533 840 62 18" required>
             </div>
             <div class="form-group">
                 <label>Hayvan Türü</label>
-                <select name="hayvan_turu">
+                <select name="hayvan">
                     <option value="Kedi">Kedi</option>
                     <option value="Köpek">Köpek</option>
-                    <option value="Kuş">Kuş</option>
                     <option value="Diğer">Diğer</option>
                 </select>
             </div>
             <div class="form-group">
                 <label>Mesaj / Şikayet</label>
-                <textarea name="mesaj" placeholder="Hayvanınızın durumu hakkında bilgi verin..."></textarea>
+                <textarea name="message" placeholder="Durumu anlatın..."></textarea>
             </div>
-            <input type="text" name="_gotcha" style="display:none">
+            <input type="text" name="_honey" style="display:none">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://wa.me/905338406218?text=YENİ%20RANDEVU!%0Aİsim%3A%20[name]%0ATelefon%3A%20[phone]%0AHayvan%3A%20[hayvan]%0AMesaj%3A%20[message]">
+            <input type="hidden" name="_subject" value="YENİ RANDEVU - Pet Town">
             <button type="submit" class="btn-submit">Randevu Gönder</button>
         </form>
     </div>
@@ -495,34 +503,21 @@
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
     AOS.init({duration: 1200, once: true});
-    
     window.addEventListener('scroll', () => {
         document.querySelector('header').classList.toggle('scrolled', window.scrollY > 80);
     });
-
     document.querySelector('.mobile-toggle').onclick = () => {
         document.querySelector('.mobile-menu').classList.add('active');
     };
     document.querySelector('.close-menu').onclick = () => {
         document.querySelector('.mobile-menu').classList.remove('active');
     };
-
     const modal = document.getElementById('randevuModal');
     document.querySelectorAll('#openModal, #openModalMobile, #heroRandevu, #menuRandevu').forEach(btn => {
         btn.onclick = e => { e.preventDefault(); modal.classList.add('active'); };
     });
     document.querySelector('.close-modal').onclick = () => modal.classList.remove('active');
     modal.onclick = e => { if (e.target === modal) modal.classList.remove('active'); };
-
-    // Formspree gönderim sonrası teşekkür mesajı
-    const form = document.getElementById('randevuForm');
-    form.addEventListener('submit', function() {
-        setTimeout(() => {
-            alert('Randevu talebiniz başarıyla alındı! En kısa sürede sizinle iletişime geçeceğiz.');
-            modal.classList.remove('active');
-            form.reset();
-        }, 800);
-    });
 </script>
 </body>
 </html>
