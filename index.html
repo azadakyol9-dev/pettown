@@ -2,20 +2,15 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <!-- BURAYI DÜZELTTİM – EN BÜYÜK SORUN BURAYDI -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Town Veteriner Kliniği | 7/24 Acil Servis - Vadili KKTC</title>
     <meta name="description" content="Pet Town Veteriner Kliniği - 7/24 Acil Servis, Kedi Köpek, Aşı, Kısırlaştırma, Laboratuvar - Vadili / KKTC">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- AOS Animation -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
@@ -42,18 +37,11 @@
             min-height: 100vh;
         }
 
-        /* Tüm resimler ve iframe'ler taşmasın diye – MOBİL İÇİN KRİTİK */
-        img, iframe, video, embed, object {
-            max-width: 100%;
-            height: auto;
-        }
+        img, iframe { max-width: 100%; height: auto; }
 
         .overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(135deg, rgba(14, 165, 233, 0.84), rgba(15, 23, 42, 0.94));
             z-index: 1;
         }
@@ -66,12 +54,9 @@
             padding: 0 20px;
         }
 
-        /* HEADER */
         header {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 1000;
             padding: 14px 0;
             transition: all 0.4s ease;
@@ -80,7 +65,7 @@
         header.scrolled {
             background: rgba(15, 23, 42, 0.98);
             backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
 
         .nav-container {
@@ -111,9 +96,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .logo i {
-            font-size: 1.7rem;
-        }
+        .logo i { font-size: 1.7rem; }
 
         .mobile-toggle {
             display: none;
@@ -123,7 +106,7 @@
             z-index: 1001;
         }
 
-        /* MOBİL MENÜ */
+        /* MOBİL MENÜ – TAMAMEN YENİLENDİ */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -136,11 +119,11 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 24px;
+            gap: 20px;
             transform: translateY(-100%);
             transition: transform 0.5s ease;
             z-index: 999;
-            padding: 90px 20px 60px;
+            padding: 100px 20px 80px;
             overflow-y: auto;
         }
 
@@ -151,12 +134,12 @@
         .mobile-menu a {
             width: 88%;
             max-width: 380px;
-            padding: 24px;
+            padding: 28px 20px;
             background: rgba(255, 255, 255, 0.12);
             border: 2px solid rgba(252, 211, 77, 0.3);
             border-radius: 32px;
             color: #fff;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             font-weight: 600;
             text-align: center;
             text-decoration: none;
@@ -164,17 +147,17 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 12px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
         }
 
         .mobile-menu a i {
-            font-size: 3.2rem;
-            margin-bottom: 12px;
+            font-size: 3.4rem;
             color: var(--gold);
         }
 
         .mobile-menu a span {
-            font-size: 1.5rem;
+            font-size: 1.55rem;
         }
 
         .mobile-menu a:hover {
@@ -201,7 +184,6 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.6);
         }
 
-        /* SABİT BUTONLAR */
         .desktop-buttons {
             position: fixed;
             bottom: 30px;
@@ -245,7 +227,6 @@
         .phone { background: var(--cyan); }
         .randevu { background: var(--gold); color: #000; }
 
-        /* HERO */
         .hero {
             height: 100vh;
             min-height: 680px;
@@ -425,7 +406,6 @@
             transform: scale(1.05);
         }
 
-        /* MOBİL DÜZELTMELER */
         @media (max-width: 768px) {
             .mobile-toggle { display: block; }
             .logo { font-size: 1.8rem; padding: 6px 12px; gap: 6px; }
@@ -440,6 +420,10 @@
             .card i { font-size: 4rem; }
             .mobile-buttons { display: flex; }
             .desktop-buttons { display: none; }
+
+            /* MENÜ ARALIĞI ARTIRILDI */
+            .mobile-menu { gap: 28px; padding: 120px 20px 100px; }
+            .mobile-menu a { padding: 32px 20px; }
         }
 
         @media (max-width: 480px) {
@@ -448,6 +432,8 @@
             .btn { padding: 14px 44px; font-size: 1.25rem; min-width: 230px; }
             .logo { font-size: 1.7rem; }
             .logo i { font-size: 1.5rem; }
+            .mobile-menu { gap: 32px; }
+            .mobile-menu a { padding: 36px 20px; }
         }
     </style>
 </head>
@@ -462,7 +448,6 @@
     </div>
 </header>
 
-<!-- MOBİL MENÜ -->
 <div class="mobile-menu">
     <div class="close-menu">×</div>
     <a href="#hizmetler"><i class="fas fa-stethoscope"></i><span>Hizmetlerimiz</span></a>
@@ -472,7 +457,6 @@
     <a href="#" id="menuRandevu"><i class="fas fa-calendar-check"></i><span>Randevu Al</span></a>
 </div>
 
-<!-- SABİT BUTONLAR -->
 <div class="desktop-buttons">
     <div class="action-btn wa" onclick="window.open('https://wa.me/905338388696','_blank')"><i class="fab fa-whatsapp"></i></div>
     <div class="action-btn phone" onclick="window.location='tel:05338388696'"><i class="fas fa-phone"></i></div>
@@ -521,7 +505,6 @@
     </div>
 </section>
 
-<!-- FORM -->
 <div class="modal" id="randevuModal">
     <div class="modal-content">
         <span class="close-modal">×</span>
