@@ -11,7 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- AOS Animasyon Kütüphanesi (çok güzel giriş animasyonları) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
@@ -54,6 +56,7 @@
             padding: 0 20px;
         }
 
+        /* ====== HEADER ====== */
         header {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -98,7 +101,7 @@
 
         .logo i { font-size: 1.7rem; }
 
-        /* YENİ MOBİL KÜÇÜK BUTONLAR */
+        /* ====== MOBİL KÜÇÜK BUTONLAR + ANIMASYON ====== */
         .mobile-quick-menu {
             position: fixed;
             bottom: 90px;
@@ -128,38 +131,36 @@
             color: var(--gold);
             font-size: 1.6rem;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.4s;
         }
 
         .mobile-quick-menu a:hover {
             background: var(--gold);
             color: #000;
-            transform: scale(1.15);
+            transform: scale(1.2) rotate(15deg);
         }
 
-        /* SABİT ALT BUTONLAR */
-        .mobile-buttons {
+        /* ====== ALT BUTONLAR ====== */
+        .mobile-buttons, .desktop-buttons {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            z-index: 999;
+        }
+
+        .mobile-buttons {
+            bottom: 0; left: 0; right: 0;
             background: rgba(15, 23, 42, 0.97);
             backdrop-filter: blur(20px);
             display: none;
             justify-content: space-around;
             padding: 14px 0;
             border-top: 1px solid rgba(255,255,255,0.1);
-            z-index: 999;
         }
 
         .desktop-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 30px; right: 30px;
             display: flex;
             flex-direction: column;
             gap: 16px;
-            z-index: 998;
         }
 
         .action-btn {
@@ -176,11 +177,12 @@
             cursor: pointer;
         }
 
-        .action-btn:hover { transform: scale(1.2); }
+        .action-btn:hover { transform: scale(1.3) rotate(360deg); }
         .wa { background: #25d366; }
         .phone { background: var(--cyan); }
         .randevu { background: var(--gold); color: #000; }
 
+        /* ====== HERO + ANIMASYON ====== */
         .hero {
             height: 100vh;
             min-height: 680px;
@@ -190,6 +192,7 @@
             text-align: center;
             padding: 0 20px;
             padding-top: 70px;
+            position: relative;
         }
 
         .hero h1 {
@@ -198,6 +201,12 @@
             line-height: 1.1;
             margin-bottom: 1rem;
             text-shadow: 0 10px 40px rgba(0,0,0,0.7);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(252,211,77,0.6); }
+            to { text-shadow: 0 0 40px rgba(252,211,77,0.9), 0 0 60px rgba(14,165,233,0.6); }
         }
 
         .hero p {
@@ -214,25 +223,39 @@
         }
 
         .btn {
-            padding: 16px 56px;
+            padding: 18px 60px;
             border-radius: 60px;
             font-weight: 700;
-            font-size: 1.35rem;
-            min-width: 270px;
+            font-size: 1.4rem;
+            min-width: 280px;
             text-decoration: none;
             transition: all 0.4s;
             box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
         }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.7s;
+        }
+
+        .btn:hover::before { left: 100%; }
+        .btn:hover { transform: translateY(-8px) scale(1.05); }
 
         .btn-primary { background: var(--cyan); color: #fff; }
         .btn-gold { background: var(--gold); color: #000; }
-        .btn:hover { transform: translateY(-6px); }
 
-        section { padding: 120px 0; }
+        section { padding: 140px 0; }
 
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 4.2rem;
+            font-size: 4.5rem;
             text-align: center;
             margin-bottom: 5rem;
             background: linear-gradient(135deg, #0ea5e9, #fcd34d);
@@ -242,54 +265,47 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
         }
 
         .card {
             background: var(--glass);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255,255,255,0.3);
-            padding: 3.5rem 2rem;
+            padding: 4rem 2.5rem;
             border-radius: 40px;
             text-align: center;
-            transition: all 0.7s;
+            transition: all 0.6s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .card:hover {
-            transform: translateY(-18px);
-            background: rgba(255,255,255,0.25);
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(252,211,77,0.15), transparent);
+            transition: 0.8s;
+            opacity: 0;
         }
+
+        .card:hover::before { opacity: 1; transform: translate(25%, 25%); }
+        .card:hover { transform: translateY(-20px) scale(1.05); background: rgba(255,255,255,0.25); }
 
         .card i {
-            font-size: 4.5rem;
-            margin-bottom: 1.2rem;
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
             color: var(--gold);
+            transition: all 0.5s;
         }
 
-        .card h3 {
-            font-size: 1.7rem;
-            margin: 1.2rem 0;
-            background: linear-gradient(135deg, #0ea5e9, #fcd34d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .card:hover i { transform: rotate(360deg) scale(1.2); }
 
-        .map-section {
-            background: var(--dark);
-            padding: 120px 0;
-        }
-
-        .map-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 40px auto 0;
-            height: 500px;
-            border-radius: 30px;
-            overflow: hidden;
-            border: 4px solid var(--gold);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-        }
+        .map-section { background: var(--dark); }
 
         .modal {
             display: none;
@@ -302,78 +318,29 @@
             padding: 20px;
         }
 
-        .modal.active { display: flex; }
+        .modal.active { display: flex; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .modal-content {
-            background: #fff;
-            color: #333;
-            border-radius: 30px;
-            padding: 40px 30px;
-            max-width: 460px;
-            width: 100%;
-            position: relative;
+            animation: zoomIn 0.6s;
         }
+        @keyframes zoomIn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-        .close-modal {
-            position: absolute;
-            top: 12px;
-            right: 16px;
-            font-size: 2.4rem;
-            cursor: pointer;
-            color: #999;
-        }
-
-        .close-modal:hover { color: #000; }
-
-        .modal h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.1rem;
-            text-align: center;
-            color: var(--cyan);
-            margin-bottom: 18px;
-        }
-
-        .form-group { margin-bottom: 18px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 14px;
-            border-radius: 12px;
-            border: 1px solid #ddd;
-            font-size: 1rem;
-        }
-        .form-group textarea { height: 100px; resize: none; }
-        .btn-submit {
-            background: var(--cyan);
-            color: #fff;
-            padding: 16px;
-            border: none;
-            border-radius: 60px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            width: 100%;
-            transition: 0.4s;
-        }
-        .btn-submit:hover {
-            background: #0d8bc7;
-            transform: scale(1.05);
-        }
-
+        /* ====== MOBİL OPTİMİZASYON ====== */
         @media (max-width: 768px) {
             .mobile-quick-menu, .mobile-buttons { display: flex; }
             .desktop-buttons { display: none; }
-            .hero { padding-top: 70px; }
-            .hero h1 { font-size: 4.6rem; }
-            .hero p { font-size: 1.5rem; }
-            .btn { padding: 15px 50px; font-size: 1.3rem; min-width: 250px; }
-            h2 { font-size: 3.4rem; }
+            .hero h1 { font-size: 4.8rem; }
+            .hero p { font-size: 1.6rem; }
+            .btn { font-size: 1.3rem; min-width: 260px; }
+            h2 { font-size: 3.8rem; }
+            .card i { font-size: 4.5rem; }
         }
 
         @media (max-width: 480px) {
             .hero h1 { font-size: 4rem; }
-            .hero p { font-size: 1.35rem; }
-            .btn { padding: 14px 44px; font-size: 1.25rem; min-width: 230px; }
+            .hero p { font-size: 1.4rem; }
+            .btn { min-width: 240px; }
         }
     </style>
 </head>
@@ -387,23 +354,21 @@
     </div>
 </header>
 
-<!-- MOBİLDE KÜÇÜK YUVARLAK BUTONLAR -->
+<!-- MOBİL KÜÇÜK YUVARLAK BUTONLAR -->
 <div class="mobile-quick-menu">
-    <a href="#hizmetler"><i class="fas fa-stethoscope"></i></a>
-    <a href="#iletisim"><i class="fas fa-map-marker-alt"></i></a>
-    <a href="tel:05338388696"><i class="fas fa-phone"></i></a>
-    <a href="https://wa.me/905338388696" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="#" id="menuRandevu"><i class="fas fa-calendar-check"></i></a>
+    <a href="#hizmetler" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-stethoscope"></i></a>
+    <a href="#iletisim" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-map-marker-alt"></i></a>
+    <a href="tel:05338388696" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-phone"></i></a>
+    <a href="https://wa.me/905338388696" target="_blank" data-aos="fade-up" data-aos-delay="400"><i class="fab fa-whatsapp"></i></a>
+    <a href="#" id="menuRandevu" data-aos="fade-up" data-aos-delay="500"><i class="fas fa-calendar-check"></i></a>
 </div>
 
-<!-- MOBİL ALT ÇUBUK -->
 <div class="mobile-buttons">
     <div class="action-btn wa" onclick="window.open('https://wa.me/905338388696','_blank')"><i class="fab fa-whatsapp"></i></div>
     <div class="action-btn phone" onclick="window.location='tel:05338388696'"><i class="fas fa-phone"></i></div>
     <div class="action-btn randevu" id="openModalMobile"><i class="fas fa-calendar-check"></i></div>
 </div>
 
-<!-- DESKTOP YÜZEN BUTONLAR -->
 <div class="desktop-buttons">
     <div class="action-btn wa" onclick="window.open('https://wa.me/905338388696','_blank')"><i class="fab fa-whatsapp"></i></div>
     <div class="action-btn phone" onclick="window.location='tel:05338388696'"><i class="fas fa-phone"></i></div>
@@ -411,24 +376,24 @@
 </div>
 
 <section class="hero">
-    <div class="container" data-aos="fade-up">
-        <h1>Pet Town<br>Veteriner Kliniği</h1>
-        <p>7/24 Acil Servis • Kedi & Köpek • Aşı • Kısırlaştırma • Laboratuvar</p>
+    <div class="container">
+        <h1 data-aos="fade-up" data-aos-delay="300">Pet Town<br>Veteriner Kliniği</h1>
+        <p data-aos="fade-up" data-aos-delay="600">7/24 Acil Servis • Kedi & Köpek • Aşı • Kısırlaştırma • Laboratuvar</p>
         <div class="hero-buttons">
-            <a href="tel:05338388696" class="btn btn-primary">0533 838 86 96</a>
-            <a href="#" class="btn btn-gold" id="heroRandevu">Randevu Al</a>
+            <a href="tel:05338388696" class="btn btn-primary" data-aos="zoom-in" data-aos-delay="900">0533 838 86 96</a>
+            <a href="#" class="btn btn-gold" id="heroRandevu" data-aos="zoom-in" data-aos-delay="1100">Randevu Al</a>
         </div>
     </div>
 </section>
 
 <section id="hizmetler">
     <div class="container">
-        <h2 data-aos="fade-up">Hizmetlerimiz</h2>
+        <h2 data-aos="fade-down">Hizmetlerimiz</h2>
         <div class="grid">
-            <div class="card" data-aos="zoom-in"><i class="fas fa-syringe"></i><h3>Aşı & Parazit</h3><p>Kapsamlı aşı takvimi</p></div>
-            <div class="card" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-cut"></i><h3>Kısırlaştırma</h3><p>Güvenli operasyonlar</p></div>
-            <div class="card" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-vial"></i><h3>Laboratuvar</h3><p>Kan tahlili, testler</p></div>
-            <div class="card" data-aos="zoom-in" data-aos-delay="600"><i class="fas fa-clinic-medical"></i><h3>7/24 Acil</h3><p>Her an yanınızdayız</p></div>
+            <div class="card" data-aos="flip-left"><i class="fas fa-syringe"></i><h3>Aşı & Parazit</h3><p>Kapsamlı aşı takvimi</p></div>
+            <div class="card" data-aos="flip-left" data-aos-delay="200"><i class="fas fa-cut"></i><h3>Kısırlaştırma</h3><p>Güvenli operasyonlar</p></div>
+            <div class="card" data-aos="flip-left" data-aos-delay="400"><i class="fas fa-vial"></i><h3>Laboratuvar</h3><p>Kan tahlili, testler</p></div>
+            <div class="card" data-aos="flip-left" data-aos-delay="600"><i class="fas fa-clinic-medical"></i><h3>7/24 Acil</h3><p>Her an yanınızdayız</p></div>
         </div>
     </div>
 </section>
@@ -436,11 +401,11 @@
 <section class="map-section" id="iletisim">
     <div class="container">
         <h2 data-aos="fade-up">Bizi Bulun</h2>
-        <p style="text-align:center;font-size:1.6rem;margin-bottom:50px;">
+        <p style="text-align:center;font-size:1.6rem;margin-bottom:50px;" data-aos="fade-up" data-aos-delay="200">
             Vadili-Yiğitler Anayolu Üzeri • Vadili / Lefkoşa • KKTC<br><br>
             <a href="tel:05338388696" style="color:var(--gold);font-size:1.9rem;font-weight:700;">0533 838 86 96</a>
         </p>
-        <div class="map-container" data-aos="fade-up" data-aos-delay="300">
+        <div class="map-container" data-aos="zoom-in" data-aos-delay="400">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3260.306914057345!2d33.56195161525841!3d35.212345980305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14df7b1f1c9e9c83%3A0xed8f8b8f8b8f8b8f!2sPet%20Town%20Veteriner%20Klini%C4%9Fi!5e0!3m2!1str!2scy!4v1737329184761!5m2!1str!2scy" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
@@ -470,10 +435,18 @@
     </div>
 </div>
 
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!-- AOS Animasyon Kütüphanesi -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    AOS.init({duration:1200,once:true});
-    window.addEventListener('scroll',()=>{document.querySelector('header').classList.toggle('scrolled',window.scrollY>60);});
+    AOS.init({
+        duration: 1200,
+        once: false,
+        mirror: true
+    });
+
+    window.addEventListener('scroll', () => {
+        document.querySelector('header').classList.toggle('scrolled', window.scrollY > 60);
+    });
 
     const modal = document.getElementById('randevuModal');
     document.querySelectorAll('#openModal, #openModalMobile, #heroRandevu, #menuRandevu').forEach(btn => {
