@@ -299,7 +299,7 @@
 
         .card:hover i { transform: rotate(360deg) scale(1.2); }
 
-        /* HARİTA BÖLÜMÜ - TAMAMEN YENİLENDİ */
+        /* HARİTA BÖLÜMÜ - PET TOWN TAM ORTADA + YOL TARİFİ BUTONU */
         .map-section {
             background: var(--dark);
             padding: 160px 0 100px;
@@ -335,6 +335,28 @@
             filter: brightness(1.05) contrast(1.1);
         }
 
+        /* YOL TARİFİ BUTONU */
+        .directions-btn {
+            display: block;
+            width: 340px;
+            margin: 40px auto 0;
+            padding: 18px 0;
+            background: var(--gold);
+            color: #000;
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-align: center;
+            border-radius: 60px;
+            text-decoration: none;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            transition: all 0.4s;
+        }
+
+        .directions-btn:hover {
+            background: #e0b833;
+            transform: translateY(-6px) scale(1.05);
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -368,6 +390,10 @@
                 border: 5px solid var(--gold);
                 margin: 40px auto 0;
             }
+            .directions-btn {
+                width: 90%;
+                font-size: 1.4rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -377,6 +403,9 @@
             .map-container {
                 height: 380px;
                 border-radius: 30px;
+            }
+            .directions-btn {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -434,6 +463,7 @@
     </div>
 </section>
 
+<!-- HARİTA - PET TOWN TAM ORTADA + YOL TARİFİ BUTONU -->
 <section class="map-section" id="iletisim">
     <div class="container">
         <h2 data-aos="fade-up">Bizi Bulun</h2>
@@ -442,8 +472,14 @@
             <a href="tel:05338388696" style="color:var(--gold);font-size:1.9rem;font-weight:700;">0533 838 86 96</a>
         </p>
         <div class="map-container" data-aos="zoom-in" data-aos-delay="400">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1300.852451761356!2d33.647487!3d35.118737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDA3JzA3LjQiTiAzM8KwMzgnNTIuMCJF!5e0!3m2!1str!2scy!4v1737390000000!5m2!1str!2scy" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <!-- Pet Town Hayvan Hastanesi tam ortada ve işaretli -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1304.125965622938!2d33.561686!3d35.212348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14df7b1f1c9e9c83%3A0xed8f8b8f8b8f8b8f!2sPet%20Town%20Hayvan%20Hastanesi!5e0!3m2!1str!2scy!4v1737390000000!5m2!1str!2scy" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+
+        <!-- YOL TARİFİ BUTONU -->
+        <a href="https://maps.app.goo.gl/hCmbjuaVXJS9abH58" target="_blank" class="directions-btn" data-aos="fade-up" data-aos-delay="600">
+            Yol Tarifi Al
+        </a>
     </div>
 </section>
 
@@ -457,7 +493,7 @@
             <div class="form-group"><label>Hayvan Türü</label>
                 <select name="Hayvan Türü">
                     <option value="Kedi">Kedi</option>
-                    <option value="Köpek">Köpekveİnek</option>
+                    <option value="Köpek">Köpek</option>
                     <option value="Diğer">Diğer</option>
                 </select>
             </div>
