@@ -159,7 +159,53 @@
             font-size: 1.7rem;
         }
 
-        /* MOBİLDE SAĞDA SABİT BUTONLAR */
+        /* YENİ: SADECE DESKTOPTA GÖRÜNEN MENÜ */
+        .desktop-menu {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .desktop-menu a {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .desktop-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--gold);
+            transition: all 0.4s;
+            transform: translateX(-50%);
+        }
+
+        .desktop-menu a:hover {
+            background: rgba(252, 211, 77, 0.15);
+            color: var(--gold);
+        }
+
+        .desktop-menu a:hover::after {
+            width: 60%;
+        }
+
+        /* MOBİLDE MENÜYÜ GİZLE */
+        @media (max-width: 992px) {
+            .desktop-menu {
+                display: none !important;
+            }
+        }
+
+        /* MOBİLDE SAĞDA SABİT BUTONLAR (BOZULMADI, HALA VAR) */
         .mobile-floating-buttons {
             position: fixed;
             right: 16px;
@@ -315,7 +361,7 @@
 
         .card:hover i { transform: rotate(360deg) scale(1.2); }
 
-        /* ÇALIŞMA SAATLERİ GÜNCELLENDİ */
+        /* Çalışma Saatleri */
         .hours-section {
             background: rgba(15, 23, 42, 0.97);
             padding: 100px 0;
@@ -549,11 +595,14 @@
         }
 
         /* MOBİL AYARLAR */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .emergency-bar { font-size: 1rem; padding: 10px; }
             header { top: 42px; }
             .mobile-floating-buttons { display: flex; }
             .hero { padding-top: 140px; }
+        }
+
+        @media (max-width: 768px) {
             .hero h1 { font-size: 4.8rem; }
             .hero p { font-size: 1.6rem; }
             .btn { font-size: 1.3rem; min-width: 260px; }
@@ -586,9 +635,19 @@
 <header>
     <div class="container nav-container">
         <a href="#" class="logo"><i class="fas fa-paw"></i> <span>Pet Town</span></a>
+
+        <!-- YENİ: SADECE DESKTOPTA GÖRÜNEN ŞIK MENÜ -->
+        <nav class="desktop-menu">
+            <a href="#hizmetler">Hizmetlerimiz</a>
+            <a href="#iletisim">Konum & Harita</a>
+            <a href="tel:05338388696">Hemen Ara</a>
+            <a href="https://wa.me/905338388696" target="_blank">WhatsApp</a>
+            <a href="#" id="desktopRandevu">Randevu Al</a>
+        </nav>
     </div>
 </header>
 
+<!-- MOBİLDE SAĞDA SABİT BUTONLAR (BOZULMADI, HALA VAR) -->
 <div class="mobile-floating-buttons">
     <div class="action-btn wa" onclick="window.open('https://wa.me/905338388696','_blank')"><i class="fab fa-whatsapp"></i></div>
     <div class="action-btn phone" onclick="window.location='tel:05338388696'"><i class="fas fa-phone"></i></div>
@@ -634,7 +693,7 @@
 
 <section class="map-section" id="iletisim">
     <div class="container">
-        <h2 data-aos="fade-up">Bizi Bulun</h2>
+        <h2 data-aos="fade-up">Bizi Bulun Biz Heryerdeyiz</h2>
         <p style="text-align:center;font-size:1.6rem;margin-bottom:60px;" data-aos="fade-up" data-aos-delay="200">
             Vadili-Yiğitler Anayolu Üzeri • Vadili / Lefkoşa • KKTC<br><br>
             <a href="tel:05338388696" style="color:var(--gold);font-size:1.9rem;font-weight:700;">0533 838 86 96</a>
@@ -711,7 +770,7 @@
     });
 
     const modal = document.getElementById('randevuModal');
-    document.querySelectorAll('#openModalMobile, #heroRandevu').forEach(btn => {
+    document.querySelectorAll('#openModalMobile, #heroRandevu, #desktopRandevu').forEach(btn => {
         btn.onclick = e => { e.preventDefault(); modal.classList.add('active'); };
     });
     document.querySelector('.close-modal').onclick = () => modal.classList.remove('active');
