@@ -3,13 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Town Veteriner Kliniği | 7/24 Acil Servis - Vadili KKTC</title>
+    <title>Pet Town Veteriner Kliniği</title>
     <meta name="description" content="Pet Town Veteriner Kliniği - 7/24 Acil Servis, Kedi Köpek, Aşı, Kısırlaştırma, Laboratuvar - Vadili / KKTC">
 
+    <!-- PWA META TAGS -->
+    <meta name="theme-color" content="#0ea5e9">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Pet Town">
+
+    <!-- PWA MANIFEST + İKONLAR (kalıcı linkler) -->
+    <link rel="manifest" href="data:application/manifest+json,{
+        %22name%22:%22Pet Town Veteriner Kliniği%22,
+        %22short_name%22:%22Pet Town%22,
+        %22description%22:%227/24 Acil Veteriner Kliniği - Vadili KKTC%22,
+        %22start_url%22:%22/%22,
+        %22display%22:%22standalone%22,
+        %22background_color%22:%22#0f172a%22,
+        %22theme_color%22:%22#0ea5e9%22,
+        %22icons%22:[
+            {%22src%22:%22https://pet-town.vercel.app/icon-192.png%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22,%22purpose%22:%22any%22},
+            {%22src%22:%22https://pet-town.vercel.app/icon-512.png%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22,%22purpose%22:%22maskable%22}
+        ]
+    }">
+    <link rel="apple-touch-icon" href="https://pet-town.vercel.app/icon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://pet-town.vercel.app/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="https://pet-town.vercel.app/icon-512.png">
+
+    <!-- FONTS & ICONS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -37,11 +62,18 @@
             min-height: 100vh;
         }
 
-        img, iframe { max-width: 100%; height: auto; loading: lazy; }
+        img, iframe {
+            max-width: 100%;
+            height: auto;
+            loading: lazy;
+        }
 
         .overlay {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: linear-gradient(135deg, rgba(14, 165, 233, 0.84), rgba(15, 23, 42, 0.94));
             z-index: 1;
         }
@@ -70,12 +102,16 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
 
-        .emergency-bar a { color: #fff; text-decoration: underline; }
+        .emergency-bar a {
+            color: #fff;
+            text-decoration: underline;
+        }
 
         header {
             position: fixed;
             top: 48px;
-            left: 0; right: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
             padding: 14px 0;
             transition: all 0.4s ease;
@@ -115,9 +151,11 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .logo i { font-size: 1.7rem; }
+        .logo i {
+            font-size: 1.7rem;
+        }
 
-        /* MOBİLDE SAĞDA KÜÇÜK SABİT BUTONLAR */
+        /* MOBİLDE SAĞ TARAFTA SABİT BUTONLAR */
         .mobile-floating-buttons {
             position: fixed;
             right: 16px;
@@ -139,6 +177,7 @@
             color: #fff;
             box-shadow: 0 8px 25px rgba(0,0,0,0.6);
             transition: all 0.4s;
+            cursor: pointer;
         }
 
         .mobile-floating-buttons .action-btn:hover {
@@ -148,9 +187,6 @@
         .mobile-floating-buttons .wa { background: #25d366; }
         .mobile-floating-buttons .phone { background: var(--cyan); }
         .mobile-floating-buttons .randevu { background: var(--gold); color: #000; }
-
-        /* Eski alt çubuğu kaldırdık */
-        .mobile-buttons, .desktop-buttons { display: none !important; }
 
         .hero {
             height: 100vh;
@@ -178,7 +214,11 @@
             to { text-shadow: 0 0 40px rgba(252,211,77,0.9), 0 0 60px rgba(14,165,233,0.6); }
         }
 
-        .hero p { font-size: 1.9rem; font-weight: 500; margin-bottom: 2.5rem; }
+        .hero p {
+            font-size: 1.9rem;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+        }
 
         .hero-buttons {
             display: flex;
@@ -203,7 +243,8 @@
         .btn::before {
             content: '';
             position: absolute;
-            top: 0; left: -100%;
+            top: 0;
+            left: -100%;
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
@@ -249,8 +290,10 @@
         .card::before {
             content: '';
             position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
             background: radial-gradient(circle, rgba(252,211,77,0.15), transparent);
             transition: 0.8s;
             opacity: 0;
@@ -308,7 +351,7 @@
         .hours-table li span:first-child { font-weight: 600; }
         .hours-table li strong { color: var(--gold); }
 
-        /* Harita */
+        /* Harita Bölümü */
         .map-section {
             background: var(--dark);
             padding: 160px 0 140px;
@@ -366,7 +409,7 @@
             filter: brightness(1.05) contrast(1.1);
         }
 
-        /* ŞIK RANDEVU MODAL */
+        /* Şık Randevu Modal */
         .modal {
             display: none;
             position: fixed;
@@ -542,7 +585,7 @@
     </div>
 </header>
 
-<!-- MOBİLDE SAĞ TARAFTA KÜÇÜK SABİT BUTONLAR -->
+<!-- MOBİLDE SAĞDA SABİT BUTONLAR -->
 <div class="mobile-floating-buttons">
     <div class="action-btn wa" onclick="window.open('https://wa.me/905338388696','_blank')"><i class="fab fa-whatsapp"></i></div>
     <div class="action-btn phone" onclick="window.location='tel:05338388696'"><i class="fas fa-phone"></i></div>
@@ -577,9 +620,9 @@
         <div class="hours-table" data-aos="fade-up">
             <h3>Çalışma Saatlerimiz</h3>
             <ul>
-                <li><span>Pazartesi - Cuma</span> <strong>08:00 - 18:30</strong></li>
-                <li><span>Cumartesi</span> <strong>08:00 - 14:30</strong></li>
-                <li><span>Pazar</span> <strong>09:00 - 12:00</strong></li>
+                <li><span>Pazartesi - Cuma</span> <strong>09:00 - 22:00</strong></li>
+                <li><span>Cumartesi</span> <strong>09:00 - 20:00</strong></li>
+                <li><span>Pazar</span> <strong>Sadece Acil - 7/24</strong></li>
                 <li><span>Acil Servis</span> <strong>7/24 Açık</strong></li>
             </ul>
         </div>
@@ -588,15 +631,14 @@
 
 <section class="map-section" id="iletisim">
     <div class="container">
-        <h2 data-aos="fade-up">Bizi Bulun, Biz Sizi Buluruz</h2>
+        <h2 data-aos="fade-up">Bizi Bulun</h2>
         <p style="text-align:center;font-size:1.6rem;margin-bottom:60px;" data-aos="fade-up" data-aos-delay="200">
             Vadili-Yiğitler Anayolu Üzeri • Vadili / Lefkoşa • KKTC<br><br>
             <a href="tel:05338388696" style="color:var(--gold);font-size:1.9rem;font-weight:700;">0533 838 86 96</a>
         </p>
 
         <div class="map-wrapper" data-aos="zoom-in" data-aos-delay="400">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=35.11873728837674,33.647887867615836" 
-               target="_blank" class="map-directions-btn">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=35.11873728837674,33.647887867615836" target="_blank" class="map-directions-btn">
                 <i class="fas fa-directions"></i> Yol Tarifi Al
             </a>
 
@@ -647,13 +689,20 @@
     </div>
 </div>
 
+<!-- PWA SERVICE WORKER (offline + hızlı açılış) -->
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('data:application/javascript;base64,Y29uc3QgY2FjaGVOYW1lPSJwZXQtdG93bi12MSI7c2VsZi5hZGRFdmVudExpc3RlbmVyKCJpbnN0YWxsIiwgZT0+e2Uud2FpdFVudGlsKGNhY2hlcy5vcGVuKGNhY2hlTmFtZSkudGhlbihjYWNoZT0+Y2FjaGUuYWRkQWxsWyIvIiwiaW5kZXguaHRtbCJdKSkpfSk7c2VsZi5hZGRFdmVudExpc3RlbmVyKCJmZXRjaCIsIGV2ZW50PT57ZXZlbnQucmVzcG9uZFdpdGgoY2FjaGVzLm1hdGNoKGV2ZW50LnJlcXVlc3QpLnRoZW4ocmVzcD0+cmVzcC5jbG9uZSgpKSkpfSk7')
+                .then(() => console.log('PWA aktif!'))
+                .catch(() => {});
+        });
+    }
+</script>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    AOS.init({
-        duration: 1200,
-        once: false,
-        mirror: true
-    });
+    AOS.init({ duration: 1200, once: false, mirror: true });
 
     window.addEventListener('scroll', () => {
         document.querySelector('header').classList.toggle('scrolled', window.scrollY > 60);
@@ -664,18 +713,15 @@
         btn.onclick = e => { e.preventDefault(); modal.classList.add('active'); };
     });
     document.querySelector('.close-modal').onclick = () => modal.classList.remove('active');
-    modal.onclick = e => { if(e.target === modal) modal.classList.remove('active'); };
+    modal.onclick = e => { if (e.target === modal) modal.classList.remove('active'); };
 
-    // WhatsApp’a hazır mesajla yönlendirme
-    document.getElementById('randevuForm').addEventListener('submit', function(e) {
+    document.getElementById('randevuForm').addEventListener('submit', function () {
         const ad = this.querySelector('input[name="Ad Soyad"]').value;
         const tel = this.querySelector('input[name="Telefon"]').value;
         const tur = this.querySelector('select[name="Hayvan Türü"]').value;
-        const mesaj = this.querySelector('textarea[name="Mesaj"]').value || "Yok";
-
-        const waMesaj = `*YENİ RANDEVU TALEBİ*%0A%0A👤 Ad Soyad: ${ad}%0A📞 Telefon: ${tel}%0A🐾 Hayvan: ${tur}%0A💬 Mesaj: ${mesaj}%0A%0APet Town Veteriner Kliniği`;
-
-        this.querySelector('input[name="_next"]').value = `https://wa.me/905338388696?text=${waMesaj}`;
+        const msg = this.querySelector('textarea[name="Mesaj"]').value || 'Yok';
+        const wa = `*YENİ RANDEVU TALEBİ*%0A%0AAd Soyad: ${ad}%0ATelefon: ${tel}%0AHayvan: ${tur}%0AMesaj: ${msg}%0A%0APet Town Veteriner Kliniği`;
+        this.querySelector('input[name="_next"]').value = `https://wa.me/905338388696?text=${wa}`;
     });
 </script>
 </body>
