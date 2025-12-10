@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SAYFA BAŞLIĞI VE TARAYICI SEKME LOGOSU (FAVICON) -->
     <title>Pet Town Veteriner Kliniği</title>
+
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://pet-town.vercel.app/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://pet-town.vercel.app/favicon-16.png">
     <link rel="shortcut icon" href="https://pet-town.vercel.app/favicon.ico">
 
     <meta name="description" content="Pet Town Veteriner Kliniği - 7/24 Acil Servis, Kedi Köpek, Aşı, Kısırlaştırma, Laboratuvar - Vadili / KKTC">
 
-    <!-- PWA META TAGS -->
+    <!-- PWA META -->
     <meta name="theme-color" content="#0ea5e9">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -90,30 +90,10 @@
             padding: 0 20px;
         }
 
-        /* Acil Durum Bandı */
-        .emergency-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: #dc2626;
-            color: #fff;
-            text-align: center;
-            padding: 12px 20px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            z-index: 1001;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-        }
-
-        .emergency-bar a {
-            color: #fff;
-            text-decoration: underline;
-        }
-
+        /* HEADER (ACİL BANT KALDIRILDI → EN ÜSTE GELDİ) */
         header {
             position: fixed;
-            top: 48px;
+            top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
@@ -124,7 +104,7 @@
         header.scrolled {
             background: rgba(15, 23, 42, 0.98);
             backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
         }
 
         .nav-container {
@@ -159,7 +139,7 @@
             font-size: 1.7rem;
         }
 
-        /* YENİ: SADECE DESKTOPTA GÖRÜNEN MENÜ */
+        /* DESKTOP MENÜ */
         .desktop-menu {
             display: flex;
             gap: 40px;
@@ -198,14 +178,13 @@
             width: 60%;
         }
 
-        /* MOBİLDE MENÜYÜ GİZLE */
         @media (max-width: 992px) {
             .desktop-menu {
-                display: none !important;
+                display: none;
             }
         }
 
-        /* MOBİLDE SAĞDA SABİT BUTONLAR (BOZULMADI, HALA VAR) */
+        /* MOBİLDE SAĞDA SABİT BUTONLAR */
         .mobile-floating-buttons {
             position: fixed;
             right: 16px;
@@ -225,7 +204,7 @@
             justify-content: center;
             font-size: 26px;
             color: #fff;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
             transition: all 0.4s;
             cursor: pointer;
         }
@@ -238,6 +217,12 @@
         .mobile-floating-buttons .phone { background: var(--cyan); }
         .mobile-floating-buttons .randevu { background: var(--gold); color: #000; }
 
+        @media (max-width: 768px) {
+            .mobile-floating-buttons {
+                display: flex;
+            }
+        }
+
         .hero {
             height: 100vh;
             min-height: 680px;
@@ -246,7 +231,7 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
-            padding-top: 120px;
+            padding-top: 80px;
             position: relative;
         }
 
@@ -255,13 +240,13 @@
             font-size: 6.8rem;
             line-height: 1.1;
             margin-bottom: 1rem;
-            text-shadow: 0 10px 40px rgba(0,0,0,0.7);
+            text-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
             animation: glow 3s ease-in-out infinite alternate;
         }
 
         @keyframes glow {
-            from { text-shadow: 0 0 20px rgba(252,211,77,0.6); }
-            to { text-shadow: 0 0 40px rgba(252,211,77,0.9), 0 0 60px rgba(14,165,233,0.6); }
+            from { text-shadow: 0 0 20px rgba(252, 211, 77, 0.6); }
+            to { text-shadow: 0 0 40px rgba(252, 211, 77, 0.9), 0 0 60px rgba(14, 165, 233, 0.6); }
         }
 
         .hero p {
@@ -285,7 +270,7 @@
             min-width: 280px;
             text-decoration: none;
             transition: all 0.4s;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
         }
@@ -297,7 +282,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: 0.7s;
         }
 
@@ -328,7 +313,7 @@
         .card {
             background: var(--glass);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 4rem 2.5rem;
             border-radius: 40px;
             text-align: center;
@@ -344,13 +329,13 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(252,211,77,0.15), transparent);
+            background: radial-gradient(circle, rgba(252, 211, 77, 0.15), transparent);
             transition: 0.8s;
             opacity: 0;
         }
 
         .card:hover::before { opacity: 1; transform: translate(25%, 25%); }
-        .card:hover { transform: translateY(-20px) scale(1.05); background: rgba(255,255,255,0.25); }
+        .card:hover { transform: translateY(-20px) scale(1.05); background: rgba(255, 255, 255, 0.25); }
 
         .card i {
             font-size: 5rem;
@@ -361,7 +346,7 @@
 
         .card:hover i { transform: rotate(360deg) scale(1.2); }
 
-        /* Çalışma Saatleri */
+        /* ÇALIŞMA SAATLERİ */
         .hours-section {
             background: rgba(15, 23, 42, 0.97);
             padding: 100px 0;
@@ -371,11 +356,11 @@
         .hours-table {
             max-width: 800px;
             margin: 0 auto;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             border-radius: 30px;
             padding: 40px;
-            border: 2px solid rgba(252,211,77,0.3);
+            border: 2px solid rgba(252, 211, 77, 0.3);
         }
 
         .hours-table h3 {
@@ -394,14 +379,14 @@
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .hours-table li:last-child { border-bottom: none; }
         .hours-table li span:first-child { font-weight: 600; }
         .hours-table li strong { color: var(--gold); }
 
-        /* Harita */
+        /* HARİTA */
         .map-section {
             background: var(--dark);
             padding: 160px 0 140px;
@@ -415,7 +400,7 @@
             margin: 0 auto;
             border-radius: 50px;
             overflow: hidden;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
         }
 
         .map-directions-btn {
@@ -431,7 +416,7 @@
             font-size: 1.3rem;
             text-decoration: none;
             z-index: 10;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             transition: all 0.4s;
             display: flex;
             align-items: center;
@@ -459,12 +444,87 @@
             filter: brightness(1.05) contrast(1.1);
         }
 
-        /* Şık Randevu Modal */
+        /* ŞIK FOOTER */
+        footer {
+            background: rgba(10, 15, 30, 0.98);
+            backdrop-filter: blur(20px);
+            border-top: 3px solid var(--gold);
+            padding: 80px 0 40px;
+            position: relative;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+        }
+
+        .footer-col h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #0ea5e9, #fcd34d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #ddd;
+            font-size: 1.1rem;
+            line-height: 2;
+            transition: all 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-contact i {
+            color: var(--gold);
+            margin-right: 12px;
+            font-size: 1.3rem;
+        }
+
+        .footer-social {
+            margin-top: 25px;
+            display: flex;
+            gap: 18px;
+        }
+
+        .footer-social a {
+            font-size: 2rem;
+            color: #fff;
+            transition: all 0.4s;
+        }
+
+        .footer-social a:hover {
+            color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 50px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        .footer-bottom a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* MODAL */
         .modal {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.95);
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(20px);
             z-index: 2000;
             align-items: center;
@@ -487,7 +547,7 @@
             max-width: 520px;
             width: 100%;
             position: relative;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
             border: 3px solid var(--gold);
             animation: modalZoom 0.7s ease-out;
         }
@@ -526,7 +586,7 @@
             cursor: pointer;
             width: 50px;
             height: 50px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -556,8 +616,8 @@
             width: 100%;
             padding: 16px 20px;
             border-radius: 20px;
-            border: 2px solid rgba(252,211,77,0.3);
-            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(252, 211, 77, 0.3);
+            background: rgba(255, 255, 255, 0.1);
             color: #fff;
             font-size: 1.1rem;
             transition: all 0.3s;
@@ -568,8 +628,8 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--gold);
-            background: rgba(255,255,255,0.15);
-            box-shadow: 0 0 20px rgba(252,211,77,0.4);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 20px rgba(252, 211, 77, 0.4);
         }
 
         .form-group textarea { height: 110px; resize: none; }
@@ -585,24 +645,19 @@
             font-weight: 800;
             cursor: pointer;
             transition: all 0.4s;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
             margin-top: 10px;
         }
 
         .btn-submit:hover {
             transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
         }
 
         /* MOBİL AYARLAR */
-        @media (max-width: 992px) {
-            .emergency-bar { font-size: 1rem; padding: 10px; }
-            header { top: 42px; }
-            .mobile-floating-buttons { display: flex; }
-            .hero { padding-top: 140px; }
-        }
-
         @media (max-width: 768px) {
+            header { top: 0; }
+            .hero { padding-top: 100px; }
             .hero h1 { font-size: 4.8rem; }
             .hero p { font-size: 1.6rem; }
             .btn { font-size: 1.3rem; min-width: 260px; }
@@ -626,17 +681,12 @@
 </head>
 <body>
 
-<div class="emergency-bar">
-    7/24 ACİL SERVİS – HEMEN ARA: <a href="tel:05338388696">0533 838 86 96</a>
-</div>
-
 <div class="overlay"></div>
 
 <header>
     <div class="container nav-container">
         <a href="#" class="logo"><i class="fas fa-paw"></i> <span>Pet Town</span></a>
 
-        <!-- YENİ: SADECE DESKTOPTA GÖRÜNEN ŞIK MENÜ -->
         <nav class="desktop-menu">
             <a href="#hizmetler">Hizmetlerimiz</a>
             <a href="#iletisim">Konum & Harita</a>
@@ -647,7 +697,6 @@
     </div>
 </header>
 
-<!-- MOBİLDE SAĞDA SABİT BUTONLAR (BOZULMADI, HALA VAR) -->
 <div class="mobile-floating-buttons">
     <div class="action-btn wa" onclick="window.open('https://wa.me/905338388696','_blank')"><i class="fab fa-whatsapp"></i></div>
     <div class="action-btn phone" onclick="window.location='tel:05338388696'"><i class="fas fa-phone"></i></div>
@@ -693,7 +742,7 @@
 
 <section class="map-section" id="iletisim">
     <div class="container">
-        <h2 data-aos="fade-up">Bizi Bulun Biz Heryerdeyiz</h2>
+        <h2 data-aos="fade-up">Bizi Bulun-Biz Hery Yerdeyiz</h2>
         <p style="text-align:center;font-size:1.6rem;margin-bottom:60px;" data-aos="fade-up" data-aos-delay="200">
             Vadili-Yiğitler Anayolu Üzeri • Vadili / Lefkoşa • KKTC<br><br>
             <a href="tel:05338388696" style="color:var(--gold);font-size:1.9rem;font-weight:700;">0533 838 86 96</a>
@@ -712,6 +761,43 @@
     </div>
 </section>
 
+<!-- ŞIK FOOTER -->
+<footer>
+    <div class="container footer-container">
+        <div class="footer-col">
+            <h3>Pet Town</h3>
+            <p>Vadili-Yiğitler Anayolu Üzeri<br>Vadili / Lefkoşa • KKTC</p>
+            <div class="footer-contact">
+                <p><i class="fas fa-phone"></i> <a href="tel:05338388696">0533 838 86 96</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/905338388696" target="_blank">WhatsApp</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:pettowncyprus@gmail.com">pettowncyprus@gmail.com</a></p>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Çalışma Saatlerimiz</h3>
+            <p><strong>Pazartesi - Cuma:</strong> 08:00 - 18:30</p>
+            <p><strong>Cumartesi:</strong> 08:00 - 14:00</p>
+            <p><strong>Pazar:</strong> 09:00 - 12:00</p>
+            <p><strong style="color:var(--gold)">Acil Servis:</strong> 7/24 Açık</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Bizi Takip Edin</h3>
+            <div class="footer-social">
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/905338388696" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 Pet Town Veteriner Kliniği - Tüm hakları saklıdır.
+    </div>
+</footer>
+
+<!-- RANDEVU MODAL -->
 <div class="modal" id="randevuModal">
     <div class="modal-content">
         <span class="close-modal">×</span>
