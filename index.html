@@ -30,7 +30,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: url('https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80') fixed center/cover;
+            background: url('https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80') fixed center/cover no-repeat;
             color: #ffffff;
             line-height: 1.8;
             overflow-x: hidden;
@@ -38,6 +38,9 @@
         }
 
         img, iframe { max-width: 100%; height: auto; }
+
+        /* Lazy load için */
+        img { loading: lazy; }
 
         .overlay {
             position: fixed;
@@ -54,9 +57,31 @@
             padding: 0 20px;
         }
 
+        /* YENİ: Acil Durum Bandı */
+        .emergency-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #dc2626;
+            color: #fff;
+            text-align: center;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            z-index: 1001;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .emergency-bar a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
         header {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 48px; /* emergency bar yüksekliği */
+            left: 0; right: 0;
             z-index: 1000;
             padding: 14px 0;
             transition: all 0.4s ease;
@@ -185,7 +210,7 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
-            padding-top: 70px;
+            padding-top: 120px;
             position: relative;
         }
 
@@ -299,7 +324,47 @@
 
         .card:hover i { transform: rotate(360deg) scale(1.2); }
 
-        /* YENİ HARİTA TASARIMI */
+        /* YENİ: Çalışma Saatleri */
+        .hours-section {
+            background: rgba(15, 23, 42, 0.97);
+            padding: 100px 0;
+            margin-top: -60px;
+        }
+
+        .hours-table {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 2px solid rgba(252,211,77,0.3);
+        }
+
+        .hours-table h3 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--gold);
+        }
+
+        .hours-table ul {
+            list-style: none;
+            font-size: 1.3rem;
+        }
+
+        .hours-table li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hours-table li:last-child { border-bottom: none; }
+        .hours-table li span:first-child { font-weight: 600; }
+        .hours-table li strong { color: var(--gold); }
+
+        /* HARİTA */
         .map-section {
             background: var(--dark);
             padding: 160px 0 140px;
@@ -379,20 +444,18 @@
         @keyframes zoomIn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
         @media (max-width: 768px) {
+            .emergency-bar { font-size: 1rem; padding: 10px; }
+            header { top: 42px; }
             .mobile-quick-menu, .mobile-buttons { display: flex; }
             .desktop-buttons { display: none; }
+            .hero { padding-top: 140px; }
             .hero h1 { font-size: 4.8rem; }
             .hero p { font-size: 1.6rem; }
             .btn { font-size: 1.3rem; min-width: 260px; }
             h2 { font-size: 3.8rem; }
             .card i { font-size: 4.5rem; }
-
             .map-container { height: 480px; }
-            .map-directions-btn {
-                font-size: 1.1rem;
-                padding: 14px 30px;
-                top: 15px;
-            }
+            .map-directions-btn { font-size: 1.1rem; padding: 14px 30px; top: 15px; }
         }
 
         @media (max-width: 480px) {
@@ -400,14 +463,16 @@
             .hero p { font-size: 1.4rem; }
             .btn { min-width: 240px; }
             .map-container { height: 420px; }
-            .map-directions-btn {
-                font-size: 1rem;
-                padding: 12px 24px;
-            }
+            .map-directions-btn { font-size: 1rem; padding: 12px 24px; }
         }
     </style>
 </head>
 <body>
+
+<!-- YENİ: Acil Durum Bandı -->
+<div class="emergency-bar">
+    7/24 ACİL SERVİS – HEMEN ARA: <a href="tel:05338388696">0533 838 86 96</a>
+</div>
 
 <div class="overlay"></div>
 
@@ -440,7 +505,7 @@
 <section class="hero">
     <div class="container">
         <h1 data-aos="fade-up" data-aos-delay="300">Pet Town<br>Veteriner Kliniği</h1>
-        <p data-aos="fade-up" data-aos-delay="600">7/24 Acil Servis • Kedi & Köpek • Aşı • Kısırlaştırma • • HER TÜRLÜ YOL VARDIR GEL • Laboratuvar</p>
+        <p data-aos="fade-up" data-aos-delay="600">7/24 Acil Servis • Kedi & Köpek • Aşı • Kısırlaştırma • Laboratuvar</p>
         <div class="hero-buttons">
             <a href="tel:05338388696" class="btn btn-primary" data-aos="zoom-in" data-aos-delay="900">0533 838 86 96</a>
             <a href="#" class="btn btn-gold" id="heroRandevu" data-aos="zoom-in" data-aos-delay="1100">Randevu Al</a>
@@ -460,7 +525,22 @@
     </div>
 </section>
 
-<!-- HARİTA BÖLÜMÜ - YENİ TASARIM -->
+<!-- YENİ: Çalışma Saatleri -->
+<section class="hours-section">
+    <div class="container">
+        <div class="hours-table" data-aos="fade-up">
+            <h3>Çalışma Saatlerimiz</h3>
+            <ul>
+                <li><span>Pazartesi - Cuma</span> <strong>08:00 - 18:30</strong></li>
+                <li><span>Cumartesi</span> <strong>08:00 - 14:30</strong></li>
+                <li><span>Pazar</span> <strong>09:00 - 12:00</strong></li>
+                <li><span>Acil Servis</span> <strong>7/24 Açık</strong></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- HARİTA -->
 <section class="map-section" id="iletisim">
     <div class="container">
         <h2 data-aos="fade-up">Bizi Bulun</h2>
@@ -470,7 +550,6 @@
         </p>
 
         <div class="map-wrapper" data-aos="zoom-in" data-aos-delay="400">
-            <!-- YOL TARİFİ BUTONU HARİTANIN ÜSTÜNDE -->
             <a href="https://www.google.com/maps/dir/?api=1&destination=35.11873728837674,33.647887867615836" 
                target="_blank" class="map-directions-btn">
                 <i class="fas fa-directions"></i> Yol Tarifi Al
@@ -484,11 +563,12 @@
     </div>
 </section>
 
+<!-- MODAL + WHATSAPP DOĞRUDAN MESAJ GÖNDERME -->
 <div class="modal" id="randevuModal">
     <div class="modal-content">
         <span class="close-modal">×</span>
         <h3>Randevu Talebi</h3>
-        <form action="https://formsubmit.co/pettowncyprus@gmail.com" method="POST">
+        <form id="randevuForm" action="https://formsubmit.co/pettowncyprus@gmail.com" method="POST">
             <div class="form-group"><label>Ad Soyad *</label><input type="text" name="Ad Soyad" required></div>
             <div class="form-group"><label>Telefon *</label><input type="tel" name="Telefon" required></div>
             <div class="form-group"><label>Hayvan Türü</label>
@@ -501,9 +581,10 @@
             <div class="form-group"><label>Mesaj</label><textarea name="Mesaj"></textarea></div>
             <input type="text" name="_honey" style="display:none">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://wa.me/905338388696?text=*YENİ RANDEVU*%0Aİsim: [Ad Soyad]%0ATelefon: [Telefon]%0AHayvan: [Hayvan Türü]%0AMesaj: [Mesaj]">
+            <!-- Mail geldikten sonra WhatsApp'a yönlendirme + hazır mesaj -->
+            <input type="hidden" name="_next" value="https://wa.me/905338388696">
             <input type="hidden" name="_subject" value="YENİ RANDEVU - Pet Town">
-            <button type="submit" class="btn-submit">Gönder</button>
+            <button type="submit" class="btn-submit">Gönder & WhatsApp'a Yaz</button>
         </form>
     </div>
 </div>
@@ -526,6 +607,20 @@
     });
     document.querySelector('.close-modal').onclick = () => modal.classList.remove('active');
     modal.onclick = e => { if(e.target === modal) modal.classList.remove('active'); };
+
+    // Form gönderildikten sonra WhatsApp'a hazır mesajla yönlendirme
+    document.getElementById('randevuForm').addEventListener('submit', function(e) {
+        const ad = this.querySelector('input[name="Ad Soyad"]').value;
+        const tel = this.querySelector('input[name="Telefon"]').value;
+        const tur = this.querySelector('select[name="Hayvan Türü"]').value;
+        const mesaj = this.querySelector('textarea[name="Mesaj"]').value;
+
+        const waMesaj = `*YENİ RANDEVU TALEBİ*%0A%0A👤 Ad Soyad: ${ad}%0A📞 Telefon: ${tel}%0A🐾 Hayvan: ${tur}%0A💬 Mesaj: ${mesaj || "Yok"}%0A%0APet Town Veteriner Kliniği`;
+
+        // _next ile WhatsApp'a yönlendirirken mesajı da ekliyoruz
+        const nextInput = this.querySelector('input[name="_next"]');
+        nextInput.value = `https://wa.me/905338388696?text=${waMesaj}`;
+    });
 </script>
 </body>
 </html>
