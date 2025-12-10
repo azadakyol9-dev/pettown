@@ -18,12 +18,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Pet Town">
-
-    <!-- PWA MANIFEST + İKONLAR -->
     <link rel="manifest" href="data:application/manifest+json,{
-        %22name%22:%22Pet Town Veteriner Kliniği%22,
+        %22name%22:%22Pet Town Veteriner Klini%C4%9Fi%22,
         %22short_name%22:%22Pet Town%22,
-        %22description%22:%227/24 Acil Veteriner Kliniği - Vadili KKTC%22,
+        %22description%22:%227/24 Acil Veteriner Klini%C4%9Fi - Vadili KKTC%22,
         %22start_url%22:%22/%22,
         %22display%22:%22standalone%22,
         %22background_color%22:%22#0f172a%22,
@@ -90,7 +88,7 @@
             padding: 0 20px;
         }
 
-        /* HEADER (ACİL BANT KALDIRILDI → EN ÜSTE GELDİ) */
+        /* HEADER (EN ÜSTTE) */
         header {
             position: fixed;
             top: 0;
@@ -345,46 +343,6 @@
         }
 
         .card:hover i { transform: rotate(360deg) scale(1.2); }
-
-        /* ÇALIŞMA SAATLERİ */
-        .hours-section {
-            background: rgba(15, 23, 42, 0.97);
-            padding: 100px 0;
-            margin-top: -60px;
-        }
-
-        .hours-table {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border-radius: 30px;
-            padding: 40px;
-            border: 2px solid rgba(252, 211, 77, 0.3);
-        }
-
-        .hours-table h3 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            color: var(--gold);
-        }
-
-        .hours-table ul {
-            list-style: none;
-            font-size: 1.3rem;
-        }
-
-        .hours-table li {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .hours-table li:last-child { border-bottom: none; }
-        .hours-table li span:first-child { font-weight: 600; }
-        .hours-table li strong { color: var(--gold); }
 
         /* HARİTA */
         .map-section {
@@ -726,23 +684,11 @@
     </div>
 </section>
 
-<section class="hours-section">
-    <div class="container">
-        <div class="hours-table" data-aos="fade-up">
-            <h3>Çalışma Saatlerimiz</h3>
-            <ul>
-                <li><span>Pazartesi - Cuma</span> <strong>08:00 - 18:30</strong></li>
-                <li><span>Cumartesi</span> <strong>08:00 - 14:00</strong></li>
-                <li><span>Pazar</span> <strong>09:00 - 12:00</strong></li>
-                <li><span>Acil Servis</span> <strong>7/24 Açık</strong></li>
-            </ul>
-        </div>
-    </div>
-</section>
+<!-- ÇALIŞMA SAATLERİ BÖLÜMÜ KALDIRILDI (FOOTER'DA VAR) -->
 
 <section class="map-section" id="iletisim">
     <div class="container">
-        <h2 data-aos="fade-up">Bizi Bulun-Biz Hery Yerdeyiz</h2>
+        <h2 data-aos="fade-up">Bizi Bulun</h2>
         <p style="text-align:center;font-size:1.6rem;margin-bottom:60px;" data-aos="fade-up" data-aos-delay="200">
             Vadili-Yiğitler Anayolu Üzeri • Vadili / Lefkoşa • KKTC<br><br>
             <a href="tel:05338388696" style="color:var(--gold);font-size:1.9rem;font-weight:700;">0533 838 86 96</a>
@@ -761,7 +707,7 @@
     </div>
 </section>
 
-<!-- ŞIK FOOTER -->
+<!-- ŞIK FOOTER (ÇALIŞMA SAATLERİ BURADA) -->
 <footer>
     <div class="container footer-container">
         <div class="footer-col">
