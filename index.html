@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SAYFA BAŞLIĞI VE TARAYICI SEKME LOGOSU (FAVICON) -->
     <title>Pet Town Veteriner Kliniği</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://pet-town.vercel.app/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://pet-town.vercel.app/favicon-16.png">
+    <link rel="shortcut icon" href="https://pet-town.vercel.app/favicon.ico">
+
     <meta name="description" content="Pet Town Veteriner Kliniği - 7/24 Acil Servis, Kedi Köpek, Aşı, Kısırlaştırma, Laboratuvar - Vadili / KKTC">
 
     <!-- PWA META TAGS -->
@@ -13,7 +19,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Pet Town">
 
-    <!-- PWA MANIFEST + İKONLAR (kalıcı linkler) -->
+    <!-- PWA MANIFEST + İKONLAR -->
     <link rel="manifest" href="data:application/manifest+json,{
         %22name%22:%22Pet Town Veteriner Kliniği%22,
         %22short_name%22:%22Pet Town%22,
@@ -28,8 +34,6 @@
         ]
     }">
     <link rel="apple-touch-icon" href="https://pet-town.vercel.app/icon-192.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="https://pet-town.vercel.app/icon-192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="https://pet-town.vercel.app/icon-512.png">
 
     <!-- FONTS & ICONS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -155,7 +159,7 @@
             font-size: 1.7rem;
         }
 
-        /* MOBİLDE SAĞ TARAFTA SABİT BUTONLAR */
+        /* MOBİLDE SAĞDA SABİT BUTONLAR */
         .mobile-floating-buttons {
             position: fixed;
             right: 16px;
@@ -311,7 +315,7 @@
 
         .card:hover i { transform: rotate(360deg) scale(1.2); }
 
-        /* Çalışma Saatleri */
+        /* ÇALIŞMA SAATLERİ GÜNCELLENDİ */
         .hours-section {
             background: rgba(15, 23, 42, 0.97);
             padding: 100px 0;
@@ -351,7 +355,7 @@
         .hours-table li span:first-child { font-weight: 600; }
         .hours-table li strong { color: var(--gold); }
 
-        /* Harita Bölümü */
+        /* Harita */
         .map-section {
             background: var(--dark);
             padding: 160px 0 140px;
@@ -585,7 +589,6 @@
     </div>
 </header>
 
-<!-- MOBİLDE SAĞDA SABİT BUTONLAR -->
 <div class="mobile-floating-buttons">
     <div class="action-btn wa" onclick="window.open('https://wa.me/905338388696','_blank')"><i class="fab fa-whatsapp"></i></div>
     <div class="action-btn phone" onclick="window.location='tel:05338388696'"><i class="fas fa-phone"></i></div>
@@ -650,7 +653,6 @@
     </div>
 </section>
 
-<!-- ŞIK RANDEVU MODAL -->
 <div class="modal" id="randevuModal">
     <div class="modal-content">
         <span class="close-modal">×</span>
@@ -689,7 +691,7 @@
     </div>
 </div>
 
-<!-- PWA SERVICE WORKER (offline + hızlı açılış) -->
+<!-- PWA SERVICE WORKER -->
 <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
